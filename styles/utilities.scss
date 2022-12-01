@@ -1,0 +1,22 @@
+@layer utilities {
+  @keyframes widthen {
+    from {
+      width: 0%;
+    }
+    to {
+      underline: white;
+      width: 100%;
+    }
+  }
+
+  @keyframes appear {
+    from {
+      height: 0% !important;
+      width: 0%;
+    }
+    to {
+      height: 100% !important;
+      width: 100%;
+    }
+  }
+}

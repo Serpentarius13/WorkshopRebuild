@@ -1,0 +1,18 @@
+@layer components {
+  .prophecy {
+    animation: 2s widthen linear forwards;
+    width: 0%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    animation: 0.5s widthen linear forwards;
+  }
+
+
+
+  .shown {
+    display: flex !important;
+  }
+}
