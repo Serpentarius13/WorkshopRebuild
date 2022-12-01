@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FC, useState } from "react";
+import { cache, FC, useState } from "react";
 import { client } from "../../apollo-client";
 
 import { sentenceQuery } from "./../../queries/queries";
@@ -15,6 +15,7 @@ const Prophecy: FC = () => {
     setTranslated(null);
     const { data } = await client.query({
       query: sentenceQuery,
+      fetchPolicy: "no-cache",
     });
 
     const { sentence } = data;
