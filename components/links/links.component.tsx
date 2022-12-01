@@ -7,8 +7,10 @@ interface LinksProps {
 
 const Links: FC<LinksProps> = ({ expanded }) => {
   const style = `${
-    expanded ? "text-8xl text-bold nav-link" : "text-2xl text-medium"
-  }  text-white cursor-pointer underline`;
+    expanded
+      ? "text-8xl text-bold nav-link text-black text-inherit "
+      : "text-2xl text-medium text-white"
+  }  cursor-pointer underline `;
   return (
     <>
       <Link href="/" className={style}>

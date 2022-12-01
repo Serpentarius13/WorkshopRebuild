@@ -4,15 +4,37 @@
     width: 0%;
     overflow: hidden;
     white-space: nowrap;
+
+    font-size: 10px;
   }
 
   .nav-links {
-    animation: 0.5s widthen linear forwards;
+    animation: 1s appear linear forwards;
+z-index: 123;
   }
 
+  .nav-links::before {
+    position: fixed;
+    content: "";
+    width: 100%;
 
+    z-index: -121;
+
+    right: 0%;
+    bottom: 0%;
+    background-color: black;
+    transform-origin: top;
+
+    animation: 1s appear linear forwards;
+  }
 
   .shown {
     display: flex !important;
+  }
+}
+
+@media (min-width: 950px) {
+  .prophecy {
+    font-size: 28px !important;
   }
 }

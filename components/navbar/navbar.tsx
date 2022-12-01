@@ -9,10 +9,10 @@ const Navbar: FC = () => {
   const [dropdown, setDropdown] = useState(false);
   return (
     <>
-      <div className=" navbar w-[100%] h-8 p-8 bg-slate-600 flex xl:justify-around items-center justify-center space-x-0">
+      <div className=" navbar w-[100%] h-8 py-8 px-4 bg-slate-600 flex xl:justify-around items-center justify-center space-x-2">
         <div className=" flex items-center  space-x-2 ">
           <Image src="/aten.jpg" alt="aten" width={32} height={32} />
-          <span className="text-white text-1xl font-sans font-medium ">
+          <span className="text-white  text-xs lg:text-2xl font-sans font-medium ">
             {" "}
             Dream workshop{" "}
           </span>

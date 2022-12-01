@@ -4,7 +4,7 @@ interface ButtonCollapseProps {
 }
 
 const ButtonCollapse = ({ handler, state }) => {
-  const divStyle = `border-4 border-red rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all`;
+  const spanStyle = `border-4 border-red rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all`;
   return (
     <button
       onClick={(e) => handler((state) => !state)}
@@ -12,8 +12,8 @@ const ButtonCollapse = ({ handler, state }) => {
         state ? "shown " : ""
       }`}
     >
-      <div className={`${state ? "w-4 h-4" : "w-14 h-14"} ${divStyle}`}></div>
-      <div className={`${state ? "w-8 h-8" : "w-8 h-8"} ${divStyle}`}></div>
+      <span className={`${state ? "w-2 h-2" : "w-10 h-10"} ${spanStyle}`}></span>
+      <span className={`${state ? "w-6 h-6" : "w-6 h-6"} ${spanStyle}`}></span>
     </button>
   );
 };

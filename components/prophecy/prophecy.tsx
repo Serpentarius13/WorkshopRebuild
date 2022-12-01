@@ -24,6 +24,7 @@ const Prophecy: FC = () => {
   };
 
   const translateProphecy = async () => {
+    if(!text) return;
     const translatedSentence = await translate(text, { from: "la" });
 
     setTranslated(translatedSentence);
@@ -31,7 +32,7 @@ const Prophecy: FC = () => {
   };
 
   return (
-    <div className="flex-1 ml-8 p-6 flex items-center justify-start space-x-4">
+    <div className="flex-1 ml-8 flex items-center justify-start md:space-x-4 space-x-1">
       <div>
         {!text && (
           <Image
@@ -44,7 +45,7 @@ const Prophecy: FC = () => {
         )}
       </div>
       {(text || translated) && (
-        <div className="w-[50%] prophecy text-xs lg:text-3xl font-bold text-white  flex justify-start items-center">
+        <div className="w-[50%] prophecy  font-bold text-white  flex justify-start items-center">
           {" "}
           <p onClick={translateProphecy} className="underline cursor-pointer">
             {translated || text}
