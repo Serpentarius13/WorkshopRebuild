@@ -1,16 +1,27 @@
 import { proxy } from "valtio";
 
-export const store = proxy({
+interface Store {
+  modalOpenState: boolean | ModalTypes;
+  circleOpenState: boolean;
+  openModal: (type: ModalTypes) => void;
+  closeModal: () => void;
+  toggleCircle: () => void;
+}
+
+export enum ModalTypes {
+  CREATE_DREAM = "CREATE_DREAM",
+  LOGIN = "LOGIN",
+}
+
+export const store = proxy<Store>({
   modalOpenState: false,
-  openModal: () => {
-    store.modalOpenState = true;
+  openModal: (type) => {
+    store.modalOpenState = type;
   },
   closeModal: () => {
     store.modalOpenState = false;
   },
-  toggleModal: () => {
-    store.modalOpenState = !store.modalOpenState;
-  },
+
   circleOpenState: false,
   toggleCircle: () => {
     setTimeout(() => {
