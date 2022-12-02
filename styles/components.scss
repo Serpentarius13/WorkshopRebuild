@@ -9,8 +9,8 @@
   }
 
   .nav-links {
-    animation: 1s appear linear forwards;
-z-index: 123;
+    animation: 0.5s appear ease-out forwards;
+    z-index: 123;
   }
 
   .nav-links::before {
@@ -25,16 +25,47 @@ z-index: 123;
     background-color: black;
     transform-origin: top;
 
-    animation: 1s appear linear forwards;
+    animation: 0.5s appear ease-out forwards;
   }
 
   .shown {
     display: flex !important;
   }
+
+  .inputField:focus ~ .inputLabel,
+  .inputField:required ~ .inputLabel,
+  .inputField:not(:placeholder-shown) ~ .inputLabel {
+    padding: 6px;
+    background-color: purple;
+    color: white;
+    top: 1%;
+    left: calc(92% - 16px);
+
+    max-width: 70%;
+
+    white-space: nowrap;
+
+    font-size: 14px;
+
+    box-shadow: 0 0 8px purple;
+    font-weight: bold;
+
+    transition: 0.3s all ease-out;
+  }
+
+  .inputField {
+    transition: 1.5s border ease-out;
+  }
+
+  .inputField:not(:empty) {
+    ::placeholder {
+      display: none;
+    }
+  }
 }
 
-@media (min-width: 950px) {
+@media (min-width: 800px) {
   .prophecy {
-    font-size: 28px !important;
+    font-size: 18px !important;
   }
 }

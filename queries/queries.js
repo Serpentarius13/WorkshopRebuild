@@ -5,3 +5,16 @@ export const sentenceQuery = gql`
     sentence
   }
 `;
+
+export const getAllDreams = gql`
+  query Query {
+    getAllDreams {
+      name
+      email
+      time
+      description
+      dreamName
+      authorId
+    }
+  }
+`;

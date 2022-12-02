@@ -1,4 +1,4 @@
-import Links from "../links/links.component";
+import Links from "./links.component";
 
 const NavBarLinks = () => {
   return (

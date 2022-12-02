@@ -1,6 +1,6 @@
 import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 
-const endpoint = process.env.ENDPOINT || "http://localhost:4000/";
+export const endpoint = process.env.ENDPOINT || "http://localhost:4000/";
 
 const link = createHttpLink({
   uri: endpoint,

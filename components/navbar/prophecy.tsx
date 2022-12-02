@@ -2,7 +2,7 @@ import Image from "next/image";
 import { cache, FC, useState } from "react";
 import { client } from "../../apollo-client";
 
-import { sentenceQuery } from "./../../queries/queries";
+import { sentenceQuery } from "../../queries/queries";
 
 import translate from "translate";
 
@@ -12,19 +12,23 @@ const Prophecy: FC = () => {
   const [translated, setTranslated] = useState(null);
 
   const getProphecy = async () => {
-    setTranslated(null);
-    const { data } = await client.query({
-      query: sentenceQuery,
-      fetchPolicy: "no-cache",
-    });
+    try {
+      setTranslated(null);
+      const { data } = await client.query({
+        query: sentenceQuery,
+        fetchPolicy: "no-cache",
+      });
 
-    const { sentence } = data;
+      const { sentence } = data;
 
-    setText(sentence);
+      setText(sentence);
+    } catch (err) {
+      alert("Sorry, no prophecy for you today");
+    }
   };
 
   const translateProphecy = async () => {
-    if(!text) return;
+    if (!text) return;
     const translatedSentence = await translate(text, { from: "la" });
 
     setTranslated(translatedSentence);
