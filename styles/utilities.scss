@@ -9,7 +9,7 @@
     }
   }
 
-  @keyframes appear {
+  @keyframes heighten {
     from {
       height: 0%;
       color: black !important;
@@ -22,14 +22,43 @@
 
   @keyframes shadowy {
     0% {
-      box-shadow: 0 0 64px #312E81;
+      box-shadow: 0 0 64px #312e81;
     }
 
-    50% {box-shadow: 0 0 32px #312E81}
+    50% {
+      box-shadow: 0 0 32px #312e81;
+    }
 
     100% {
-      box-shadow: 0 0 64px #312E81
+      box-shadow: 0 0 64px #312e81;
     }
-    
+  }
+
+  @keyframes animate-blur {
+    0% {
+      opacity: 0;
+      filter: blur(15px);
+    }
+    100% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+
+  @keyframes circle {
+    0% {
+      min-height: 0%;
+      min-width: 0%;
+      border-color: black;
+    }
+
+    50% {
+      border-color: white;
+    }
+
+    100% {
+      min-height: 300vh;
+      min-width: 300vh;
+    }
   }
 }

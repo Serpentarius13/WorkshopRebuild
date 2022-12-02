@@ -1,8 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
 import { useFormState } from "react-hook-form";
 
-
-
 interface FormInputProps {
   name: string;
   textFieldName: string;
@@ -48,14 +46,14 @@ const FormInput: FC<FormInputProps> = ({
           <textarea
             className={`${border} ${
               errors[name]?.message ? "border-4 !border-red-800" : ""
-            } p-4 h-64 w-[100%] outline-none focus:outline-white inputField resize-none `}
+            } p-4 h-64 w-[100%] outline-none inputField resize-none `}
             {...registerFunction(name, settings)}
             defaultValue=""
             placeholder="2"
           />
         ) : (
           <input
-            className={` inputField h-4 p-4 w-[100%] outline-none focus:outline-white ${border} ${
+            className={` inputField h-4 p-4 w-[100%] outline-none ${border} ${
               errors[name]?.message ? "border-4 !border-red-800" : ""
             } `}
             {...registerFunction(name, settings)}

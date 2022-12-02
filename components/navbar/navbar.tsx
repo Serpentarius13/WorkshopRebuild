@@ -26,7 +26,7 @@ const Navbar: FC = () => {
 
         <ButtonCollapse handler={setDropdown} state={dropdown} />
       </div>
-      {dropdown && <NavBarLinks />}
+      {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
     </>
   );
 };

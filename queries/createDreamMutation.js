@@ -19,18 +19,18 @@ export const createFields = (blueprint) => {
   return fields;
 };
 
-export const createMutation = (blueprint, operationName) => (formData) =>
-  builder.mutation({
-    operation: operationName,
-    fields: createFields(blueprint),
-    variables: formData,
-  });
-
 export const createQuery =
-  (print, operationName) =>
-  (formData = null) =>
-    builder.query({
-      operation: operationName,
-      fields: createFields(blueprint),
-      variables: formData || "",
-    });
+  (blueprint, operationName, type) => (formData) => {
+    if (type)
+      return builder.mutation({
+        operation: operationName,
+        fields: createFields(blueprint),
+        variables: formData,
+      });
+    else
+      return builder.query({
+        operation: operationName,
+        fields: createFields(blueprint),
+        variables: formData || "",
+      });
+  };

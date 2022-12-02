@@ -39,13 +39,17 @@ const Prophecy: FC = () => {
     <div className="flex-1 ml-8 flex items-center justify-start md:space-x-4 space-x-1">
       <div>
         {!text && (
-          <Image
-            src="/crystalBall.svg"
-            alt="Crystall ball"
-            width={36}
-            height={36}
+          <button
+            style={{ display: "grid", placeItems: "center" }}
             onClick={getProphecy}
-          />
+          >
+            <Image
+              src="/crystalBall.svg"
+              alt="Crystall ball"
+              width={36}
+              height={36}
+            />
+          </button>
         )}
       </div>
       {(text || translated) && (

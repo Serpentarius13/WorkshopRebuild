@@ -1,12 +1,13 @@
 import ReusableForm from "../components/reusable-form/form.component";
 import FormPopOver from "../components/reusable-form/formPopOver";
 
-import { createMutation } from "./../queries/createDreamMutation";
-
 const Form = () => {
-  const submitHandler = createMutation(blueprint, "newDream");
-
-  return <FormPopOver blueprint={blueprint} queryCreator={submitHandler} />;
+  return (
+    <FormPopOver>
+      {" "}
+      <ReusableForm type={true} name="newDream" blueprint={blueprint} />
+    </FormPopOver>
+  );
 };
 export default Form;
 
@@ -42,7 +43,7 @@ export const blueprint = [
     label: "Name of your dream",
     settings: {
       required: "Please fill out this field",
-      maxLength: 20,
+      maxLength: 40,
     },
   },
   {

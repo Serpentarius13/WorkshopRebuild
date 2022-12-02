@@ -9,7 +9,7 @@
   }
 
   .nav-links {
-    animation: 0.5s appear ease-out forwards;
+    animation: 1s heighten ease-out forwards;
     z-index: 123;
   }
 
@@ -25,7 +25,7 @@
     background-color: black;
     transform-origin: top;
 
-    animation: 0.5s appear ease-out forwards;
+    animation: 0.5s heighten ease-out forwards;
   }
 
   .shown {
@@ -38,8 +38,8 @@
     padding: 6px;
     background-color: purple;
     color: white;
-    top: -30%;
-    left: calc(90% - 64px);
+    top: -10px;
+    left: calc(93% - 64px);
 
     max-width: 70%;
 
@@ -70,7 +70,31 @@
     animation: shadowy 4s infinite;
   }
 
-  
+  .popover {
+    animation: animate-blur 0.5s linear forwards;
+  }
+
+  .circle {
+    background-color: transparent;
+    border: 8px solid;
+    position: fixed;
+    z-index: 123;
+
+    border-radius: 4123px;
+
+    animation: circle 1s forwards linear;
+  }
+
+  .circleIn {
+    border-radius: 4213px;
+    background-color: transparent;
+    border: 8px solid;
+    position: fixed;
+    z-index: 123;
+
+    animation: circle 0.5s forwards linear;
+    animation-direction: reverse;
+  }
 }
 
 @media (min-width: 800px) {
