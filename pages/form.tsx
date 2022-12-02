@@ -1,11 +1,12 @@
 import ReusableForm from "../components/reusable-form/form.component";
+import FormPopOver from "../components/reusable-form/formPopOver";
 
 import { createMutation } from "./../queries/createDreamMutation";
 
 const Form = () => {
   const submitHandler = createMutation(blueprint, "newDream");
 
-  return <ReusableForm blueprint={blueprint} queryCreator={submitHandler} />;
+  return <FormPopOver blueprint={blueprint} queryCreator={submitHandler} />;
 };
 export default Form;
 

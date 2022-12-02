@@ -19,4 +19,17 @@
       color: white;
     }
   }
+
+  @keyframes shadowy {
+    0% {
+      box-shadow: 0 0 64px #312E81;
+    }
+
+    50% {box-shadow: 0 0 32px #312E81}
+
+    100% {
+      box-shadow: 0 0 64px #312E81
+    }
+    
+  }
 }

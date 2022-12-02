@@ -5,12 +5,22 @@ export enum ButtonTypes {
 }
 
 interface ButtonProps {
-  buttonType: ButtonTypes;
+  buttonType: ButtonTypes | string;
   text: string;
+  onClick?: () => any;
 }
 
-const UniversalButton: FC<ButtonProps> = ({ buttonType, text }) => {
+const UniversalButton: FC<ButtonProps> = ({
+  buttonType,
+  text,
+  onClick = null,
+}) => {
   const [style, setStyle] = useState("");
+
+  const click = () => {
+    if (!onClick) return;
+    onClick();
+  };
 
   useEffect(() => {
     switch (buttonType) {
@@ -24,6 +34,10 @@ const UniversalButton: FC<ButtonProps> = ({ buttonType, text }) => {
     }
   }, []);
 
-  return <button className={style}>{text}</button>;
+  return (
+    <button onClick={click} className={style}>
+      {text}
+    </button>
+  );
 };
 export default UniversalButton;

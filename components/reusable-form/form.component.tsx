@@ -4,7 +4,6 @@ import { client, endpoint } from "../../apollo-client";
 import FormInput from "./input.component";
 
 import axios from "axios";
-import { useLoadError } from "../../store/store";
 import { useLazyQuery } from "@apollo/client";
 import UniversalButton, { ButtonTypes } from "../uniButton.component";
 
@@ -14,7 +13,7 @@ interface BlueprintData {
   settings: any;
 }
 
-interface ReusableFormProps {
+export interface ReusableFormProps {
   blueprint: BlueprintData[];
   queryCreator: (data) => any;
 }
@@ -37,14 +36,15 @@ const ReusableForm: FC<ReusableFormProps> = ({ blueprint, queryCreator }) => {
     if (Object.keys(errors).length > 0) {
       setTimeout(clearErrors, 2000);
     }
-  }, [errors]);
+  }, [errors, clearErrors]);
 
   const sendData = async (formData) => {
     try {
       setLoading(true);
       const query = queryCreator(formData);
 
-      await axios.post(endpoint, query);
+      const dream = await axios.post(endpoint, query);
+      console.log(dream);
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -59,7 +59,7 @@ const ReusableForm: FC<ReusableFormProps> = ({ blueprint, queryCreator }) => {
   return (
     <form
       onSubmit={handleSubmit(sendData)}
-      className="min-h-[24rem] max-h-screen max-w-[24rem] bg-slate-400 flex flex-col p-4 justify-evenly items-center space-y-3 md:space-y-5"
+      className="form  bg-blue-200 flex flex-col p-4 justify-evenly items-center space-y-3 md:space-y-5 rounded-xl"
     >
       {" "}
       {blueprint.map((field) => (
