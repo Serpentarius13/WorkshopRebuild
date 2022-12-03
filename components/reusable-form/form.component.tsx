@@ -10,6 +10,10 @@ import { store } from "../../store/store";
 
 import { useSnapshot } from "valtio";
 import StatusPopOver, { StatusTypes } from "../statusPopOver";
+import Router from "next/router";
+import { RedirectFunction } from "../../utils/redirect";
+
+import { QueryNames } from "./../modalOver";
 
 interface BlueprintData {
   name: string;
@@ -19,11 +23,17 @@ interface BlueprintData {
 
 export interface ReusableFormProps {
   blueprint: BlueprintData[];
-  name: string;
+  name: QueryNames;
   type: boolean;
+  additionalFields: string[];
 }
 
-const ReusableForm: FC<ReusableFormProps> = ({ blueprint, name, type }) => {
+const ReusableForm: FC<ReusableFormProps> = ({
+  blueprint,
+  name,
+  type,
+  additionalFields = [],
+}) => {
   const {
     register,
     handleSubmit,
@@ -32,7 +42,9 @@ const ReusableForm: FC<ReusableFormProps> = ({ blueprint, name, type }) => {
     clearErrors,
   } = useForm();
 
-  const queryCreator = createQuery(blueprint, name, type);
+  console.log(additionalFields, "FIELDS");
+
+  const queryCreator = createQuery(blueprint, name, type, additionalFields);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -80,14 +92,23 @@ const ReusableForm: FC<ReusableFormProps> = ({ blueprint, name, type }) => {
       setLoading(true);
       const query = queryCreator(formData);
 
-      const dream = await axios.post(endpoint, query);
-      console.log(dream);
+      console.log(query);
+
+      const { data } = await axios.post(endpoint, query).then((data) => data);
+      const returnings = data.data[name];
       setLoading(false);
       setSuccess(true);
+      setTimeout(() => {
+        Router.push(`${RedirectFunction(name, returnings)}`);
+      }, 2000);
     } catch (err) {
       setLoading(false);
       setError(true);
-      console.log(err);
+      console.log(err); 
+
+      setTimeout(() => {
+        Router.push("/");
+      }, 1000);
     }
   };
 

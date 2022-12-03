@@ -32,3 +32,11 @@ export const store = proxy<Store>({
     store.circleOpenState = true;
   },
 });
+
+
+export const userStore = proxy<any>({
+  currentUser: null,
+  setCookie: () => {
+    
+  }
+})

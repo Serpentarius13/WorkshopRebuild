@@ -3,10 +3,7 @@ import FormPopOver from "../components/reusable-form/formPopOver";
 
 const Form = () => {
   return (
-    <FormPopOver>
-      {" "}
-      <ReusableForm type={true} name="newDream" blueprint={blueprint} />
-    </FormPopOver>
+<div> dw</div>
   );
 };
 export default Form;

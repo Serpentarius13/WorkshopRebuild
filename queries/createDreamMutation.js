@@ -13,24 +13,29 @@ export const createDreamFields = [
   "description",
 ];
 
-export const createFields = (blueprint) => {
+export const createFields = (blueprint, additionalFields = []) => {
   const fields = blueprint.map((field) => field.name);
   console.log(fields);
-  return fields;
+  return [...fields, ...additionalFields];
 };
 
 export const createQuery =
-  (blueprint, operationName, type) => (formData) => {
+  (blueprint, operationName, type, additionalFields = []) =>
+  (formData) => {
+    const fields = createFields(blueprint, additionalFields);
+    console.log(fields);
     if (type)
       return builder.mutation({
         operation: operationName,
-        fields: createFields(blueprint),
+        fields,
         variables: formData,
+        operationName: "Mutation",
       });
     else
       return builder.query({
         operation: operationName,
-        fields: createFields(blueprint),
+        fields: createFields(blueprint, additionalFields),
         variables: formData || "",
+        operationName: "Query",
       });
   };

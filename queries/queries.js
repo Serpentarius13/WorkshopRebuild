@@ -18,3 +18,9 @@ export const getAllDreams = gql`
     }
   }
 `;
+
+export const getUser = gql`
+  query Query {
+    getUser
+  }
+`;
