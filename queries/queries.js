@@ -21,6 +21,10 @@ export const getAllDreams = gql`
 
 export const getUser = gql`
   query Query {
-    getUser
+    getUser {
+      username
+      email
+      _id
+    }
   }
 `;

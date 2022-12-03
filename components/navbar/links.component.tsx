@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FC } from "react";
 import { ModalTypes, store } from "../../store/store";
+import UserLinks from "./userLinks.component";
 
 interface LinksProps {
   expanded?: boolean;
@@ -26,10 +27,7 @@ const Links: FC<LinksProps> = ({ expanded }) => {
       >
         Create dream
       </button>
-      <button onClick={() => {
-        openModal(ModalTypes.LOGIN)
-      }} className={style}>boba</button>
-      <button className={style}>boba</button>
+      <UserLinks style={style}/>
       <button className={style}>boba</button>
     </>
   );

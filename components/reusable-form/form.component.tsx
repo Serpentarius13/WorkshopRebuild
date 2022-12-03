@@ -6,7 +6,7 @@ import FormInput from "./input.component";
 import axios from "axios";
 import UniversalButton, { ButtonTypes } from "../uniButton.component";
 import { createQuery } from "../../queries/createDreamMutation";
-import { store } from "../../store/store";
+import { store, useZustandStore } from "../../store/store";
 
 import { useSnapshot } from "valtio";
 import StatusPopOver, { StatusTypes } from "../statusPopOver";
@@ -25,14 +25,14 @@ export interface ReusableFormProps {
   blueprint: BlueprintData[];
   name: QueryNames;
   type: boolean;
-  additionalFields: string[];
+  fields?: string[];
 }
 
 const ReusableForm: FC<ReusableFormProps> = ({
   blueprint,
   name,
   type,
-  additionalFields = [],
+  fields = [],
 }) => {
   const {
     register,
@@ -42,9 +42,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     clearErrors,
   } = useForm();
 
-  console.log(additionalFields, "FIELDS");
-
-  const queryCreator = createQuery(blueprint, name, type, additionalFields);
+  const queryCreator = createQuery(fields, name, type);
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -53,6 +51,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
   const ref = useRef<any>(null);
 
   const { toggleCircle } = useSnapshot(store);
+  const login = useZustandStore((state) => state.login);
 
   const handleClickOutside = (event) => {
     if (
@@ -80,8 +79,6 @@ const ReusableForm: FC<ReusableFormProps> = ({
   });
 
   useEffect(() => {
-    console.log(errors);
-    console.log(Object.keys(errors));
     if (Object.keys(errors).length > 0) {
       setTimeout(clearErrors, 2000);
     }
@@ -92,19 +89,24 @@ const ReusableForm: FC<ReusableFormProps> = ({
       setLoading(true);
       const query = queryCreator(formData);
 
-      console.log(query);
+      console.log(query, "QUERY");
 
       const { data } = await axios.post(endpoint, query).then((data) => data);
+      console.log(data);
       const returnings = data.data[name];
       setLoading(false);
       setSuccess(true);
-      setTimeout(() => {
-        Router.push(`${RedirectFunction(name, returnings)}`);
-      }, 2000);
+      await RedirectFunction(name, returnings, login).then((path) => {
+        console.log(data);
+        console.log(path);
+        setTimeout(() => {
+          Router.push(path);
+        }, 1500);
+      });
     } catch (err) {
       setLoading(false);
       setError(true);
-      console.log(err); 
+      console.log(err);
 
       setTimeout(() => {
         Router.push("/");
@@ -120,7 +122,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     <form
       ref={ref}
       onSubmit={handleSubmit(sendData)}
-      className="form relative bg-blue-200 flex flex-col p-4 justify-evenly items-center space-y-3 md:space-y-5 rounded-xl"
+      className="form relative bg-blue-200 flex flex-col p-4 justify-center items-center space-y-4  rounded-xl"
     >
       {" "}
       {blueprint.map((field) => (

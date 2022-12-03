@@ -22,13 +22,77 @@ const ModalOver = () => {
             blueprint={blueprint}
             type={true}
             name={QueryNames.NEW_DREAM}
-            additionalFields={["_id", "authorId"]}
+            fields={[
+              "_id",
+              "authorId",
+              "name",
+              "description",
+              "time",
+              "dreamName",
+              "email",
+            ]}
           />
         </FormPopOver>
       )}
 
-      {modalOpenState === ModalTypes.LOGIN && <div>123123 </div>}
+      {modalOpenState === ModalTypes.LOGIN && (
+        <FormPopOver>
+          <ReusableForm
+            blueprint={userLoginBlueprint}
+            type={true}
+            name={QueryNames.SIGN_IN}
+          />
+        </FormPopOver>
+      )}
+
+      {modalOpenState === ModalTypes.SIGNUP && (
+        <FormPopOver>
+          <ReusableForm
+            blueprint={userSignUpBlueprint}
+            type={true}
+            name={QueryNames.SIGN_UP}
+          />
+        </FormPopOver>
+      )}
     </>
   );
 };
 export default ModalOver;
+
+const userLoginBlueprint = [
+  {
+    name: "username",
+    label: "Your username",
+    settings: { required: "Please fill this field" },
+  },
+  {
+    name: "password",
+    label: "Your password",
+    settings: {
+      required: "Please fill this field",
+    },
+  },
+];
+
+const userSignUpBlueprint = [
+  {
+    name: "username",
+    label: "Your username",
+    settings: { required: "Please fill this field" },
+  },
+  {
+    name: "password",
+    label: "Your password",
+    settings: {
+      required: "Please fill this field",
+    },
+  },
+  {
+    name: "email",
+    label: "Your email",
+    settings: {
+      type: "email",
+      required: "Please fill this field",
+    },
+  },
+];
