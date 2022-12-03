@@ -6,7 +6,7 @@ import FormInput from "./input.component";
 import axios from "axios";
 import UniversalButton, { ButtonTypes } from "../uniButton.component";
 import { createQuery } from "../../queries/createDreamMutation";
-import { store, useZustandStore } from "../../store/store";
+import { store } from "../../store/store";
 
 import { useSnapshot } from "valtio";
 import StatusPopOver, { StatusTypes } from "../statusPopOver";
@@ -51,8 +51,6 @@ const ReusableForm: FC<ReusableFormProps> = ({
   const ref = useRef<any>(null);
 
   const { toggleCircle } = useSnapshot(store);
-  const login = useZustandStore((state) => state.login);
-
   const handleClickOutside = (event) => {
     if (
       ref.current &&
@@ -96,7 +94,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
       const returnings = data.data[name];
       setLoading(false);
       setSuccess(true);
-      await RedirectFunction(name, returnings, login).then((path) => {
+      await RedirectFunction(name, returnings).then((path) => {
         console.log(data);
         console.log(path);
         setTimeout(() => {
@@ -122,7 +120,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     <form
       ref={ref}
       onSubmit={handleSubmit(sendData)}
-      className="form relative bg-blue-200 flex flex-col p-4 justify-center items-center space-y-4  rounded-xl"
+      className="form relative bg-blue-200 flex flex-col p-4  items-center justify-center  space-y-4  rounded-xl"
     >
       {" "}
       {blueprint.map((field) => (

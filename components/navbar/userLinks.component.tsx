@@ -1,5 +1,9 @@
 import { useSnapshot } from "valtio";
-import { ModalTypes, store, useZustandStore } from "../../store/store";
+import {
+  ModalTypes,
+  store,
+  userStore,
+} from "../../store/store";
 
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
@@ -9,7 +13,7 @@ interface UserLinks {
 }
 
 const UserLinks: FC<UserLinks> = ({ style }) => {
-  const { currentUser, logout } = useZustandStore();
+  const { currentUser, logout } = useSnapshot(userStore);
 
   const [hydrated, setHydrated] = useState(false);
 

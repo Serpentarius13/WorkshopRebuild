@@ -26,7 +26,7 @@ const UniversalButton: FC<ButtonProps> = ({
   const formButtonStyle =
     "border-0 outline-none py-2 px-6 bg-purple-800 text-white hover:bg-blue-800 focus:outline-white";
   const modalButtonstyle =
-    "absolute top-1 right-1 bg-purple-800 w-8 h-8 text-white rounded-full hover:bg-blue-800 ";
+    "absolute top-1 right-1 bg-purple-800 w-8 h-8 text-white rounded-full hover:bg-blue-800  ";
 
   const styleDecide = () => {
     switch (buttonType) {
