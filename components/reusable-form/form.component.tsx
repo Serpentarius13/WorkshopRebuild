@@ -9,7 +9,7 @@ import { createQuery } from "../../queries/createDreamMutation";
 import { store } from "../../store/store";
 
 import { useSnapshot } from "valtio";
-
+import StatusPopOver, { StatusTypes } from "../statusPopOver";
 
 interface BlueprintData {
   name: string;
@@ -83,6 +83,7 @@ const ReusableForm: FC<ReusableFormProps> = ({ blueprint, name, type }) => {
       const dream = await axios.post(endpoint, query);
       console.log(dream);
       setLoading(false);
+      setSuccess(true);
     } catch (err) {
       setLoading(false);
       setError(true);
@@ -90,14 +91,15 @@ const ReusableForm: FC<ReusableFormProps> = ({ blueprint, name, type }) => {
     }
   };
 
-  if (loading) return <div> Loading </div>;
-  if (error) return <div> Error </div>;
+  if (loading) return <StatusPopOver type={StatusTypes.STATUS_LOADING} />;
+  if (error) return <StatusPopOver type={StatusTypes.STATUS_ERROR} />;
+  if (success) return <StatusPopOver type={StatusTypes.STATUS_SUCCESS} />;
 
   return (
     <form
       ref={ref}
       onSubmit={handleSubmit(sendData)}
-      className="form  bg-blue-200 flex flex-col p-4 justify-evenly items-center space-y-3 md:space-y-5 rounded-xl"
+      className="form relative bg-blue-200 flex flex-col p-4 justify-evenly items-center space-y-3 md:space-y-5 rounded-xl"
     >
       {" "}
       {blueprint.map((field) => (
@@ -112,7 +114,19 @@ const ReusableForm: FC<ReusableFormProps> = ({ blueprint, name, type }) => {
           clearErrors={clearErrors}
         />
       ))}
-      <UniversalButton buttonType={ButtonTypes.FORM_BUTTON} text="Send" />
+      <UniversalButton
+        type="submit"
+        buttonType={ButtonTypes.FORM_BUTTON}
+        text="Send"
+      />
+      <UniversalButton
+        type="button"
+        buttonType={ButtonTypes.MODAL_BUTTON}
+        onClick={() => {
+          toggleCircle();
+        }}
+        text="&#10005;"
+      />
     </form>
   );
 };

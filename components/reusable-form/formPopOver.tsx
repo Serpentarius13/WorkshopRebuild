@@ -15,7 +15,7 @@ const FormPopOver: FC<FormPopOver> = ({ children }) => {
 
   const ref = useRef<any>(null);
 
-
+  const [state, setState] = useState({});
 
   return (
     <>
@@ -23,21 +23,14 @@ const FormPopOver: FC<FormPopOver> = ({ children }) => {
         ref={ref}
         className="popover w-screen h-screen fixed top-0 left-0  flex items-center justify-center bg-opacity-20 bg-purple-900"
       >
-        <div className="relative">
-
+        <div className="relative min-w-[24rem] min-h-[40rem]">
           {children}
 
-          <UniversalButton
-            buttonType={ButtonTypes.MODAL_BUTTON}
-            onClick={() => {
-              toggleCircle();
-            }}
-            text="x"
-          />
+         
         </div>
 
         {circleOpenState && <div className="circle" />}
-        {circleOpenState && <div className="circleIn"/>}
+        {circleOpenState && <div className="circleIn" />}
       </div>
     </>
   );
