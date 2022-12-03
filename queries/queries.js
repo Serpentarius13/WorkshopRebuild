@@ -28,3 +28,13 @@ export const getUser = gql`
     }
   }
 `;
+
+export const dreamFields = [
+  "dreamName",
+  "description",
+  "name",
+  "email",
+  "time",
+  "_id",
+  "authorId",
+];

@@ -14,6 +14,7 @@
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.9",
     "axios": "^1.2.0",
+    "encoding": "^0.1.13",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
     "gql-query-builder": "^3.8.0",
@@ -28,6 +29,7 @@
     "translate": "^1.4.1",
     "typescript": "4.9.3",
     "valtio": "^1.7.6",
+    "zlib": "^1.0.5",
     "zustand": "^4.1.4"
   },
   "devDependencies": {

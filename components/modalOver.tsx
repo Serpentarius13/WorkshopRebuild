@@ -1,9 +1,11 @@
+"use client";
+
 import { useSnapshot } from "valtio";
 import { ModalTypes, store } from "../store/store";
 import ReusableForm from "./reusable-form/form.component";
 import FormPopOver from "./reusable-form/formPopOver";
 
-import { blueprint } from "../pages/form";
+import { blueprint } from "../app/form";
 
 export enum QueryNames {
   NEW_DREAM = "newDream",

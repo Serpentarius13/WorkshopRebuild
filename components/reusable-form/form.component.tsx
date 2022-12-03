@@ -5,12 +5,14 @@ import FormInput from "./input.component";
 
 import axios from "axios";
 import UniversalButton, { ButtonTypes } from "../uniButton.component";
+("use client");
+
 import { createQuery } from "../../queries/createDreamMutation";
 import { store } from "../../store/store";
 
 import { useSnapshot } from "valtio";
 import StatusPopOver, { StatusTypes } from "../statusPopOver";
-import Router from "next/router";
+import { useRouter } from "next/navigation";
 import { RedirectFunction } from "../../utils/redirect";
 
 import { QueryNames } from "./../modalOver";
@@ -49,6 +51,10 @@ const ReusableForm: FC<ReusableFormProps> = ({
   const [success, setSuccess] = useState(false); //* Work on that
 
   const ref = useRef<any>(null);
+
+  const { closeModal } = store;
+
+  const router = useRouter();
 
   const { toggleCircle } = useSnapshot(store);
   const handleClickOutside = (event) => {
@@ -98,7 +104,8 @@ const ReusableForm: FC<ReusableFormProps> = ({
         console.log(data);
         console.log(path);
         setTimeout(() => {
-          Router.push(path);
+          closeModal();
+          router.push(path);
         }, 1500);
       });
     } catch (err) {
@@ -107,7 +114,8 @@ const ReusableForm: FC<ReusableFormProps> = ({
       console.log(err);
 
       setTimeout(() => {
-        Router.push("/");
+        closeModal();
+        router.push("/");
       }, 1000);
     }
   };

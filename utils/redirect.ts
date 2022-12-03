@@ -1,5 +1,5 @@
 import { QueryNames } from "../components/modalOver";
-import { userStore, useZustandStore } from "../store/store";
+import { userStore } from "../store/store";
 
 type Redirect = (type: QueryNames, returnings: any) => Promise<string>;
 

@@ -8,12 +8,13 @@ const link = createHttpLink({
   uri: endpoint,
 });
 
+const token = getToken();
+
 const authLink = setContext((_, { headers }) => {
-  const token = getToken();
   return {
     headers: {
       ...headers,
-      authorization: token,
+      authorization: token ? token : "",
     },
   };
 });

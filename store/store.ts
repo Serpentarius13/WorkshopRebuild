@@ -3,6 +3,8 @@ import { client } from "../apollo-client";
 import { getUser } from "../queries/queries";
 import { getToken, removeToken, setToken } from "../utils/cookies";
 
+import * as build from "gql-query-builder";
+
 interface Store {
   modalOpenState: boolean | ModalTypes;
   circleOpenState: boolean;
@@ -61,7 +63,7 @@ export const userStore = proxy<any>({
 });
 
 subscribe(userStore, () => {
-  localStorage?.setItem("user", JSON.stringify(userStore.currentUser));
+  localStorage.setItem("user", JSON.stringify(userStore.currentUser));
 });
 
 // import create from "zustand";

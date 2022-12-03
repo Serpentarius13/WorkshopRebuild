@@ -5,14 +5,6 @@ import axios from "axios";
 
 import { endpoint } from "../apollo-client";
 
-export const createDreamFields = [
-  "name",
-  "time",
-  "email",
-  "dreamName",
-  "description",
-];
-
 // export const createFields = (blueprint, additionalFields = []) => {
 //   const fields = blueprint.map((field) => field.name);
 //   console.log(fields);
@@ -20,20 +12,18 @@ export const createDreamFields = [
 // };
 
 export const createQuery =
-  (fields, operationName, type) =>
+  (fields, operationName, mutate = false) =>
   (formData) => {
-    if (type)
+    if (mutate)
       return builder.mutation({
         operation: operationName,
         fields: fields,
         variables: formData,
-        operationName: "Mutation",
       });
     else
       return builder.query({
         operation: operationName,
         fields: fields,
-        variables: formData || "",
-        operationName: "Query",
+        variables: formData || {},
       });
   };
