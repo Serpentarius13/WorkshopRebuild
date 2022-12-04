@@ -95,6 +95,19 @@
     animation-direction: reverse;
   }
 
+  .header {
+    background: radial-gradient(circle, #5f3dc4 0%, #91a7ff 30%, #13004d 100%);
+    background-size: 180% 180%;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: animate-blur forwards 1s ease-in;
+    clip-path: circle(max(15rem, 28%));
+  }
+
+  .header-text {
+    text-shadow: -2px 2px 0 #13004d, 2px 2px 0 #13004d, 2px -2px 0 #13004d,
+      -2px -2px 0 #13004d;
+  }
 }
 
 @media (min-width: 800px) {

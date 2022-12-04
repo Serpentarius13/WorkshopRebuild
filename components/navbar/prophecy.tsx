@@ -36,7 +36,7 @@ const Prophecy: FC = () => {
   };
 
   return (
-    <div className="flex-1 ml-8 flex items-center justify-start md:space-x-4 space-x-1">
+    <div className="flex-1 ml-4 flex items-center justify-start md:space-x-4 space-x-1">
       <div>
         {!text && (
           <button

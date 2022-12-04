@@ -29,6 +29,8 @@ body {
   position: relative;
   z-index: -2323;
 overflow-x: hidden;
+display: flex;
+flex-direction: column;
 }
 
 @tailwind base;
@@ -75,3 +77,4 @@ textarea:-ms-input-placeholder {
 textarea::placeholder {
   color: transparent;
 }
+
