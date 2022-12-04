@@ -6,7 +6,7 @@ import { gql } from "@apollo/client";
 import { useEffect } from "react";
 import { dreamFields } from "../../../queries/queries";
 
-export const fetchOne = async (dreamId) => {
+const fetchOne = async (dreamId) => {
   try {
     const { data } = await client.query({
       query: gql`
