@@ -28,7 +28,8 @@ export const fetchOne = async (dreamId) => {
 
 const DreamPage = async ({ params: { dreamId } }) => {
   const data = await fetchOne(dreamId);
-  console.log(data, "DATA");
+  if (!data)
+    return <div> Perhaps this dream doesnt exist. Try reloading page. </div>;
   return <div>DreamPage</div>;
 };
 export default DreamPage;

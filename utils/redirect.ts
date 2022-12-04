@@ -9,7 +9,7 @@ export const RedirectFunction: Redirect = async (type, returnings) => {
   switch (type) {
     case QueryNames.NEW_DREAM:
       const { _id } = returnings;
-      return `/dreams/${_id}`;
+      return `/dream/${_id}`;
     case QueryNames.SIGN_UP || QueryNames.SIGN_IN:
       await login(returnings);
       return `/personal/`;

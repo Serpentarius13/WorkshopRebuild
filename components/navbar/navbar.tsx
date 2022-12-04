@@ -11,7 +11,7 @@ const Navbar: FC = () => {
   const [dropdown, setDropdown] = useState(false);
   return (
     <>
-      <div className=" navbar w-[100%] h-8 py-8 px-4 bg-slate-600 flex xl:justify-around items-center justify-center space-x-2">
+      <div className=" navbar w-[screen] h-8 py-8 px-4 bg-slate-600 flex xl:justify-around items-center justify-center space-x-2">
         <div className=" flex items-center  space-x-2 ">
           <Image src="/aten.jpg" alt="aten" width={32} height={32} />
           <span className="text-white  md:block text-1xl lg:text-2xl hidden font-sans font-medium ">

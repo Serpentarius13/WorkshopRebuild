@@ -1,4 +1,5 @@
 const { gql } = require("@apollo/client");
+import { client } from "../apollo-client";
 
 export const sentenceQuery = gql`
   query Query {
@@ -38,3 +39,29 @@ export const dreamFields = [
   "_id",
   "authorId",
 ];
+
+export const fetchAllDreams = async () => {
+  try {
+    const { data } = await client.query({
+      query: gql`
+        query Query {
+          getAll {
+            dreamName
+            description
+            name
+            email
+            time
+            _id
+            authorId
+          }
+        }
+      `,
+    });
+
+    console.log(data);
+
+    return data.getAll;
+  } catch (err) {
+    console.log(err);
+  }
+};
