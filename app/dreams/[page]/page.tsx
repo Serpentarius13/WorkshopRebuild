@@ -7,9 +7,9 @@ import Link from "next/link";
 import DreamPageLayout from "../../../components/dreams/dreamLayout";
 import DreamWideItem from "../../../components/dreams/dreamWideItem";
 
-const pageSize = 10;
+import { countPages, pageSize, makeParams } from "./../../../utils/pages";
 
-const page = async ({ params: { page } }) => {
+const Page = async ({ params: { page } }) => {
   const dreams = await fetchAllDreams();
   const pages = countPages(dreams);
   const curPage = page * pageSize;
@@ -45,7 +45,7 @@ const page = async ({ params: { page } }) => {
     </div>
   );
 };
-export default page;
+export default Page;
 
 export async function generateStaticParams() {
   try {
@@ -58,23 +58,3 @@ export async function generateStaticParams() {
     console.log(err);
   }
 }
-
-export const countPages = (dreams) => {
-  const pageSize = 10;
-
-  const pages = Math.ceil(dreams.length / 10);
-
-  console.log(pages, "PAGES");
-
-  return pages;
-};
-
-const makeParams = (pages) => {
-  const arr: any = [];
-
-  for (let i = 1; i <= pages; i++) {
-    arr.push({ page: String(i) });
-  }
-
-  return arr;
-};
