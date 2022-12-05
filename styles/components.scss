@@ -32,10 +32,6 @@
     display: flex !important;
   }
 
-  .notShown {
-    visibility: none;
-  }
-
   .inputField:focus ~ .inputLabel,
   .inputField:required ~ .inputLabel,
   .inputField:not(:placeholder-shown) ~ .inputLabel {
@@ -114,8 +110,10 @@
   }
 
   .appear {
-    animation: animate-blur 1s forwards 1 linear;
+    animation: animate-blur 0.5s forwards 1 linear;
   }
+
+
 }
 
 @media (min-width: 800px) {

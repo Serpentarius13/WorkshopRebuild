@@ -106,7 +106,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
         setTimeout(() => {
           closeModal();
           router.push(path);
-        }, 1500);
+        }, 1000);
       });
     } catch (err) {
       setLoading(false);

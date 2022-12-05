@@ -38,7 +38,7 @@ const HomeTestimonial: FC<HomeTestimonial> = ({
   return (
     <div
       ref={ref}
-      className={`notShown max-w-[70rem]  flex  ${
+      className={`notShown opacity-0 max-w-[70rem]  flex  ${
         reversed ? "flex-row-reverse" : ""
       }`}
     >

@@ -15,7 +15,7 @@ interface StatusTypeInterface {
 
 const StatusPopOver: FC<StatusTypeInterface> = ({ type }) => {
   return (
-    <div className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center w-[30rem] h-[40rem] z-100 -translate-y-[55%] -translate-x-1/2">
+    <div className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center w-[30rem] h-[30rem] bg-gray-200 rounded-full z-100 -translate-y-[55%] -translate-x-1/2 ">
       {type === StatusTypes.STATUS_ERROR && (
         <IconContext.Provider value={{ size: "100px", color: "red" }}>
           {" "}
@@ -38,7 +38,10 @@ const StatusPopOver: FC<StatusTypeInterface> = ({ type }) => {
         <IconContext.Provider value={{ size: "100px", color: "green" }}>
           {" "}
           <MdOutlineCheckCircleOutline />
-          <h1 className="text-2xl text-center font-medium text-green-800 "> Success! You will be redirected in no time</h1>
+          <h1 className="text-2xl text-center font-medium text-green-800 ">
+            {" "}
+            Success! You will be redirected in no time
+          </h1>
         </IconContext.Provider>
       )}
     </div>
