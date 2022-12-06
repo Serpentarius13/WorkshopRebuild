@@ -13,3 +13,11 @@ export const setToken = (token) => {
 export const removeToken = () => {
   Cookies.remove("token");
 };
+
+export const testCookie = () => {
+  Cookies.set("hasJS", true);
+
+  const token = Cookies.get("hasJs");
+
+  return token ? token : false;
+};

@@ -1,21 +1,7 @@
-"use client";
-
-import { operationName } from "@apollo/client";
-import axios from "axios";
-import * as build from "gql-query-builder";
-import Image from "next/image";
-import { endpoint } from "../apollo-client";
-
 import HomeHeader from "../components/homePage/homeHeader";
 import HomePageFunctionals from "../components/homePage/homePageFunctionals";
-import HomeTestimonial from "../components/homePage/homeTestimonial";
-import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock";
-import Sliderish from "../components/homePage/slider";
 
-import { QueryNames, userSignUpBlueprint } from "../components/modalOver";
-import { dreamBlueprint } from "../components/modalOver";
-import CreateDreamForm from "../components/reusable-form/createDreamForm";
-import ReusableForm from "../components/reusable-form/form.component";
+import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock";
 
 export default function Home() {
   return (
