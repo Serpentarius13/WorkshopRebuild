@@ -32,6 +32,16 @@
     display: flex !important;
   }
 
+  .notShown {
+    opacity: 0;
+
+    @media screen and (prefers-reduced-motion: reduce) {
+      & {
+        opacity: 1;
+      }
+    }
+  }
+
   .inputField:focus ~ .inputLabel,
   .inputField:required ~ .inputLabel,
   .inputField:not(:placeholder-shown) ~ .inputLabel {
@@ -113,6 +123,9 @@
     animation: animate-blur 0.5s forwards 1 linear;
   }
 
+  .widthen {
+    animation: animate-blur 0.5s forwards 1 linear;
+  }
 }
 
 @media (min-width: 800px) {
