@@ -31,6 +31,11 @@ const HomeTestimonial: FC<HomeTestimonial> = ({
   };
 
   useEffect(() => {
+    if (window.pageYOffset > ref.current.getBoundingClientRect().y) {
+      ref.current.classList.remove("hidden");
+      ref.current.classList.add("appear");
+      return;
+    }
     document.addEventListener("scroll", animate);
 
     return () => document.removeEventListener("scroll", animate);

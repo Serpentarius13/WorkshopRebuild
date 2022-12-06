@@ -3,10 +3,11 @@ import axios from "axios";
 import * as build from "gql-query-builder";
 import Image from "next/image";
 import { endpoint } from "../apollo-client";
-import BigDreamTemplate from "../components/dreamTemplates/bigDreamTemplate";
+
 import HomeHeader from "../components/homePage/homeHeader";
 import HomeTestimonial from "../components/homePage/homeTestimonial";
 import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock";
+import Sliderish from "../components/slider";
 
 export default async function Home() {
   return (
@@ -29,7 +30,24 @@ export default async function Home() {
           look for yourself{" "}
         </h3>
         <HomeTestimonialsBlock />
+        <p className="italic text-center w-[60%] mx-auto">
+          You too can be a part of this evergrowing community of wonder and
+          research. Dive deep into the meaning of human soul with{" "}
+          <span className="text-purple-800 font-medium text-2xl">us. </span>{" "}
+          <br />
+        </p>
+        <h3 className="text-center font-medium text-4xl ">
+          {" "}
+          On this website you can:
+        </h3>
+        <div className="w-[100%] h-64 break-keep flex space-y-4 flex-col md:space-x-36 md:flex-row md:space-y-0  items-center justify-center">
+          <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex items-center justify-center text-3xl font-bold break-keep text-purple-800">
+            {" "}
+            Read, rate and comment dreams of other users
+          </p>{" "}
+        </div>
       </div>
+      <Sliderish />
     </>
   );
 }
