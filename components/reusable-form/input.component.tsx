@@ -3,7 +3,6 @@ import { useFormState } from "react-hook-form";
 
 interface FormInputProps {
   name: string;
-  textFieldName: string;
   label: string;
   registerFunction: (name, settings) => any;
 
@@ -16,7 +15,6 @@ const FormInput: FC<FormInputProps> = ({
   label,
   registerFunction,
   name,
-  textFieldName,
   settings = {},
   control,
   clearErrors,
@@ -42,7 +40,7 @@ const FormInput: FC<FormInputProps> = ({
         {errors?.[name]?.type === "minLength" ? "Please, write some more" : ""}
       </p>
       <div className=" w-[90%] relative flex items-center justify-center">
-        {textFieldName === name ? (
+        {settings.type === "textarea" ? (
           <textarea
             className={`${border} ${
               errors[name]?.message ? "border-4 !border-red-800" : ""

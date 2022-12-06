@@ -1,9 +1,10 @@
 import { useSnapshot } from "valtio";
 import {
-  ModalTypes,
   store,
   userStore,
 } from "../../store/store";
+
+import { ModalTypes } from "../modalOver";
 
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";

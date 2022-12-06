@@ -5,22 +5,20 @@ import { getToken, removeToken, setToken } from "../utils/cookies";
 
 import * as build from "gql-query-builder";
 
+import { ModalTypes } from "./../components/modalOver";
+
 interface Store {
   modalOpenState: boolean | ModalTypes;
+  additionalVariables: [];
   circleOpenState: boolean;
   openModal: (type: ModalTypes) => void;
   closeModal: () => void;
   toggleCircle: () => void;
 }
 
-export enum ModalTypes {
-  CREATE_DREAM = "CREATE_DREAM",
-  LOGIN = "LOGIN",
-  SIGNUP = "SIGN_UP",
-}
-
 export const store = proxy<Store>({
   modalOpenState: false,
+  additionalVariables: [],
   openModal: (type) => {
     store.modalOpenState = type;
   },

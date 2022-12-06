@@ -51,7 +51,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false); //* Work on that
+  const [success, setSuccess] = useState(false);
 
   const ref = useRef<any>(null);
 
@@ -142,7 +142,6 @@ const ReusableForm: FC<ReusableFormProps> = ({
           key={field.name}
           name={field.name}
           label={field.label}
-          textFieldName={"description"}
           registerFunction={register}
           settings={field.settings}
           control={control}

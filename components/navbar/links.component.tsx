@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { FC } from "react";
-import { ModalTypes, store } from "../../store/store";
+import { store } from "../../store/store";
 import UserLinks from "./userLinks.component";
+import { ModalTypes } from "./../modalOver";
 
 interface LinksProps {
   expanded?: boolean;
@@ -27,7 +28,10 @@ const Links: FC<LinksProps> = ({ expanded }) => {
       >
         Write your dream
       </button>
-      <Link className={style} href="/dreams/1"> Read dreams </Link>
+      <Link className={style} href="/dreams/1">
+        {" "}
+        Read dreams{" "}
+      </Link>
       <UserLinks style={style} />
     </>
   );
