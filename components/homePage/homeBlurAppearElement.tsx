@@ -27,7 +27,7 @@ const HomeBlurAppear = ({ children }) => {
   }, []);
   return (
     <div
-      className="notShown w-[100%] h-[100%] flex items-center justify-center "
+      className="notShown w-[100%] h-[100%] flex items-center justify-center relative "
       ref={ref}
     >
       {children}

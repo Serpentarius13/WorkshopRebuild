@@ -28,6 +28,7 @@ export interface ReusableFormProps {
   name: QueryNames;
   type: boolean;
   fields?: string[];
+  additionalVariables?: any;
 }
 
 const ReusableForm: FC<ReusableFormProps> = ({
@@ -35,6 +36,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
   name,
   type,
   fields = [],
+  additionalVariables = {},
 }) => {
   const {
     register,
@@ -92,7 +94,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
   const sendData = async (formData) => {
     try {
       setLoading(true);
-      const query = queryCreator(formData);
+      const query = queryCreator({ ...formData, additionalVariables });
 
       console.log(query, "QUERY");
 

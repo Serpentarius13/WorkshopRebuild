@@ -8,6 +8,7 @@ import { QueryNames } from "../modalOver";
 
 import { useRef, useEffect } from "react";
 import HomeBlurAppear from "./homeBlurAppearElement";
+import HomeUserSignUp from "./homeUserSignUp";
 
 const HomePageFunctionals = () => {
   return (
@@ -41,27 +42,8 @@ const HomePageFunctionals = () => {
           </p>
         </div>
       </HomeBlurAppear>
-      <HomeBlurAppear>
-        <div className="w-[100%] min-h-[16rem] flex flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red pt-10 functional-block">
-          <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex-col items-center justify-center text-3xl font-bold break-keep text-purple-600 text-center pb-10 md:pb-0">
-            {" "}
-            Create your personal account where you can keep track of your
-            dreams.
-            <br />
-            <span className="italic text-black text-sm  ">
-              {" "}
-              If you are logged in, your dreams are automatically signed by you
-              and you can turn their visibility off to keep using our website as
-              your journal.{" "}
-            </span>
-          </p>
-          <ReusableForm
-            blueprint={userSignUpBlueprint}
-            type={true}
-            name={QueryNames.SIGN_UP}
-          />
-        </div>
-      </HomeBlurAppear>
+
+      <HomeUserSignUp />
     </>
   );
 };
