@@ -1,4 +1,11 @@
+import StatusPopOver, { StatusTypes } from "../../components/statusPopOver";
+
 export default function Loading() {
   // Or a custom loading skeleton component
-  return <> Loading</>;
+  return (
+    <>
+      {" "}
+      <StatusPopOver type={StatusTypes.STATUS_LOADING} />
+    </>
+  );
 }

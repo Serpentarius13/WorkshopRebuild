@@ -42,6 +42,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     control,
     formState: { errors },
     clearErrors,
+    reset,
   } = useForm();
 
   const queryCreator = createQuery(fields, name, type);
@@ -105,16 +106,19 @@ const ReusableForm: FC<ReusableFormProps> = ({
         console.log(path);
         setTimeout(() => {
           closeModal();
+          reset();
           router.push(path);
         }, 1000);
       });
     } catch (err) {
+      reset();
       setLoading(false);
       setError(true);
       console.log(err);
 
       setTimeout(() => {
         closeModal();
+        setError(false);
         router.push("/");
       }, 1000);
     }

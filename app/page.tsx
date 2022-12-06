@@ -1,3 +1,5 @@
+"use client";
+
 import { operationName } from "@apollo/client";
 import axios from "axios";
 import * as build from "gql-query-builder";
@@ -5,11 +7,17 @@ import Image from "next/image";
 import { endpoint } from "../apollo-client";
 
 import HomeHeader from "../components/homePage/homeHeader";
+import HomePageFunctionals from "../components/homePage/homePageFunctionals";
 import HomeTestimonial from "../components/homePage/homeTestimonial";
 import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock";
-import Sliderish from "../components/slider";
+import Sliderish from "../components/homePage/slider";
 
-export default async function Home() {
+import { QueryNames, userSignUpBlueprint } from "../components/modalOver";
+import { dreamBlueprint } from "../components/modalOver";
+import CreateDreamForm from "../components/reusable-form/createDreamForm";
+import ReusableForm from "../components/reusable-form/form.component";
+
+export default function Home() {
   return (
     <>
       <HomeHeader />
@@ -36,18 +44,8 @@ export default async function Home() {
           <span className="text-purple-800 font-medium text-2xl">us. </span>{" "}
           <br />
         </p>
-        <h3 className="text-center font-medium text-4xl ">
-          {" "}
-          On this website you can:
-        </h3>
-        <div className="w-[100%] h-64 break-keep flex space-y-4 flex-col md:space-x-36 md:flex-row md:space-y-0  items-center justify-center">
-          <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex items-center justify-center text-3xl font-bold break-keep text-purple-800">
-            {" "}
-            Read, rate and comment dreams of other users
-          </p>{" "}
-        </div>
+        <HomePageFunctionals />
       </div>
-      <Sliderish />
     </>
   );
 }

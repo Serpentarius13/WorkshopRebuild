@@ -8,9 +8,44 @@ import DreamPageLayout from "../../../components/dreams/dreamLayout";
 import DreamWideItem from "../../../components/dreams/dreamWideItem";
 
 import { countPages, pageSize, makeParams } from "./../../../utils/pages";
+import { useRouter } from "next/navigation";
+import StatusPopOver, { StatusTypes } from "../../../components/statusPopOver";
 
 const Page = async ({ params: { page } }) => {
   const dreams = await fetchAllDreams();
+
+  if (dreams.length === 0) {
+    return (
+      <div className="mx-auto mt-8 w-screen h-screen flex flex-col items-center justify-start p-8">
+        <h1> Apparently, there is no dreams yet </h1>
+        <h3> be first to add one! </h3>
+
+        <Link
+          className="px-8 py-4 bg-purple-800 text-white "
+          href="/createDream"
+        >
+          {" "}
+          Click here!{" "}
+        </Link>
+      </div>
+    );
+  }
+
+  if (dreams === "error") {
+    return (
+      <div className="w-screen h-screen flex items-center flex-col  justify-center">
+        {" "}
+        <h1 className=" font-medium text-red-800 text-3xl py-8 ">
+          {" "}
+          Apparently, there was an error{" "}
+        </h1>
+        <Link className="px-8 py-4 bg-purple-800 text-white " href="..">
+          {" "}
+          Get back{" "}
+        </Link>{" "}
+      </div>
+    );
+  }
   const pages = countPages(dreams);
   const curPage = page * pageSize;
 

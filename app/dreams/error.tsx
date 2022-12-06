@@ -4,6 +4,7 @@
 // https://beta.nextjs.org/docs/rendering/server-and-client-components
 
 import { useEffect } from "react";
+import StatusPopOver, { StatusTypes } from "../../components/statusPopOver";
 
 export default function Error({
   error,
@@ -19,8 +20,12 @@ export default function Error({
 
   return (
     <div>
-      <p>Something went wrong!</p>
-      <button onClick={() => reset()}>Reset error boundary</button>
+      <button
+        className="mx-4 my-2 bg-purple-800 text-white"
+        onClick={() => reset()}
+      >
+        Get back
+      </button>
     </div>
   );
 }

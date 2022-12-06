@@ -22,14 +22,23 @@ const fetchOne = async (dreamId) => {
 
     return data;
   } catch (err) {
-    console.log(err);
+    return;
   }
 };
 
 const DreamPage = async ({ params: { dreamId } }) => {
-  const data = await fetchOne(dreamId);
-  if (!data)
-    return <div> Perhaps this dream doesnt exist. Try reloading page. </div>;
+  const dream = await fetchOne(dreamId);
+
+  if (!dream)
+    return (
+      <div className="w-screen h-screen items-center justify-center">
+        {" "}
+        <h1 className="text-4xl text-purple-800 italic">
+          {" "}
+          Perhaps this dream doesnt exist. Try reloading page.{" "}
+        </h1>{" "}
+      </div>
+    );
   return <div>DreamPage</div>;
 };
 export default DreamPage;

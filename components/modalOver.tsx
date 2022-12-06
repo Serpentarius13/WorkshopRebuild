@@ -75,7 +75,7 @@ const userLoginBlueprint = [
   },
 ];
 
-const userSignUpBlueprint = [
+export const userSignUpBlueprint = [
   {
     name: "username",
     label: "Your username",
@@ -98,7 +98,7 @@ const userSignUpBlueprint = [
   },
 ];
 
-const dreamBlueprint = [
+export const dreamBlueprint = [
   {
     name: "name",
     label: "Your name",

@@ -25,10 +25,10 @@ const Links: FC<LinksProps> = ({ expanded }) => {
         }}
         className={style}
       >
-        Create dream
+        Write your dream
       </button>
-      <UserLinks style={style}/>
-      <button className={style}>boba</button>
+      <Link className={style} href="/dreams/1"> Read dreams </Link>
+      <UserLinks style={style} />
     </>
   );
 };
