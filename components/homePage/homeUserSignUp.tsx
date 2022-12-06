@@ -39,7 +39,7 @@ const HomeUserSignUp = () => {
         
       </div>
       {curUser ? (
-          <div className="absolute top-1/2 -translate-y-1/2 w-[120%] h-[110%] left-1/2 -translate-x-1/2 bg-purple-300 bg-opacity-40 z-50 flex items-center justify-center overflow-hidden ">
+          <div className="absolute top-1/2 -translate-y-1/2 w-[120%] h-[105%] left-1/2 -translate-x-1/2 bg-purple-300 bg-opacity-40 z-50 flex items-center justify-center overflow-hidden ">
             <div className="w-[100rem] h-20 bg-purple-800 rotate-45 left-3/5 top-1/2 absolute   flex items-center justify-center ">
               <p className="text-3xl text-white font-bold">
                 You already have an account

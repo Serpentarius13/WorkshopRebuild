@@ -1,35 +1,33 @@
+"use client";
+
 import axios from "axios";
 import * as builder from "gql-query-builder";
 
-import { client, endpoint } from "../../../apollo-client";
-import { gql } from "@apollo/client";
-import { useEffect } from "react";
-import { dreamFields } from "../../../queries/queries";
+import { client } from "../../../apollo-client";
+import { gql, useQuery } from "@apollo/client";
+import { useEffect, useState } from "react";
 
-const fetchOne = async (dreamId) => {
-  try {
-    const { data } = await client.query({
-      query: gql`
-        query Query($id: ID) {
-          getOneDream(id: $id) {
-            dreamName
-            description
-          }
-        }
-      `,
-      variables: { id: dreamId },
-    });
+const DreamPage = ({ params: { dreamId } }) => {
+  const query = gql`
+    query Query($id: ID) {
+      getOneDream(id: $id) {
+        dreamName
+        description
+      }
+    }
+  `;
 
-    return data;
-  } catch (err) {
-    return;
-  }
-};
+  const { data, loading, error } = useQuery(query, {
+    variables: { id: dreamId },
+    client: client,
+  });
 
-const DreamPage = async ({ params: { dreamId } }) => {
-  const dream = await fetchOne(dreamId);
+  const dream = data?.getOneDream
 
-  if (!dream)
+
+
+
+  if (error)
     return (
       <div className="w-screen h-screen items-center justify-center">
         {" "}
@@ -39,6 +37,16 @@ const DreamPage = async ({ params: { dreamId } }) => {
         </h1>{" "}
       </div>
     );
-  return <div>DreamPage</div>;
+  return (
+    <>
+      {data && (
+        <div className="container">
+          {" "}
+          <h1> 123 </h1>
+          <p> 123 </p>{" "}
+        </div>
+      )}
+    </>
+  );
 };
 export default DreamPage;

@@ -13,6 +13,8 @@ export const RedirectFunction: Redirect = async (type, returnings) => {
     case QueryNames.SIGN_UP || QueryNames.SIGN_IN:
       await login(returnings);
       return `/personal/`;
+    case QueryNames.EMAIL_TO_USER:
+      return window.location.pathname;
     default:
       return "/";
   }

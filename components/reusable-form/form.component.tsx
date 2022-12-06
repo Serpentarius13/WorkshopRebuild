@@ -29,6 +29,7 @@ export interface ReusableFormProps {
   type: boolean;
   fields?: string[];
   additionalVariables?: any;
+  closeForm?: () => void;
 }
 
 const ReusableForm: FC<ReusableFormProps> = ({
@@ -37,6 +38,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
   type,
   fields = [],
   additionalVariables = {},
+  closeForm = () => null,
 }) => {
   const {
     register,
@@ -94,7 +96,11 @@ const ReusableForm: FC<ReusableFormProps> = ({
   const sendData = async (formData) => {
     try {
       setLoading(true);
-      const query = queryCreator({ ...formData, additionalVariables });
+      additionalVariables.forEach((el, ix) => {
+        const key = Object.keys(el)[0];
+        formData[key] = additionalVariables[ix][key];
+      });
+      const query = queryCreator(formData);
 
       console.log(query, "QUERY");
 
@@ -119,9 +125,11 @@ const ReusableForm: FC<ReusableFormProps> = ({
       console.log(err);
 
       setTimeout(() => {
-        closeModal();
         setError(false);
-        router.push("/");
+        closeModal();
+        closeForm();
+
+        router.refresh();
       }, 1000);
     }
   };

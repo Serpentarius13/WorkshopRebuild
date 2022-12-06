@@ -1,6 +1,6 @@
 "use client";
 
-import CreateDreamForm from "../../components/reusable-form/createDreamForm";
+import CreateDreamForm from "../../components/reusable-form/formTypes/createDreamForm";
 
 const CreateDreamPage = () => {
   return (

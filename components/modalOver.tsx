@@ -4,6 +4,7 @@ import { useSnapshot } from "valtio";
 import { store } from "../store/store";
 import ReusableForm from "./reusable-form/form.component";
 import FormPopOver from "./reusable-form/formPopOver";
+import SendEmailForm from "./reusable-form/formTypes/sendEmailForm";
 
 export enum QueryNames {
   NEW_DREAM = "newDream",
@@ -67,52 +68,24 @@ const ModalOver = () => {
 
       {modalOpenState === ModalTypes.SEND_EMAIL_TO_USER && (
         <FormPopOver>
-          <ReusableForm
-            blueprint={emailBlueprint}
-            type={true}
-            name={QueryNames.EMAIL_TO_USER}
+          {" "}
+          <SendEmailForm
             additionalVariables={additionalVariables}
-          />
+            name={QueryNames.EMAIL_TO_USER}
+          />{" "}
         </FormPopOver>
       )}
 
       {modalOpenState === ModalTypes.SEND_EMAIL_TO_ME && (
         <FormPopOver>
-          <ReusableForm
-            blueprint={emailBlueprint}
-            type={true}
-            name={QueryNames.EMAIL_TO_ME}
-          />
+          {" "}
+          <SendEmailForm name={QueryNames.EMAIL_TO_ME} />{" "}
         </FormPopOver>
       )}
     </>
   );
 };
 export default ModalOver;
-
-const emailBlueprint = [
-  {
-    name: "name",
-    label: "Your name",
-    settings: { required: "Please fill this field" },
-  },
-  {
-    name: "email",
-    label: "Your email",
-    settings: {
-      required: "Please fill this field",
-    },
-  },
-  {
-    name: "message",
-    label: "Your message",
-    settings: {
-      required: "Please fill this field",
-      minLength: 40,
-      type: "textarea",
-    },
-  },
-];
 
 const userLoginBlueprint = [
   {

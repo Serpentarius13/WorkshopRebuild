@@ -1,6 +1,6 @@
 "use client";
 
-import CreateDreamForm from "../reusable-form/createDreamForm";
+import CreateDreamForm from "../reusable-form/formTypes/createDreamForm";
 import Sliderish from "./slider";
 import ReusableForm from "../reusable-form/form.component";
 import { userSignUpBlueprint } from "../modalOver";

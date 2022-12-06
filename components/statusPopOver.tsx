@@ -15,7 +15,7 @@ interface StatusTypeInterface {
 
 const StatusPopOver: FC<StatusTypeInterface> = ({ type }) => {
   return (
-    <div className="relative w-[20rem] h-[40rem] flex items-center justify-center">
+    <div className="relative w-[30rem] h-[30rem] flex items-center justify-center">
       <div className="absolute top-1/2 left-1/2 flex flex-col items-center justify-center w-[30rem] h-[30rem] bg-gray-200 rounded-full z-100 -translate-y-[55%] -translate-x-1/2 ">
         {type === StatusTypes.STATUS_ERROR && (
           <IconContext.Provider value={{ size: "100px", color: "red" }}>

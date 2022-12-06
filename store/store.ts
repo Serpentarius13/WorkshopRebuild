@@ -9,7 +9,8 @@ import { ModalTypes } from "./../components/modalOver";
 
 interface Store {
   modalOpenState: boolean | ModalTypes;
-  additionalVariables: [];
+  additionalVariables: any[];
+  setVariables: ([]) => void;
   circleOpenState: boolean;
   openModal: (type: ModalTypes) => void;
   closeModal: () => void;
@@ -19,6 +20,10 @@ interface Store {
 export const store = proxy<Store>({
   modalOpenState: false,
   additionalVariables: [],
+  setVariables: (variables) => {
+    store.additionalVariables = variables;
+    return;
+  },
   openModal: (type) => {
     store.modalOpenState = type;
   },
