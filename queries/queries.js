@@ -42,7 +42,7 @@ export const dreamFields = [
 
 export const fetchAllDreams = async () => {
   try {
-    const data = await client.query({
+    const { data } = await client.query({
       query: gql`
         query Query {
           getAll {
@@ -57,10 +57,8 @@ export const fetchAllDreams = async () => {
         }
       `,
     });
-
-    console.log(data);
+    return data.getAll;
   } catch (err) {
-    return 'error';
+    return "error";
   }
-  return data.data.getAll;
 };
