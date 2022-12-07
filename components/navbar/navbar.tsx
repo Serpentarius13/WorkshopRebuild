@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
+import { userStore } from "../../store/store";
 import ButtonCollapse from "./button-collapse.component";
 import Links from "./links.component";
 import NavBarLinks from "./navbar-links";
@@ -11,6 +12,12 @@ import Prophecy from "./prophecy";
 const Navbar: FC = () => {
   const [dropdown, setDropdown] = useState(false);
   const router = useRouter();
+
+  const { login } = userStore;
+
+  useEffect(() => {
+    login();
+  }, []);
   return (
     <>
       <div className=" navbar w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center    ">

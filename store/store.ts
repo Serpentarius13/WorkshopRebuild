@@ -46,12 +46,16 @@ export const userStore = proxy<any>({
   currentUser:
     typeof window === "undefined"
       ? null
-      : JSON.parse(localStorage.getItem("user") || ""),
+      : JSON.parse(localStorage.getItem("user") || JSON.stringify({})),
   login: async (token = null) => {
     try {
-      localStorage.removeItem("user");
-      console.log(token);
+      localStorage.setItem("user", JSON.stringify(null));
+      userStore.currentUser = null;
+      console.log(token, 'TOKEN');
       if (token) setToken(token);
+      const tokenParse = getToken();
+      console.log(tokenParse, 'TOKEN GET');
+      if (typeof tokenParse !== "string") return;
       const { data } = await client.query({ query: getUser });
       console.log(data);
       userStore.currentUser = data.getUser;

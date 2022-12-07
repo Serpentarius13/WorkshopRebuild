@@ -8,7 +8,7 @@ import UniversalButton, { ButtonTypes } from "../uniButton.component";
 ("use client");
 
 import { createQuery } from "../../queries/createDreamMutation";
-import { store } from "../../store/store";
+import { store, userStore } from "../../store/store";
 
 import { useSnapshot } from "valtio";
 import StatusPopOver, { StatusTypes } from "../statusPopOver";
@@ -16,7 +16,7 @@ import { useRouter } from "next/navigation";
 import { RedirectFunction } from "../../utils/redirect";
 
 import { QueryNames } from "./../modalOver";
-import { setToken } from "../../utils/cookies";
+import { getToken, setToken } from "../../utils/cookies";
 
 interface BlueprintData {
   name: string;
@@ -43,6 +43,24 @@ const ReusableForm: FC<ReusableFormProps> = ({
   closeForm = () => {},
   pushTo = null,
 }) => {
+  const { currentUser } = useSnapshot(userStore);
+  const generateDefault = () => {
+    if (!currentUser) return {};
+    const defaults = {};
+    const curUserKeys = Object.keys(currentUser);
+    console.log(curUserKeys);
+    console.log(blueprint);
+    blueprint.forEach((el) => {
+      if (curUserKeys.includes(el.name)) {
+        defaults[el.name] = currentUser[el.name];
+      }
+    });
+
+    console.log(defaults);
+
+    return defaults;
+  };
+
   const {
     register,
     handleSubmit,
@@ -50,7 +68,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     formState: { errors },
     clearErrors,
     reset,
-  } = useForm();
+  } = useForm<any>({ defaultValues: generateDefault() });
 
   const queryCreator = createQuery(fields, name, type);
 
@@ -67,8 +85,6 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
   const { toggleCircle } = useSnapshot(store);
   const handleClickOutside = (event) => {
-    console.log(ref.current);
-    console.log(event.target);
     if (
       ref.current &&
       !ref.current.contains(event.target) &&
@@ -111,14 +127,19 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
       console.log(query, "QUERY");
 
-      const { data } = await axios.post(endpoint, query).then((data) => data);
+      const { data } = await axios
+        .post(endpoint, query, {
+          headers: {
+            authorization: getToken() ? `Bearer ${getToken()}` : "Bearer 0",
+          },
+        })
+        .then((data) => data);
       console.log(data);
       const returnings = data.data[name];
-      setLoading(false);
-      setSuccess(true);
-      setToken(returnings);
 
-  
+      console.log(returnings);
+      
+
       await RedirectFunction(name, returnings).then((path) => {
         console.log(data);
         console.log(path);
@@ -129,8 +150,10 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
           router.push(path);
           router.refresh();
-        }, 123213213);
+        }, 1000);
       });
+      setLoading(false);
+      setSuccess(true);
     } catch (err) {
       reset();
       setLoading(false);

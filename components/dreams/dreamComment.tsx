@@ -15,9 +15,8 @@ const Comment = ({ comment, level = 0 }) => {
 
   const date = new Date(+commentTime);
 
-  console.log(date);
 
-  
+
 
   return (
     <div

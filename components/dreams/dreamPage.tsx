@@ -44,16 +44,8 @@ const DreamFullReadPage = ({ dream, refetch }) => {
   let { comments } = dream;
 
   const { currentUser } = useSnapshot(userStore);
-  const isUser = currentUser instanceof Object;
 
   const id = currentUser?._id;
-
-  console.log(currentUser);
-
-  console.log(currentUser);
-
-  console.log(comments);
-
   const [mutateFn, { data, loading, error }] = useMutation(
     gql`
       mutation Mutation($id: String, $_id: String) {
@@ -62,8 +54,6 @@ const DreamFullReadPage = ({ dream, refetch }) => {
     `,
     { variables: { id, _id }, client }
   );
-
-  console.log(likedBy);
 
   const [formVis, setFormVis] = useState(false);
   return (
@@ -80,10 +70,10 @@ const DreamFullReadPage = ({ dream, refetch }) => {
           text="Leave comment"
           onClick={() => setFormVis(!formVis)}
         />
-        {isUser ? (
+        {currentUser ? (
           <div
             onClick={async () => {
-              if (!isUser) return;
+              if (!currentUser) return;
               try {
                 if (loading || error) return;
                 await mutateFn().then((res) => refetch());
@@ -91,16 +81,18 @@ const DreamFullReadPage = ({ dream, refetch }) => {
                 return;
               }
             }}
+            className="relative cursor-pointer hover:scale-125"
           >
             {" "}
-            <div className="flex space-x-2 items-center justify-center">
+            {likedBy.includes(id) ? (
+              <FcDislike className="w-20 h-20     " />
+            ) : (
+              <FcLike className="w-20 h-20  " />
+            )}
+            <span className=" bg-white rounded-full w-8 h-8 flex items-center justify-center text-center  absolute top-1/2 left-1/2 -translate-y-[40%] -translate-x-1/2 font-medium text-2xl text-purple-800">
               {" "}
-              {likedBy.includes(id) ? (
-                <FcDislike className="icon icon-dislike" />
-              ) : (
-                <FcLike className="icon icon-like" />
-              )}
-            </div>
+              {rating}{" "}
+            </span>
           </div>
         ) : (
           <p className="p-2 flex items-center justify-center border-2 border-orange-400">

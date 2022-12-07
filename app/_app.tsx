@@ -7,6 +7,7 @@ import Head from "next/head";
 import { client } from "../apollo-client";
 import { userStore } from "../store/store";
 import { useEffect } from "react";
+import Script from "next/script";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { login } = userStore;
