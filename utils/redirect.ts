@@ -12,6 +12,8 @@ export const RedirectFunction: Redirect = async (type, returnings) => {
       return `/dream/${_id}`;
     case QueryNames.SIGN_UP || QueryNames.SIGN_IN:
       await login(returnings);
+      console.log(returnings);
+      setTimeout(() => {}, 123123);
       return `/personal/`;
     default:
       return window.location.pathname;

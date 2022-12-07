@@ -17,7 +17,7 @@ export const removeToken = () => {
 export const testCookie = () => {
   Cookies.set("hasJS", true);
 
-  const token = Cookies.get("hasJs");
+  const token = Cookies.get("hasJS");
 
   return token ? token : false;
 };

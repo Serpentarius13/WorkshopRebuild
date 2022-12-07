@@ -1,6 +1,6 @@
 "use client";
 
-import { store } from "../../store/store";
+import { store, userStore } from "../../store/store";
 import { ModalTypes, QueryNames } from "../modalOver";
 import UniversalButton, { ButtonTypes } from "../uniButton.component";
 import DreamPageInitials from "./dreamPageInitials";
@@ -9,13 +9,22 @@ import { useState, useEffect } from "react";
 import SendEmailForm from "../reusable-form/formTypes/sendEmailForm";
 import CreateCommentForm from "../reusable-form/formTypes/createCommentForm";
 
+import { FcLike, FcDislike } from "react-icons/fc";
+
+import Comment from "./dreamComment";
+import { useSnapshot } from "valtio";
+import { gql, useMutation } from "@apollo/client";
+
+import { client } from "../../apollo-client";
+
 function countAllNestedArrays(obj) {
   let count = 0;
 
   for (const key in obj) {
     if (obj.hasOwnProperty(key)) {
       if (Array.isArray(obj[key])) {
-        // If the value is an array, add the length to the count
+        if (!(obj[key][0] instanceof Object)) continue;
+
         count += obj[key].length;
         count += countAllNestedArrays(obj[key]);
       } else if (typeof obj[key] === "object") {
@@ -29,11 +38,32 @@ function countAllNestedArrays(obj) {
 }
 
 const DreamFullReadPage = ({ dream, refetch }) => {
-  const { dreamName, description, time, email, name, _id } = dream;
+  const { dreamName, description, time, email, name, _id, rating, likedBy } =
+    dream;
 
   let { comments } = dream;
 
+  const { currentUser } = useSnapshot(userStore);
+  const isUser = currentUser instanceof Object;
+
+  const id = currentUser?._id;
+
+  console.log(currentUser);
+
+  console.log(currentUser);
+
   console.log(comments);
+
+  const [mutateFn, { data, loading, error }] = useMutation(
+    gql`
+      mutation Mutation($id: String, $_id: String) {
+        likeDream(id: $_id, userId: $id)
+      }
+    `,
+    { variables: { id, _id }, client }
+  );
+
+  console.log(likedBy);
 
   const [formVis, setFormVis] = useState(false);
   return (
@@ -44,12 +74,42 @@ const DreamFullReadPage = ({ dream, refetch }) => {
         <DreamPageInitials name={name} id={_id} time={time} />
       </div>
       <p className="break-words w-[100%] md:w-[50%] mt-8"> {description} </p>{" "}
-      <UniversalButton
-        buttonType={ButtonTypes.LEAVE_COMMENT}
-        text="Leave comment"
-        onClick={() => setFormVis(!formVis)}
-      />
-      <div className=" z-10 absolute">
+      <div className="w-[95%] md:w-[45%] flex items-center justify-between mt-4">
+        <UniversalButton
+          buttonType={ButtonTypes.LEAVE_COMMENT}
+          text="Leave comment"
+          onClick={() => setFormVis(!formVis)}
+        />
+        {isUser ? (
+          <div
+            onClick={async () => {
+              if (!isUser) return;
+              try {
+                if (loading || error) return;
+                await mutateFn().then((res) => refetch());
+              } catch (err) {
+                return;
+              }
+            }}
+          >
+            {" "}
+            <div className="flex space-x-2 items-center justify-center">
+              {" "}
+              {likedBy.includes(id) ? (
+                <FcDislike className="icon icon-dislike" />
+              ) : (
+                <FcLike className="icon icon-like" />
+              )}
+            </div>
+          </div>
+        ) : (
+          <p className="p-2 flex items-center justify-center border-2 border-orange-400">
+            {" "}
+            Be sure to log in to rate it <br />
+          </p>
+        )}
+      </div>
+      <div className=" z-10 absolute w-[30rem] h-[30rem]">
         {formVis && (
           <CreateCommentForm
             id={_id}
@@ -60,7 +120,11 @@ const DreamFullReadPage = ({ dream, refetch }) => {
           />
         )}
       </div>
-      <h1 className="mt-8"> Comments: {countAllNestedArrays(dream)} </h1>
+      <p className="mt-8 text-blue-400">
+        {" "}
+        Comments: {countAllNestedArrays(dream)}{" "}
+      </p>{" "}
+      <p className="text-red-400"> Rating: {rating} </p>{" "}
       <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4">
         {" "}
         {comments.map((comment, ix) => {
@@ -71,51 +135,3 @@ const DreamFullReadPage = ({ dream, refetch }) => {
   );
 };
 export default DreamFullReadPage;
-
-const Comment = ({ comment, level = 0 }) => {
-  const nestedComments = (comment.comments || []).map((comment) => {
-    comment.level = level + 1;
-
-    return (
-      <Comment
-        level={level + 1}
-        comment={comment}
-        key={Math.random() * 123123}
-      />
-    );
-  });
-
-  const { commentAuthor, commentText, commentTime } = comment;
-
-  const date = new Date(+commentTime);
-
-  console.log(date);
-
-  return (
-    <div
-      className="w-[25em] space-y-2"
-      style={{
-        marginLeft: `${level * 24}px`,
-        marginTop: "20px",
-      }}
-    >
-      <div className="flex items-center justify-between">
-        {" "}
-        <p className="text-sm font-bold">
-          {" "}
-          By:{" "}
-          <span className="text-2xl italic font-medium">
-            {" "}
-            {commentAuthor}{" "}
-          </span>{" "}
-        </p>{" "}
-        <span className="font-sm underline flex justify-end gap-4 w-[60%] items-center">
-          {" "}
-          <span> {date.toLocaleTimeString()} </span>{" "}
-          <span>{date.toDateString()}</span>
-        </span>
-      </div>
-      <p className="break-words "> {commentText} </p> {nestedComments}
-    </div>
-  );
-};

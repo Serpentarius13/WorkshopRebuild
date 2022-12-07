@@ -79,9 +79,7 @@
     animation: shadowy 4s infinite;
   }
 
-  .popover {
-    animation: animate-blur 0.5s linear forwards;
-  }
+
 
   .circle {
     background-color: transparent;
@@ -126,6 +124,21 @@
   .widthen {
     animation: animate-blur 0.5s forwards 1 linear;
   }
+
+  .decide {
+    display: none;
+  }
+
+  .icon {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon:hover {
+    transform: scale(1.2) !important;
+  }
+
 }
 
 @media (min-width: 800px) {

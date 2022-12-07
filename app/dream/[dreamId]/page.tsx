@@ -7,29 +7,11 @@ import { client } from "../../../apollo-client";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import DreamFullReadPage from "../../../components/dreams/dreamPage";
-import Loading from "../../loading";
+
+import { getOneDream } from "../../../queries/queries";
 
 const DreamPage = ({ params: { dreamId } }) => {
-  const query = gql`
-    query Query($id: String) {
-      getOneDream(id: $id) {
-        dreamName
-        description
-        name
-        time
-        email
-        authorId
-        _id
-        comments {
-          commentTime
-          commentAuthor
-          commentText
-        }
-      }
-    }
-  `;
-
-  const { data, loading, error, refetch } = useQuery(query, {
+  const { data, loading, error, refetch } = useQuery(getOneDream, {
     variables: { id: dreamId },
     client: client,
     pollInterval: 3000,
@@ -37,7 +19,7 @@ const DreamPage = ({ params: { dreamId } }) => {
 
   const dream = data?.getOneDream;
 
-  if (loading) return <Loading />;
+  if (loading) return <div> Loading </div>
 
   if (error)
     return (

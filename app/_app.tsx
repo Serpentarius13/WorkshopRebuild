@@ -10,9 +10,7 @@ import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
   const { login } = userStore;
-  useEffect(() => {
-    login();
-  }, [login]);
+
   return (
     <ApolloProvider client={client}>
       <Head>

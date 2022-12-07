@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import { RedirectFunction } from "../../utils/redirect";
 
 import { QueryNames } from "./../modalOver";
+import { setToken } from "../../utils/cookies";
 
 interface BlueprintData {
   name: string;
@@ -66,11 +67,14 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
   const { toggleCircle } = useSnapshot(store);
   const handleClickOutside = (event) => {
+    console.log(ref.current);
+    console.log(event.target);
     if (
       ref.current &&
       !ref.current.contains(event.target) &&
       !event.key &&
-      event.target.nodeName !== "BUTTON"
+      event.target.nodeName !== "BUTTON" &&
+      !(ref.current === event.target)
     ) {
       toggleCircle();
     }
@@ -112,7 +116,9 @@ const ReusableForm: FC<ReusableFormProps> = ({
       const returnings = data.data[name];
       setLoading(false);
       setSuccess(true);
-      pushTo ? pushTo(returnings) : null;
+      setToken(returnings);
+
+  
       await RedirectFunction(name, returnings).then((path) => {
         console.log(data);
         console.log(path);
@@ -123,7 +129,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
           router.push(path);
           router.refresh();
-        }, 1000);
+        }, 123213213);
       });
     } catch (err) {
       reset();

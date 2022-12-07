@@ -46,14 +46,18 @@ export const userStore = proxy<any>({
   currentUser:
     typeof window === "undefined"
       ? null
-      : JSON.parse(localStorage.getItem("user") || JSON.stringify({})),
+      : JSON.parse(localStorage.getItem("user") || ""),
   login: async (token = null) => {
     try {
+      localStorage.removeItem("user");
+      console.log(token);
       if (token) setToken(token);
       const { data } = await client.query({ query: getUser });
+      console.log(data);
       userStore.currentUser = data.getUser;
+      localStorage.setItem("user", JSON.stringify(data.getUser));
     } catch (err) {
-      userStore.logout();
+      console.log(err);
       return;
     }
   },
@@ -63,10 +67,6 @@ export const userStore = proxy<any>({
     userStore.currentUser = null;
     return;
   },
-});
-
-subscribe(userStore, () => {
-  localStorage.setItem("user", JSON.stringify(userStore.currentUser));
 });
 
 // import create from "zustand";

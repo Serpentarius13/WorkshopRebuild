@@ -23,7 +23,7 @@ export const getAllDreams = gql`
 export const getUser = gql`
   query Query {
     getUser {
-      username
+       name
       email
       _id
     }
@@ -62,3 +62,24 @@ export const fetchAllDreams = async () => {
     return "error";
   }
 };
+
+export const getOneDream = gql`
+  query Query($id: String) {
+    getOneDream(id: $id) {
+      dreamName
+      description
+      name
+      time
+      email
+      authorId
+      _id
+      likedBy
+      rating
+      comments {
+        commentTime
+        commentAuthor
+        commentText
+      }
+    }
+  }
+`;

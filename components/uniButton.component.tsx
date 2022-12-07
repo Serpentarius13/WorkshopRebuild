@@ -4,6 +4,7 @@ export enum ButtonTypes {
   FORM_BUTTON = "FORM_BUTTON",
   MODAL_BUTTON = "MODAL_BUTTON",
   LEAVE_COMMENT = "LEAVE_COMMENT",
+  LIKE_POST = ""
 }
 
 interface ButtonProps {
@@ -30,7 +31,7 @@ const UniversalButton: FC<ButtonProps> = ({
     "absolute top-1 right-1 bg-purple-800 w-8 h-8 text-white rounded-full hover:bg-blue-800  ";
 
   const commentButtonStyle =
-    "px-6 py-3 bg-orange-500 text-white hover:bg-orange-600 active:bg-red-800 mt-4";
+    "px-6 py-3 bg-orange-500 text-white hover:bg-orange-600 active:bg-red-800";
 
   const styleDecide = () => {
     switch (buttonType) {
@@ -40,6 +41,7 @@ const UniversalButton: FC<ButtonProps> = ({
         return modalButtonStyle;
       case ButtonTypes.LEAVE_COMMENT:
         return commentButtonStyle;
+      
       default:
         return "";
     }
