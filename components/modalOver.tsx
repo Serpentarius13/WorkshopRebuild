@@ -90,7 +90,7 @@ export default ModalOver;
 
 const userLoginBlueprint = [
   {
-    name: "username",
+    name: "name",
     label: "Your username",
     settings: { required: "Please fill this field" },
   },
@@ -105,7 +105,7 @@ const userLoginBlueprint = [
 
 export const userSignUpBlueprint = [
   {
-    name: "username",
+    name: "name",
     label: "Your username",
     settings: { required: "Please fill this field" },
   },

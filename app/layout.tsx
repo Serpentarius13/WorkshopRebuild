@@ -15,6 +15,7 @@ export default function RootLayout({
   return (
     <html>
       <head></head>
+
       <body>
         {" "}
         <Navbar /> <ModalOver /> {children}

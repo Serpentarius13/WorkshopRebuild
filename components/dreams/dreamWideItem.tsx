@@ -3,9 +3,9 @@ import Link from "next/link";
 const DreamWideItem = ({ dream }) => {
   const { time, name, email, dreamName, description, _id } = dream;
   return (
-    <li className="md:w-[60%] xl:w-[50%] w-[80%] mx-auto p-2 relative flex-1 ">
+    <li className="md:w-[60%] xl:w-[50%] w-[80%] mx-auto p-2 relative flex-1 border-b-2 border-purple-800 mb-8  ">
       <h1 className="text 2xl font-medium"> {dreamName} </h1>
-      <p className="text-sm break-words overflow-hidden h-8 w-[85%]">
+      <p className="text-sm break-words overflow-hidden h-14 w-[85%]">
         {" "}
         123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123{" "}
         {description}{" "}

@@ -5,8 +5,14 @@ import { ApolloProvider } from "@apollo/client";
 import Head from "next/head";
 
 import { client } from "../apollo-client";
+import { userStore } from "../store/store";
+import { useEffect } from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const { login } = userStore;
+  useEffect(() => {
+    login();
+  }, [login]);
   return (
     <ApolloProvider client={client}>
       <Head>

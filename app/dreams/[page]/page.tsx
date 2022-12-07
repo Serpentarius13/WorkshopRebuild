@@ -7,7 +7,7 @@ import Link from "next/link";
 import DreamPageLayout from "../../../components/dreams/dreamLayout";
 import DreamWideItem from "../../../components/dreams/dreamWideItem";
 
-import { countPages, pageSize, makeParams } from "./../../../utils/pages";
+import { countPages, pageSize, makeParams } from "../../../utils/pages";
 import { useRouter } from "next/navigation";
 import StatusPopOver, { StatusTypes } from "../../../components/statusPopOver";
 

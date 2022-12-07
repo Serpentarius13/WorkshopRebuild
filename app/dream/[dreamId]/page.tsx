@@ -7,6 +7,7 @@ import { client } from "../../../apollo-client";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
 import DreamFullReadPage from "../../../components/dreams/dreamPage";
+import Loading from "../../loading";
 
 const DreamPage = ({ params: { dreamId } }) => {
   const query = gql`
@@ -35,6 +36,8 @@ const DreamPage = ({ params: { dreamId } }) => {
   });
 
   const dream = data?.getOneDream;
+
+  if (loading) return <Loading />;
 
   if (error)
     return (
