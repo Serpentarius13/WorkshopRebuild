@@ -8,15 +8,13 @@ interface DreamInitialsInterface {
   time: string;
 }
 
-const DreamPageInitials = ({ email, name, time }) => {
+const DreamPageInitials = ({ id, name, time }) => {
   const { setVariables, openModal } = store;
 
   const openEmailModel = () => {
-    setVariables([{ toEmail: email }]);
+    setVariables([{ id: id }]);
     openModal(ModalTypes.SEND_EMAIL_TO_USER);
   };
-
-
 
   return (
     <div className="flex md:mr-24 space-x-8 items-center justify-center">
@@ -44,7 +42,7 @@ const DreamPageInitials = ({ email, name, time }) => {
         ""
       )}{" "}
       <div className="mx-auto">
-        {email ? (
+        {id ? (
           <UniversalButton
             buttonType={ButtonTypes.FORM_BUTTON}
             text="Send email to user!"

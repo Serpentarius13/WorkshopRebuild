@@ -10,8 +10,9 @@ export enum QueryNames {
   NEW_DREAM = "newDream",
   SIGN_UP = "signUp",
   SIGN_IN = "signIn",
-  EMAIL_TO_USER = "sendEmailUser",
+  EMAIL_TO_USER = "sendEmail",
   EMAIL_TO_ME = "sendEmailMe",
+  ADD_COMMENT_TO_DREAM = 'addCommentToDream'
 }
 
 export enum ModalTypes {

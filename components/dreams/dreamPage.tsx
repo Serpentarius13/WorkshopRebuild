@@ -7,59 +7,33 @@ import DreamPageInitials from "./dreamPageInitials";
 
 import { useState, useEffect } from "react";
 import SendEmailForm from "../reusable-form/formTypes/sendEmailForm";
+import CreateCommentForm from "../reusable-form/formTypes/createCommentForm";
 
-const DreamFullReadPage = () => {
-  const fakeDream = {
-    name: "Bobink",
-    time: "12:38",
-    email: "bobki@mail.ru",
-    dreamName: "Lorem ipsum?",
-    description:
-      "Lorem ipsum dolor sit, amet con122222222222222222222222222222222222222222223s21212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121212121213ectetur12321321321321312312313123213123123123123213 adipisicing elit. Maiores, aliquam laudantium quod numquam repellat optio, porro accusamus sequi quisquam, quam cum ullam vel necessitatibus. Animi aliquam fugit id nulla iste.",
-    comments: [
-      {
-        commentAuthor: "bobkin",
-        message:
-          "Loremius LoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremiusLoremius",
-        commentTime: new Date().toDateString(),
-        comments: [
-          {
-            commentAuthor: "Bobkin",
-            message: "213123123123",
-            commentTime: new Date().toDateString(),
-            comments: [
-              {
-                commentAuthor: "Bobkin",
-                message: "213123123123",
-                commentTime: new Date().toDateString(),
-              },
-            ],
-          },
-        ],
-      },
-    ],
-  };
+function countAllNestedArrays(obj) {
+  let count = 0;
 
-  function countAllNestedArrays(obj) {
-    let count = 0;
-
-    for (const key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        if (Array.isArray(obj[key])) {
-          // If the value is an array, add the length to the count
-          count += obj[key].length;
-          count += countAllNestedArrays(obj[key]);
-        } else if (typeof obj[key] === "object") {
-          // If the value is an object, call the function recursively
-          count += countAllNestedArrays(obj[key]);
-        }
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      if (Array.isArray(obj[key])) {
+        // If the value is an array, add the length to the count
+        count += obj[key].length;
+        count += countAllNestedArrays(obj[key]);
+      } else if (typeof obj[key] === "object") {
+        // If the value is an object, call the function recursively
+        count += countAllNestedArrays(obj[key]);
       }
     }
-
-    return count;
   }
 
-  const { dreamName, description, time, email, name, comments } = fakeDream;
+  return count;
+}
+
+const DreamFullReadPage = ({ dream, refetch }) => {
+  const { dreamName, description, time, email, name, _id } = dream;
+
+  let { comments } = dream;
+
+  console.log(comments);
 
   const [formVis, setFormVis] = useState(false);
   return (
@@ -67,7 +41,7 @@ const DreamFullReadPage = () => {
       <div className="flex justify-between items-center">
         {" "}
         <h1 className="text-4xl font-medium"> {dreamName} </h1>{" "}
-        <DreamPageInitials name={name} email={email} time={time} />
+        <DreamPageInitials name={name} id={_id} time={time} />
       </div>
       <p className="break-words w-[100%] md:w-[50%] mt-8"> {description} </p>{" "}
       <UniversalButton
@@ -77,14 +51,16 @@ const DreamFullReadPage = () => {
       />
       <div className=" z-10 absolute">
         {formVis && (
-          <SendEmailForm
-            name={QueryNames.EMAIL_TO_USER}
-            additionalVariables={{ emailFrom: email }}
-            closeForm={() => setFormVis(false)}
+          <CreateCommentForm
+            id={_id}
+            close={() => {
+              setFormVis(false);
+              refetch();
+            }}
           />
         )}
       </div>
-      <h1 className='mt-8'> Comments: {countAllNestedArrays(fakeDream)} </h1>
+      <h1 className="mt-8"> Comments: {countAllNestedArrays(dream)} </h1>
       <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4">
         {" "}
         {comments.map((comment, ix) => {
@@ -109,9 +85,11 @@ const Comment = ({ comment, level = 0 }) => {
     );
   });
 
-  console.log(comment);
+  const { commentAuthor, commentText, commentTime } = comment;
 
-  const { commentAuthor, message, commentTime } = comment;
+  const date = new Date(+commentTime);
+
+  console.log(date);
 
   return (
     <div
@@ -131,9 +109,13 @@ const Comment = ({ comment, level = 0 }) => {
             {commentAuthor}{" "}
           </span>{" "}
         </p>{" "}
-        <span className="font-sm underline"> {commentTime} </span>
+        <span className="font-sm underline flex justify-end gap-4 w-[60%] items-center">
+          {" "}
+          <span> {date.toLocaleTimeString()} </span>{" "}
+          <span>{date.toDateString()}</span>
+        </span>
       </div>
-      <p className="break-words "> {message} </p> {nestedComments}
+      <p className="break-words "> {commentText} </p> {nestedComments}
     </div>
   );
 };

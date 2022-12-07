@@ -1,4 +1,4 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 
 import { testCookie } from "../../utils/cookies";
 
@@ -7,7 +7,7 @@ const HomeBlurAppear = ({ children }) => {
 
   const hasJs = useRef<any>(testCookie());
 
-  const animate = () => {
+  const animate = useCallback(() => {
     if (!ref) return;
 
     const offset = window.pageYOffset;
@@ -18,7 +18,7 @@ const HomeBlurAppear = ({ children }) => {
       ref.current.classList.add("appear");
       document.removeEventListener("scroll", animate);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (!hasJs) return;
@@ -31,7 +31,7 @@ const HomeBlurAppear = ({ children }) => {
     document.addEventListener("scroll", animate);
 
     return () => document.removeEventListener("scroll", animate);
-  }, [hasJs]);
+  }, [hasJs, animate]);
   return (
     <div
       className={` w-[100%] h-[100%] flex items-center justify-center relative `}

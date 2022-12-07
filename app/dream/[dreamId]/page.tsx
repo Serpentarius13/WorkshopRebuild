@@ -6,26 +6,35 @@ import * as builder from "gql-query-builder";
 import { client } from "../../../apollo-client";
 import { gql, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
+import DreamFullReadPage from "../../../components/dreams/dreamPage";
 
 const DreamPage = ({ params: { dreamId } }) => {
   const query = gql`
-    query Query($id: ID) {
+    query Query($id: String) {
       getOneDream(id: $id) {
         dreamName
         description
+        name
+        time
+        email
+        authorId
+        _id
+        comments {
+          commentTime
+          commentAuthor
+          commentText
+        }
       }
     }
   `;
 
-  const { data, loading, error } = useQuery(query, {
+  const { data, loading, error, refetch } = useQuery(query, {
     variables: { id: dreamId },
     client: client,
+    pollInterval: 3000,
   });
 
-  const dream = data?.getOneDream
-
-
-
+  const dream = data?.getOneDream;
 
   if (error)
     return (
@@ -37,16 +46,6 @@ const DreamPage = ({ params: { dreamId } }) => {
         </h1>{" "}
       </div>
     );
-  return (
-    <>
-      {data && (
-        <div className="container">
-          {" "}
-          <h1> 123 </h1>
-          <p> 123 </p>{" "}
-        </div>
-      )}
-    </>
-  );
+  return <> {dream && <DreamFullReadPage refetch={refetch} dream={dream} />}</>;
 };
 export default DreamPage;

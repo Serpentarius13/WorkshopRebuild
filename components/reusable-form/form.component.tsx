@@ -30,6 +30,7 @@ export interface ReusableFormProps {
   fields?: string[];
   additionalVariables?: any;
   closeForm?: () => void;
+  pushTo?: any;
 }
 
 const ReusableForm: FC<ReusableFormProps> = ({
@@ -37,8 +38,9 @@ const ReusableForm: FC<ReusableFormProps> = ({
   name,
   type,
   fields = [],
-  additionalVariables = {},
-  closeForm = () => null,
+  additionalVariables = [],
+  closeForm = () => {},
+  pushTo = null,
 }) => {
   const {
     register,
@@ -51,6 +53,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
   const queryCreator = createQuery(fields, name, type);
 
+  console.log(name, type);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -75,7 +78,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
   };
 
   useEffect(() => {
-    const checkingFor = ["click", "keydown"];
+    const checkingFor = ["keydown"];
 
     checkingFor.forEach((el) =>
       document.addEventListener(el, handleClickOutside, true)
@@ -109,13 +112,17 @@ const ReusableForm: FC<ReusableFormProps> = ({
       const returnings = data.data[name];
       setLoading(false);
       setSuccess(true);
+      pushTo ? pushTo(returnings) : null;
       await RedirectFunction(name, returnings).then((path) => {
         console.log(data);
         console.log(path);
         setTimeout(() => {
           closeModal();
+          closeForm();
           reset();
+
           router.push(path);
+          router.refresh();
         }, 1000);
       });
     } catch (err) {
