@@ -42,9 +42,7 @@ const LikeButton: FC<ILikeButton> = ({
                 : rating > 0
                 ? "bg-green-600"
                 : "bg-red-600"
-            } rounded-full w-${Math.round(size / 2)} h-${Math.round(
-              size / 2
-            )} flex items-center justify-center text-center  absolute -bottom-14 left-1/2 -translate-x-1/2 font-medium text-2xl text-white`}
+            } rounded-full w-6 h-6 flex items-center justify-center text-center  absolute -bottom-1 left-1/2 -translate-x-1/2 font-medium text-2xl text-white`}
           >
             {" "}
             {rating}{" "}

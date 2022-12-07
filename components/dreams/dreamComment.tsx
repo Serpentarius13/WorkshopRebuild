@@ -18,16 +18,13 @@ const Comment = ({ comment, level = 0, likeHandler, id }) => {
     );
   });
 
-  console.log(comment);
-
   const { commentAuthor, commentText, createdAt, commentRating, likedBy, _id } =
     comment;
 
-  const date = new Date(createdAt);
+  const date = new Date(+createdAt);
 
-  const likeComment = () => {};
-
-  console.log(_id, "213213123");
+  console.log(date);
+  console.log(createdAt);
 
   return (
     <div
@@ -37,7 +34,7 @@ const Comment = ({ comment, level = 0, likeHandler, id }) => {
         marginTop: "20px",
       }}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center space-x-4 ">
         {" "}
         <p className="text-sm font-bold">
           {" "}
@@ -58,7 +55,7 @@ const Comment = ({ comment, level = 0, likeHandler, id }) => {
           condition={likedBy.includes(id)}
           size={16}
           handler={() => likeHandler(false, _id)}
-        />
+        />{" "}
       </div>
       <p className="break-words "> {commentText} </p> {nestedComments}
     </div>
