@@ -16,6 +16,7 @@ import { useSnapshot } from "valtio";
 import { gql, useMutation } from "@apollo/client";
 
 import { client } from "../../apollo-client";
+import LikeButton from "./dreamLikeButton";
 
 function countAllNestedArrays(obj) {
   let count = 0;
@@ -56,6 +57,17 @@ const DreamFullReadPage = ({ dream, refetch }) => {
   );
 
   const [formVis, setFormVis] = useState(false);
+
+  const likePost = async () => {
+    if (!currentUser) return;
+    try {
+      if (loading || error) return;
+      await mutateFn().then((res) => refetch());
+    } catch (err) {
+      return;
+    }
+  };
+
   return (
     <div className="container mx-auto py-12 px-4 relative ">
       <div className="flex justify-between items-center">
@@ -70,36 +82,14 @@ const DreamFullReadPage = ({ dream, refetch }) => {
           text="Leave comment"
           onClick={() => setFormVis(!formVis)}
         />
-        {currentUser ? (
-          <div
-            onClick={async () => {
-              if (!currentUser) return;
-              try {
-                if (loading || error) return;
-                await mutateFn().then((res) => refetch());
-              } catch (err) {
-                return;
-              }
-            }}
-            className="relative cursor-pointer hover:scale-125"
-          >
-            {" "}
-            {likedBy.includes(id) ? (
-              <FcDislike className="w-20 h-20     " />
-            ) : (
-              <FcLike className="w-20 h-20  " />
-            )}
-            <span className=" bg-white rounded-full w-8 h-8 flex items-center justify-center text-center  absolute top-1/2 left-1/2 -translate-y-[40%] -translate-x-1/2 font-medium text-2xl text-purple-800">
-              {" "}
-              {rating}{" "}
-            </span>
-          </div>
-        ) : (
-          <p className="p-2 flex items-center justify-center border-2 border-orange-400">
-            {" "}
-            Be sure to log in to rate it <br />
-          </p>
-        )}
+
+        <LikeButton
+          condition={likedBy.includes(id)}
+          size={20}
+          rating={rating}
+          handler={likePost}
+          buttonExistenceCondition={currentUser}
+        />
       </div>
       <div className=" z-10 absolute w-[30rem] h-[30rem]">
         {formVis && (
