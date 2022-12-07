@@ -23,7 +23,7 @@ export const getAllDreams = gql`
 export const getUser = gql`
   query Query {
     getUser {
-       name
+      name
       email
       _id
     }
@@ -66,20 +66,40 @@ export const fetchAllDreams = async () => {
 export const getOneDream = gql`
   query Query($id: String) {
     getOneDream(id: $id) {
-      dreamName
+      _id
+      authorId
       description
       name
-      time
-      email
-      authorId
-      _id
+      dreamName
       likedBy
       rating
       comments {
-        commentTime
-        commentAuthor
-        commentText
+        ...CommentFragment
+        comments {
+          ...CommentFragment
+          comments {
+            ...CommentFragment
+            comments {
+              ...CommentFragment
+              comments {
+                ...CommentFragment
+                comments {
+                  ...CommentFragment
+                }
+              }
+            }
+          }
+        }
       }
     }
+  }
+  fragment CommentFragment on Comment {
+    commentRating
+    commentAuthorId
+    commentAuthor
+    commentText
+    createdAt
+    likedBy
+    _id
   }
 `;

@@ -2,10 +2,10 @@ import { FC } from "react";
 
 interface ILikeButton {
   condition: boolean;
-  handler: () => any;
+  handler: () => Promise<void>
   rating: number;
   size: number;
-  buttonExistenceCondition: any
+  buttonExistenceCondition: any;
 }
 
 import { FcDislike, FcLike } from "react-icons/fc";
@@ -17,20 +17,21 @@ const LikeButton: FC<ILikeButton> = ({
   rating,
   size,
 }) => {
+  console.log(buttonExistenceCondition, 'COND');
   return (
     <>
       {" "}
       {buttonExistenceCondition ? (
-        <div className="relative  ">
+        <div className={`relative   w-${size} h-${size} cursor-pointer z-10 `}>
           {" "}
           {condition ? (
             <FcDislike
-              className={`w-${size} h-${size}  hover:scale-125  cursor-pointer  `}
+              className={`w-[100%] h-[100%]  hover:scale-125  cursor-pointer  `}
               onClick={handler}
             />
           ) : (
             <FcLike
-              className={`w-${size} h-${size}  hover:scale-125  cursor-pointer  `}
+              className={`w-[100%] h-[100%]   hover:scale-125  cursor-pointer  `}
               onClick={handler}
             />
           )}

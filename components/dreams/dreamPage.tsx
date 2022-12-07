@@ -49,20 +49,22 @@ const DreamFullReadPage = ({ dream, refetch }) => {
   const id = currentUser?._id;
   const [mutateFn, { data, loading, error }] = useMutation(
     gql`
-      mutation Mutation($id: String, $_id: String) {
-        likeDream(id: $_id, userId: $id)
+      mutation Mutation($_id: String, $isDream: Boolean) {
+        likeClick(id: $_id, isDream: $isDream)
       }
     `,
-    { variables: { id, _id }, client }
+    { client }
   );
 
   const [formVis, setFormVis] = useState(false);
 
-  const likePost = async () => {
+  const likePost = async (isDream, id) => {
     if (!currentUser) return;
     try {
       if (loading || error) return;
-      await mutateFn().then((res) => refetch());
+      await mutateFn({ variables: { isDream, _id: id } }).then((res) =>
+        refetch()
+      );
     } catch (err) {
       return;
     }
@@ -87,7 +89,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
           condition={likedBy.includes(id)}
           size={20}
           rating={rating}
-          handler={likePost}
+          handler={() => likePost(true, _id)}
           buttonExistenceCondition={currentUser}
         />
       </div>
@@ -110,7 +112,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
       <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4">
         {" "}
         {comments.map((comment, ix) => {
-          return <Comment key={ix} comment={comment} />;
+          return <Comment id={currentUser?._id} likeHandler={likePost} key={ix} comment={comment} />;
         })}
       </div>
     </div>

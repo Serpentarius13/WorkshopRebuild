@@ -1,4 +1,9 @@
-const Comment = ({ comment, level = 0 }) => {
+import { gql, useMutation } from "@apollo/client";
+
+import { client } from "../../apollo-client";
+import LikeButton from "./dreamLikeButton";
+
+const Comment = ({ comment, level = 0, likeHandler, id }) => {
   const nestedComments = (comment.comments || []).map((comment) => {
     comment.level = level + 1;
 
@@ -7,16 +12,22 @@ const Comment = ({ comment, level = 0 }) => {
         level={level + 1}
         comment={comment}
         key={Math.random() * 123123}
+        likeHandler={likeHandler}
+        id={id}
       />
     );
   });
 
-  const { commentAuthor, commentText, commentTime } = comment;
+  console.log(comment);
 
-  const date = new Date(+commentTime);
+  const { commentAuthor, commentText, createdAt, commentRating, likedBy, _id } =
+    comment;
 
+  const date = new Date(createdAt);
 
+  const likeComment = () => {};
 
+  console.log(_id, "213213123");
 
   return (
     <div
@@ -41,6 +52,13 @@ const Comment = ({ comment, level = 0 }) => {
           <span> {date.toLocaleTimeString()} </span>{" "}
           <span>{date.toDateString()}</span>
         </span>
+        <LikeButton
+          buttonExistenceCondition={id}
+          rating={commentRating}
+          condition={likedBy.includes(id)}
+          size={16}
+          handler={() => likeHandler(false, _id)}
+        />
       </div>
       <p className="break-words "> {commentText} </p> {nestedComments}
     </div>
