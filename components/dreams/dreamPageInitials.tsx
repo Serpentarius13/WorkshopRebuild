@@ -1,5 +1,5 @@
 import { store } from "./../../store/store";
-import { ModalTypes } from "./../modalOver";
+import { ModalTypes } from "../../types/enum";
 import UniversalButton, { ButtonTypes } from "./../uniButton.component";
 
 interface DreamInitialsInterface {

@@ -1,7 +1,7 @@
 "use client";
 
 import { store, userStore } from "../../store/store";
-import { ModalTypes, QueryNames } from "../modalOver";
+import { ModalTypes, QueryNames } from "./../../types/enum";
 import UniversalButton, { ButtonTypes } from "../uniButton.component";
 import DreamPageInitials from "./dreamPageInitials";
 
@@ -112,7 +112,14 @@ const DreamFullReadPage = ({ dream, refetch }) => {
       <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4">
         {" "}
         {comments.map((comment, ix) => {
-          return <Comment id={currentUser?._id} likeHandler={likePost} key={ix} comment={comment} />;
+          return (
+            <Comment
+              id={currentUser?._id}
+              likeHandler={likePost}
+              key={ix}
+              comment={comment}
+            />
+          );
         })}
       </div>
     </div>

@@ -5,7 +5,7 @@ import { getToken, removeToken, setToken } from "../utils/cookies";
 
 import * as build from "gql-query-builder";
 
-import { ModalTypes } from "./../components/modalOver";
+import { ModalTypes } from "./../types/enum";
 
 interface Store {
   modalOpenState: boolean | ModalTypes;

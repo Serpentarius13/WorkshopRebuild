@@ -1,5 +1,6 @@
 import ReusableForm from "../form.component";
-import { QueryNames } from "../../modalOver";
+
+import { QueryNames } from "../../../types/enum";
 
 import { FC } from "react";
 

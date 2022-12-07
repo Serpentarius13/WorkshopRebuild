@@ -4,7 +4,6 @@ export enum ButtonTypes {
   FORM_BUTTON = "FORM_BUTTON",
   MODAL_BUTTON = "MODAL_BUTTON",
   LEAVE_COMMENT = "LEAVE_COMMENT",
-  LIKE_POST = ""
 }
 
 interface ButtonProps {

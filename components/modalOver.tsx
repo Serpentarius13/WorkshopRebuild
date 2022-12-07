@@ -2,26 +2,12 @@
 
 import { useSnapshot } from "valtio";
 import { store } from "../store/store";
+
 import ReusableForm from "./reusable-form/form.component";
 import FormPopOver from "./reusable-form/formPopOver";
 import SendEmailForm from "./reusable-form/formTypes/sendEmailForm";
 
-export enum QueryNames {
-  NEW_DREAM = "newDream",
-  SIGN_UP = "signUp",
-  SIGN_IN = "signIn",
-  EMAIL_TO_USER = "sendEmail",
-  EMAIL_TO_ME = "sendEmailMe",
-  ADD_COMMENT_TO_DREAM = 'addCommentToDream'
-}
-
-export enum ModalTypes {
-  CREATE_DREAM = "CREATE_DREAM",
-  LOGIN = "LOGIN",
-  SIGNUP = "SIGN_UP",
-  SEND_EMAIL_TO_USER = "SEND_EMAIL_TO_USER",
-  SEND_EMAIL_TO_ME = "SEND_EMAIL_TO_AUTHOR",
-}
+import { ModalTypes, QueryNames } from "../types/enum";
 
 const ModalOver = () => {
   const { modalOpenState, additionalVariables } = useSnapshot(store);

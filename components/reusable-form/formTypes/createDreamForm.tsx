@@ -2,7 +2,7 @@
 
 import ReusableForm from "../form.component";
 import { dreamBlueprint } from "../../modalOver";
-import { QueryNames } from "../../modalOver";
+import { QueryNames } from "../../../types/enum";
 
 const CreateDreamForm = () => {
   return (

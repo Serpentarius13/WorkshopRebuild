@@ -1,4 +1,4 @@
-import { QueryNames } from "../../modalOver";
+import { QueryNames } from "../../../types/enum";
 import ReusableForm from "../form.component";
 
 const CreateCommentForm = ({ id, close = () => {} }) => {

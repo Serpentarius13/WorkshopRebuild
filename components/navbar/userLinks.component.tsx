@@ -4,7 +4,7 @@ import {
   userStore,
 } from "../../store/store";
 
-import { ModalTypes } from "../modalOver";
+import { ModalTypes } from "../../types/enum";
 
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";

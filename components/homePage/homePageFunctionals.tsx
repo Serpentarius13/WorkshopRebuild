@@ -4,7 +4,7 @@ import CreateDreamForm from "../reusable-form/formTypes/createDreamForm";
 import Sliderish from "./slider";
 import ReusableForm from "../reusable-form/form.component";
 import { userSignUpBlueprint } from "../modalOver";
-import { QueryNames } from "../modalOver";
+import { QueryNames } from "../../types/enum";
 
 import { useRef, useEffect } from "react";
 import HomeBlurAppear from "./homeBlurAppearElement";

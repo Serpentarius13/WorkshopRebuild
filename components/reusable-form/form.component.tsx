@@ -4,7 +4,7 @@ import { endpoint } from "../../apollo-client";
 import FormInput from "./input.component";
 
 import axios from "axios";
-import UniversalButton, { ButtonTypes } from "../uniButton.component";
+import UniversalButton from "../uniButton.component";
 ("use client");
 
 import { createQuery } from "../../queries/createDreamMutation";
@@ -15,8 +15,9 @@ import StatusPopOver, { StatusTypes } from "../statusPopOver";
 import { useRouter } from "next/navigation";
 import { RedirectFunction } from "../../utils/redirect";
 
-import { QueryNames } from "./../modalOver";
 import { getToken, setToken } from "../../utils/cookies";
+import { QueryNames, ButtonTypes } from "../../types/enum";
+
 
 interface BlueprintData {
   name: string;
@@ -48,15 +49,12 @@ const ReusableForm: FC<ReusableFormProps> = ({
     if (!currentUser) return {};
     const defaults = {};
     const curUserKeys = Object.keys(currentUser);
-    console.log(curUserKeys);
-    console.log(blueprint);
+
     blueprint.forEach((el) => {
       if (curUserKeys.includes(el.name)) {
         defaults[el.name] = currentUser[el.name];
       }
     });
-
-    console.log(defaults);
 
     return defaults;
   };
@@ -125,7 +123,6 @@ const ReusableForm: FC<ReusableFormProps> = ({
       });
       const query = queryCreator(formData);
 
-      console.log(query, "QUERY");
 
       const { data } = await axios
         .post(endpoint, query, {
@@ -134,15 +131,10 @@ const ReusableForm: FC<ReusableFormProps> = ({
           },
         })
         .then((data) => data);
-      console.log(data);
       const returnings = data.data[name];
 
-      console.log(returnings);
-      
 
       await RedirectFunction(name, returnings).then((path) => {
-        console.log(data);
-        console.log(path);
         setTimeout(() => {
           closeModal();
           closeForm();

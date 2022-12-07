@@ -2,7 +2,7 @@ import Link from "next/link";
 import { FC } from "react";
 import { store } from "../../store/store";
 import UserLinks from "./userLinks.component";
-import { ModalTypes } from "./../modalOver";
+import { ModalTypes } from "./../../types/enum";
 
 interface LinksProps {
   expanded?: boolean;

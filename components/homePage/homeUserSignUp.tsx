@@ -1,7 +1,7 @@
 "use client";
 
 import ReusableForm from "../reusable-form/form.component";
-import { QueryNames } from "../modalOver";
+import { QueryNames } from "../../types/enum";
 import { userSignUpBlueprint } from "../modalOver";
 import HomeBlurAppear from "./homeBlurAppearElement";
 import { useSnapshot } from "valtio";
