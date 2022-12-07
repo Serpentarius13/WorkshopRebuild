@@ -165,6 +165,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
         type="button"
         buttonType={ButtonTypes.MODAL_BUTTON}
         onClick={() => {
+          closeForm();
           toggleCircle();
         }}
         text="&#10005;"

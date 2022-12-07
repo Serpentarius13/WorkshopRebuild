@@ -16,10 +16,10 @@ const DreamPageInitials = ({ email, name, time }) => {
     openModal(ModalTypes.SEND_EMAIL_TO_USER);
   };
 
-  
+
 
   return (
-    <div className="grid content-center md:mr-24 gap-4">
+    <div className="flex md:mr-24 space-x-8 items-center justify-center">
       {" "}
       {time || name ? (
         <div className="flex items-center justify-center space-x-2 mx-auto">
