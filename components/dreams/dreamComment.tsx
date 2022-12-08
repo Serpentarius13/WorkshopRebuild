@@ -35,7 +35,7 @@ const Comment = ({ comment, level = 0, likeHandler, refetch }) => {
 
   return (
     <div
-      className="w-[20rem] md:w-[25rem] lg:w-[30rem] space-y-1 relative "
+      className="w-[25rem] md:w-[30rem] lg:w-[35rem] space-y-1 relative"
       style={{
         marginLeft: `${level * 2}%`,
         marginTop: "20px",
@@ -60,7 +60,7 @@ const Comment = ({ comment, level = 0, likeHandler, refetch }) => {
           buttonExistenceCondition={id}
           rating={commentRating}
           condition={likedBy.includes(id)}
-          size={20}
+          size={14}
           handler={() => likeHandler(false, _id)}
         />{" "}
       </div>

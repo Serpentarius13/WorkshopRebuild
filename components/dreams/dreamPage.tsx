@@ -93,23 +93,21 @@ const DreamFullReadPage = ({ dream, refetch }) => {
           buttonExistenceCondition={currentUser}
         />
       </div>
-      <div className=" z-10 absolute w-[30rem] h-[30rem]">
-        {formVis && (
-          <CreateCommentForm
-            id={_id}
-            close={() => {
-              setFormVis(false);
-              refetch();
-            }}
-          />
-        )}
-      </div>
+      {formVis && (
+        <CreateCommentForm
+          id={_id}
+          close={() => {
+            setFormVis(false);
+            refetch();
+          }}
+        />
+      )}
       <p className="mt-8 text-blue-400">
         {" "}
         Comments: {countAllNestedArrays(dream)}{" "}
       </p>{" "}
       <p className="text-red-400"> Rating: {rating} </p>{" "}
-      <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4 ">
+      <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4  overflow-auto">
         {" "}
         {comments.map((comment, ix) => {
           return (

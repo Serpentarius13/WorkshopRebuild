@@ -6,7 +6,7 @@ const HomeTestimonialsBlock = () => {
       <HomeTestimonial
         author={"Carl Jung, swiss psychoanalyst"}
         text={
-          "Knowing your own darkness is the best method for dealing with the darknesses of other people. One does not become enlightened by imagining figures of light, but by making the darkness conscious. The most terrifying thing is to accept oneself completely. Your visions will become clear only when you can look into your own heart. Who looks outside, dreams; who looks inside, awakes."
+          "The dream is the small hidden door in the deepest and most intimate sanctum of the soul, which opens to that primeval cosmic night that was soul long before there was conscious ego and will be soul far beyond what a conscious ego could ever reach"
         }
         imageSource={"/Carl Jung.png"}
       />
@@ -35,11 +35,11 @@ const HomeTestimonialsBlock = () => {
       />
 
       <HomeTestimonial
-        author={"William Shakespear, screenplay writer"}
+        author={"Sigmund Freud, austrian psychoanalyst"}
         text={
-          "Macbeth does murder sleep - the innocent sleep, Sleep that knits up the ravell'd sleave of care, The death of each day's life, sore labor's bath, Balm of hurt minds, great nature's second course, chief nourisher in life's feast."
+          "The interpretation of dreams is the royal road to a knowledge of the unconscious activities of the mind."
         }
-        imageSource="/William Shakespeare.jpg"
+        imageSource="/Sigmund Freud.png"
       />
     </>
   );

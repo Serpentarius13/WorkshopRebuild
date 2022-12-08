@@ -58,13 +58,14 @@ export const userStore = proxy<any>({
       userStore.currentUser = data.getUser;
       localStorage.setItem("user", JSON.stringify(data.getUser));
     } catch (err) {
-      throw new Error(err);
+      throw new Error("Error auth");
     }
   },
   logout: () => {
     removeToken();
     localStorage.removeItem("user");
     userStore.currentUser = null;
+    location.reload();
     return;
   },
 });

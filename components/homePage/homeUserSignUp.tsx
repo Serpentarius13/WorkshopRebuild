@@ -12,9 +12,10 @@ import { useEffect, useState } from "react";
 const HomeUserSignUp = () => {
   const [curUser, setCurUser] = useState(null);
 
+  const { currentUser } = useSnapshot(userStore);
+
   useEffect(() => {
-    const { currentUser } = userStore;
-    setCurUser(currentUser);
+    setCurUser(currentUser?._id);
   }, []);
   return (
     <HomeBlurAppear>
@@ -35,20 +36,18 @@ const HomeUserSignUp = () => {
           type={true}
           name={QueryNames.SIGN_UP}
         />
-
-        
       </div>
       {curUser ? (
-          <div className="absolute top-1/2 -translate-y-1/2 w-[120%] h-[105%] left-1/2 -translate-x-1/2 bg-purple-300 bg-opacity-40 z-50 flex items-center justify-center overflow-hidden ">
-            <div className="w-[100rem] h-20 bg-purple-800 rotate-45 left-3/5 top-1/2 absolute   flex items-center justify-center ">
-              <p className="text-3xl text-white font-bold">
-                You already have an account
-              </p>
-            </div>
+        <div className="absolute top-1/2 -translate-y-1/2 w-[120%] h-[105%] left-1/2 -translate-x-1/2 bg-purple-300 bg-opacity-40 z-50 flex items-center justify-center overflow-hidden ">
+          <div className="w-[100rem] h-20 bg-purple-800 rotate-45 left-3/5 top-1/2 absolute   flex items-center justify-center ">
+            <p className="text-3xl text-white font-bold">
+              You already have an account
+            </p>
           </div>
-        ) : (
-          ""
-        )}
+        </div>
+      ) : (
+        ""
+      )}
     </HomeBlurAppear>
   );
 };
