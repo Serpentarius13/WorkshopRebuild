@@ -14,17 +14,6 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ApolloProvider client={client}>
-      <Head>
-        <title>Dream workshop</title>
-        <meta name="description" content="Dream workshop website" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-          charSet="utf-8"
-          lang="en"
-        />
-        <link rel="icon" href="/aten.jpg" />
-      </Head>
       <Component {...pageProps} />
     </ApolloProvider>
   );
