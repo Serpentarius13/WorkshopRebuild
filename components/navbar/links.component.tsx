@@ -13,7 +13,7 @@ const Links: FC<LinksProps> = ({ expanded }) => {
     expanded
       ? "text-8xl text-bold nav-link text-black text-inherit "
       : "text-2xl text-medium text-white"
-  }  cursor-pointer underline  `;
+  }  cursor-pointer underline `;
 
   const { openModal } = store;
 
@@ -26,11 +26,11 @@ const Links: FC<LinksProps> = ({ expanded }) => {
         }}
         className={style}
       >
-        Write your dream
+        Write 
       </button>
       <Link className={style} href="/dreams/1">
         {" "}
-        Read dreams{" "}
+        Read
       </Link>
       <UserLinks style={style} />
     </>

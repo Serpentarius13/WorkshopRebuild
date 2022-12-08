@@ -57,6 +57,9 @@ export const fetchAllDreams = async () => {
         }
       `,
     });
+
+    console.log(data, "DATA");
+  
     return data.getAll;
   } catch (err) {
     return "error";

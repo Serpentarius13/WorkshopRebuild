@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useRef } from "react";
 import { useSnapshot } from "valtio";
 import { userStore } from "../../store/store";
 import ButtonCollapse from "./button-collapse.component";
@@ -13,6 +13,7 @@ import Prophecy from "./prophecy";
 const Navbar: FC = () => {
   const [dropdown, setDropdown] = useState(false);
   const router = useRouter();
+  const ref = useRef<any>(null);
 
   const { login } = userStore;
 
@@ -27,9 +28,26 @@ const Navbar: FC = () => {
 
     log();
   }, []);
+
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      if (window.pageYOffset > 400) ref.current.classList.add("nav-stick");
+      else ref.current.classList.remove("nav-stick");
+    });
+
+    return () => {
+      document.removeEventListener("scroll", () => {
+        if (window.pageYOffset > 400) ref.current.classList.add("nav-stick");
+        else ref.current.classList.remove("nav-stick");
+      });
+    };
+  }, []);
   return (
     <>
-      <div className=" navbar w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center    ">
+      <div
+        ref={ref}
+        className={`  w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center    `}
+      >
         <div className=" flex items-center  space-x-2 ">
           <Image
             onClick={() => router.push("/")}

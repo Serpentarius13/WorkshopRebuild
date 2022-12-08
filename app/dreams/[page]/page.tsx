@@ -14,9 +14,11 @@ import StatusPopOver, { StatusTypes } from "../../../components/statusPopOver";
 const Page = async ({ params: { page } }) => {
   const dreams = await fetchAllDreams();
 
+  console.log(dreams);
+
   if (dreams.length === 0) {
     return (
-      <div className="mx-auto mt-8 w-screen h-screen flex flex-col items-center justify-start p-8">
+      <div className="mx-auto mt-8 w-screen h-screen flex flex-col items-center justify-start p-8 ">
         <h1> Apparently, there is no dreams yet </h1>
         <h3> be first to add one! </h3>
 
@@ -59,10 +61,10 @@ const Page = async ({ params: { page } }) => {
           className={`p-2  ${
             ind == page
               ? "text-white  bg-blue-800 cursor-default "
-              : "text-blue-800  bg-white"
+              : "text-blue-800  bg-white "
           }`}
           key={ix}
-          href={ind != page ? `/dreams/${ind}` : ""}
+          href={`/dreams/${ind}`}
         >
           {" "}
           {ix + 1}

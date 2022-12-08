@@ -1,14 +1,15 @@
 "use client";
 
- 
-
 import HomeHeader from "../components/homePage/homeHeader";
 import HomePageFunctionals from "../components/homePage/homePageFunctionals";
 
 import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock";
 
+import { useEffect } from "react";
 
 export default function Home() {
+  
+
   return (
     <>
       <HomeHeader />

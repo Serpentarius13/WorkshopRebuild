@@ -91,6 +91,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     ) {
       toggleCircle();
     }
+    console.log('first')
     if (event.key === "Escape") toggleCircle();
   };
 

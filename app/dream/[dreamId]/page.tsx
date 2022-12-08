@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import DreamFullReadPage from "../../../components/dreams/dreamPage";
 
 import { getOneDream } from "../../../queries/queries";
+import StatusPopOver, { StatusTypes } from "../../../components/statusPopOver";
 
 const DreamPage = ({ params: { dreamId } }) => {
   const { data, loading, error, refetch } = useQuery(getOneDream, {
@@ -19,7 +20,13 @@ const DreamPage = ({ params: { dreamId } }) => {
 
   const dream = data?.getOneDream;
 
-  if (loading) return <div> Loading </div>
+  if (loading)
+    return (
+      <div className="w-screen h-screen flex items-center justify-center">
+        {" "}
+        <StatusPopOver type={StatusTypes.STATUS_LOADING} />{" "}
+      </div>
+    );
 
   if (error)
     return (

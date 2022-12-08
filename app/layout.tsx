@@ -18,7 +18,10 @@ export default function RootLayout({
 
       <body>
         {" "}
-        <Navbar /> <ModalOver /> {children}
+        <div className='relative w-16 h-16'> 
+        <Navbar />
+        </div>
+        <ModalOver /> {children}
       </body>
     </html>
   );

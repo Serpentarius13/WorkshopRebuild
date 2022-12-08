@@ -79,8 +79,6 @@
     animation: shadowy 4s infinite;
   }
 
-
-
   .circle {
     background-color: transparent;
     border: 8px solid;
@@ -129,8 +127,11 @@
     display: none;
   }
 
-  
-
+  .nav-stick {
+    position: fixed !important;
+    animation: widthen 0.1s forwards ease-out 1;
+    z-index: 123;
+  }
 }
 
 @media (min-width: 800px) {
