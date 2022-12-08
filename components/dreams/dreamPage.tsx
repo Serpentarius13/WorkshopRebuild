@@ -80,7 +80,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
     );
 
   return (
-    <div className="container mx-auto py-12 px-4 relative  md:overflow-hidden overflow-scroll ">
+    <div className="container mx-auto py-12 px-4 relative   ">
       <div className="flex justify-between items-center">
         {" "}
         <h1 className="text-4xl font-medium"> {dreamName} </h1>{" "}
