@@ -17,12 +17,11 @@ const LikeButton: FC<ILikeButton> = ({
   rating,
   size,
 }) => {
-  console.log(buttonExistenceCondition, 'COND');
   return (
     <>
       {" "}
       {buttonExistenceCondition ? (
-        <div className={`relative   w-${size} h-${size} cursor-pointer z-10 `}>
+        <div className={`relative   w-${size} h-${size} transition-all`}>
           {" "}
           {condition ? (
             <FcDislike
@@ -49,7 +48,7 @@ const LikeButton: FC<ILikeButton> = ({
           </span>
         </div>
       ) : (
-        <p className="p-2 flex items-center justify-center border-2 border-orange-400">
+        <p className="w-[45%] p-2 flex items-center justify-center border-2 border-orange-400">
           {" "}
           Be sure to log in to rate it <br />
         </p>

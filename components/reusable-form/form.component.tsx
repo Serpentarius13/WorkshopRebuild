@@ -18,7 +18,6 @@ import { RedirectFunction } from "../../utils/redirect";
 import { getToken, setToken } from "../../utils/cookies";
 import { QueryNames, ButtonTypes } from "../../types/enum";
 
-
 interface BlueprintData {
   name: string;
   label: string;
@@ -123,7 +122,6 @@ const ReusableForm: FC<ReusableFormProps> = ({
       });
       const query = queryCreator(formData);
 
-
       const { data } = await axios
         .post(endpoint, query, {
           headers: {
@@ -133,8 +131,11 @@ const ReusableForm: FC<ReusableFormProps> = ({
         .then((data) => data);
       const returnings = data.data[name];
 
+      console.log(returnings);
 
       await RedirectFunction(name, returnings).then((path) => {
+        setLoading(false);
+        setSuccess(true);
         setTimeout(() => {
           closeModal();
           closeForm();
@@ -144,8 +145,6 @@ const ReusableForm: FC<ReusableFormProps> = ({
           router.refresh();
         }, 1000);
       });
-      setLoading(false);
-      setSuccess(true);
     } catch (err) {
       reset();
       setLoading(false);
@@ -170,7 +169,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     <form
       ref={ref}
       onSubmit={handleSubmit(sendData)}
-      className="form relative bg-blue-200 flex flex-col p-4  items-center justify-center  space-y-4  rounded-xl"
+      className="form relative bg-blue-200 flex flex-col p-4  items-center justify-center  space-y-4  rounded-xl z-40"
     >
       {" "}
       {blueprint.map((field) => (

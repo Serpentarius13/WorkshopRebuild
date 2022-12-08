@@ -109,15 +109,15 @@ const DreamFullReadPage = ({ dream, refetch }) => {
         Comments: {countAllNestedArrays(dream)}{" "}
       </p>{" "}
       <p className="text-red-400"> Rating: {rating} </p>{" "}
-      <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4">
+      <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4 ">
         {" "}
         {comments.map((comment, ix) => {
           return (
             <Comment
-              id={currentUser?._id}
               likeHandler={likePost}
               key={ix}
               comment={comment}
+              refetch={refetch}
             />
           );
         })}

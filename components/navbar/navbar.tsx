@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { FC, useState, useEffect } from "react";
+import { useSnapshot } from "valtio";
 import { userStore } from "../../store/store";
 import ButtonCollapse from "./button-collapse.component";
 import Links from "./links.component";
@@ -16,7 +17,15 @@ const Navbar: FC = () => {
   const { login } = userStore;
 
   useEffect(() => {
-    login();
+    const log = async () => {
+      try {
+        await login();
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    log();
   }, []);
   return (
     <>

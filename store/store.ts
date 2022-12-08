@@ -48,21 +48,17 @@ export const userStore = proxy<any>({
       ? null
       : JSON.parse(localStorage.getItem("user") || JSON.stringify({})),
   login: async (token = null) => {
+    localStorage.removeItem("user");
+    userStore.currentUser = null;
+    if (token) setToken(token);
+    const tokenParse = getToken();
+    if (typeof tokenParse !== "string") return;
     try {
-      localStorage.removeItem("user");
-      userStore.currentUser = null;
-      console.log(token, "TOKEN");
-      if (token) setToken(token);
-      const tokenParse = getToken();
-      console.log(tokenParse, "TOKEN GET");
-      if (typeof tokenParse !== "string") return;
       const { data } = await client.query({ query: getUser });
-      console.log(data);
       userStore.currentUser = data.getUser;
       localStorage.setItem("user", JSON.stringify(data.getUser));
     } catch (err) {
-      console.log(err);
-      return;
+      throw new Error(err);
     }
   },
   logout: () => {

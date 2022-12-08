@@ -13,6 +13,7 @@ export enum QueryNames {
   EMAIL_TO_USER = "sendEmail",
   EMAIL_TO_ME = "sendEmailMe",
   ADD_COMMENT_TO_DREAM = "addCommentToDream",
+  ADD_COMMENT_TO_COMMENT = "addCommentToComment",
 }
 
 export enum ButtonTypes {
