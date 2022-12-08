@@ -12,9 +12,5 @@ import Script from "next/script";
 export default function App({ Component, pageProps }: AppProps) {
   const { login } = userStore;
 
-  return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
-  );
+  return <Component {...pageProps} />;
 }

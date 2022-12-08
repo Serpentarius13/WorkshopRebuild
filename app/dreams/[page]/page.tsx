@@ -1,7 +1,5 @@
 import { client } from "../../../apollo-client";
-import { gql } from "@apollo/client";
-
-import { fetchAllDreams } from "../../../queries/queries";
+import { gql, useLazyQuery, useQuery } from "@apollo/client";
 
 import Link from "next/link";
 import DreamPageLayout from "../../../components/dreams/dreamLayout";
@@ -12,9 +10,24 @@ import { useRouter } from "next/navigation";
 import StatusPopOver, { StatusTypes } from "../../../components/statusPopOver";
 
 const Page = async ({ params: { page } }) => {
-  const dreams = await fetchAllDreams();
-
-  console.log(dreams);
+  const {
+    data: { getAll: dreams },
+    loading,
+    error,
+  } = await client.query({
+    query: gql`
+      query Query {
+        getAll {
+          dreamName
+          description
+          name
+          time
+          email
+          authorId
+        }
+      }
+    `,
+  });
 
   if (dreams.length === 0) {
     return (
@@ -33,7 +46,7 @@ const Page = async ({ params: { page } }) => {
     );
   }
 
-  if (dreams === "error") {
+  if (error) {
     return (
       <div className="w-screen h-screen flex items-center flex-col  justify-center">
         {" "}
@@ -86,7 +99,20 @@ export default Page;
 
 export async function generateStaticParams() {
   try {
-    const dreams = await fetchAllDreams();
+    const { data: dreams } = await client.query({
+      query: gql`
+        query Query {
+          getAll {
+            dreamName
+            description
+            name
+            time
+            email
+            authorId
+          }
+        }
+      `,
+    });
 
     const pages = countPages(dreams);
 

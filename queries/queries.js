@@ -40,31 +40,6 @@ export const dreamFields = [
   "authorId",
 ];
 
-export const fetchAllDreams = async () => {
-  try {
-    const { data } = await client.query({
-      query: gql`
-        query Query {
-          getAll {
-            dreamName
-            description
-            name
-            email
-            time
-            _id
-            authorId
-          }
-        }
-      `,
-    });
-
-    console.log(data, "DATA");
-  
-    return data.getAll;
-  } catch (err) {
-    return "error";
-  }
-};
 
 export const getOneDream = gql`
   query Query($id: String) {
