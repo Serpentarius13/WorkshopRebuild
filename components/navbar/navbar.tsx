@@ -31,13 +31,13 @@ const Navbar: FC = () => {
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (window.pageYOffset > 400) ref.current.classList.add("nav-stick");
+      if (window.pageYOffset > 100) ref.current.classList.add("nav-stick");
       else ref.current.classList.remove("nav-stick");
     });
 
     return () => {
       document.removeEventListener("scroll", () => {
-        if (window.pageYOffset > 400) ref.current.classList.add("nav-stick");
+        if (window.pageYOffset > 100) ref.current.classList.add("nav-stick");
         else ref.current.classList.remove("nav-stick");
       });
     };
@@ -46,7 +46,7 @@ const Navbar: FC = () => {
     <>
       <div
         ref={ref}
-        className={`  w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center    `}
+        className={`  w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center   `}
       >
         <div className=" flex items-center  space-x-2 ">
           <Image
@@ -68,9 +68,12 @@ const Navbar: FC = () => {
         <div className=" justify-around items-center space-x-4 hidden xl:flex">
           <Links />
         </div>
-
-        <ButtonCollapse handler={setDropdown} state={dropdown} />
       </div>
+
+<div className='fixed top-4 right-4 z-[500]'> 
+        <ButtonCollapse handler={setDropdown} state={dropdown} />
+        </div>
+
       {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
     </>
   );

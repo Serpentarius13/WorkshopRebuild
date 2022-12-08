@@ -82,21 +82,15 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
   const { toggleCircle } = useSnapshot(store);
   const handleClickOutside = (event) => {
-    if (
-      ref.current &&
-      !ref.current.contains(event.target) &&
-      !event.key &&
-      event.target.nodeName !== "BUTTON" &&
-      !(ref.current === event.target)
-    ) {
+    if (event.target.classList.contains("popover")) {
       toggleCircle();
     }
-    console.log('first')
+    console.log("first");
     if (event.key === "Escape") toggleCircle();
   };
 
   useEffect(() => {
-    const checkingFor = ["keydown"];
+    const checkingFor = ["keypress", "click"];
 
     checkingFor.forEach((el) =>
       document.addEventListener(el, handleClickOutside, true)

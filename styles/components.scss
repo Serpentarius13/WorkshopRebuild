@@ -73,7 +73,7 @@
     }
   }
   .form {
-    width: clamp(24rem, 70vw, 30rem);
+    width: clamp(25rem, 70vw, 35rem);
     min-height: 25rem;
 
     animation: shadowy 4s infinite;
@@ -130,6 +130,7 @@
   .nav-stick {
     position: fixed !important;
     animation: widthen 0.1s forwards ease-out 1;
+    transform-origin: right;
     z-index: 123;
   }
 }
