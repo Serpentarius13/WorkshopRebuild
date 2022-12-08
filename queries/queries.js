@@ -26,6 +26,7 @@ export const getUser = gql`
       name
       email
       _id
+      createdAt
     }
   }
 `;

@@ -2,7 +2,7 @@ import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { getToken } from "./utils/cookies";
 
-export const endpoint = "https://workshop-revisal.herokuapp.com/";
+export const endpoint = "http://localhost:4000";
 
 const link = createHttpLink({
   uri: endpoint,

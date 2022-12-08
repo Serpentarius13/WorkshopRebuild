@@ -16,7 +16,7 @@ const HomeUserSignUp = () => {
 
   useEffect(() => {
     setCurUser(currentUser?._id);
-  }, []);
+  }, [currentUser]);
   return (
     <HomeBlurAppear>
       <div className="w-[100%] min-h-[16rem] flex flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red pt-10 functional-block">
@@ -38,7 +38,7 @@ const HomeUserSignUp = () => {
         />
       </div>
       {curUser ? (
-        <div className="absolute top-1/2 -translate-y-1/2 w-[120%] h-[105%] left-1/2 -translate-x-1/2 bg-purple-300 bg-opacity-40 z-50 flex items-center justify-center overflow-hidden ">
+        <div className="absolute top-1/2 z-[1000] -translate-y-1/2 w-[120%] h-[105%] left-1/2 -translate-x-1/2 bg-purple-300 bg-opacity-40 flex items-center justify-center overflow-hidden ">
           <div className="w-[100rem] h-20 bg-purple-800 rotate-45 left-3/5 top-1/2 absolute   flex items-center justify-center ">
             <p className="text-3xl text-white font-bold">
               You already have an account
