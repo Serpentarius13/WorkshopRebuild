@@ -24,6 +24,7 @@ const Page = async ({ params: { page } }) => {
           time
           email
           authorId
+          _id
         }
       }
     `,
