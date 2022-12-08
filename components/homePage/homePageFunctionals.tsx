@@ -14,7 +14,7 @@ const HomePageFunctionals = () => {
   return (
     <>
       <HomeBlurAppear>
-        <div className="w-[100%] min-h-[16rem]  flex space-y-4 flex-col md:space-x-36 md:flex-row md:space-y-0  items-center justify-center functional-block">
+        <div className="w-[100%] min-h-[16rem]  flex space-y-4 flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center functional-block">
           <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex items-center justify-center text-3xl font-bold break-keep text-purple-600 text-center">
             {" "}
             Read, rate and comment dreams of other users
