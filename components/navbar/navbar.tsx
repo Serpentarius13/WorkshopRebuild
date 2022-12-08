@@ -46,7 +46,7 @@ const Navbar: FC = () => {
     <>
       <div
         ref={ref}
-        className={`  w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center   `}
+        className={`  w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center z-[100]   `}
       >
         <div className=" flex items-center  space-x-2 ">
           <Image
@@ -68,16 +68,9 @@ const Navbar: FC = () => {
         <div className=" justify-around items-center space-x-4 hidden xl:flex">
           <Links />
         </div>
-        {!dropdown && <ButtonCollapse handler={setDropdown} state={dropdown} />}
+        <ButtonCollapse handler={setDropdown} state={dropdown} />
+        {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
       </div>
-
-      {dropdown && (
-        <div className="fixed top-4 right-4 z-[500]">
-          <ButtonCollapse handler={setDropdown} state={dropdown} />
-        </div>
-      )}
-
-      {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
     </>
   );
 };

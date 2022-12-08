@@ -9,7 +9,7 @@ const ButtonCollapse = ({ handler, state }) => {
     <button
       onClick={(e) => handler((state) => !state)}
       className={`btn-nav-collapse  w-4 xl:hidden bg-cyan-900 z-[500] relative ${
-        state ? "!fixed !flex top-8 right-4" : ""
+        state ? "!block fixed" : ""
       }`}
     >
       <span
