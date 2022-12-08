@@ -7,7 +7,7 @@ const DreamWideItem = ({ dream }) => {
       <h1 className="text 2xl font-medium"> {dreamName} </h1>
       <p className="text-sm break-words overflow-hidden h-14 w-[85%]">
         {" "}
-        123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123123{" "}
+    
         {description}{" "}
       </p>
 

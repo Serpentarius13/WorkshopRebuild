@@ -2,13 +2,13 @@ import { FC } from "react";
 
 interface ILikeButton {
   condition: boolean;
-  handler: () => Promise<void>
+  handler: () => Promise<void>;
   rating: number;
   size: number;
   buttonExistenceCondition: any;
 }
 
-import { FcDislike, FcLike } from "react-icons/fc";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const LikeButton: FC<ILikeButton> = ({
   buttonExistenceCondition,
@@ -24,12 +24,13 @@ const LikeButton: FC<ILikeButton> = ({
         <div className={`relative   w-${size} h-${size} transition-all`}>
           {" "}
           {condition ? (
-            <FcDislike
+            <AiFillHeart
               className={`w-[100%] h-[100%]  hover:scale-125  cursor-pointer  `}
               onClick={handler}
+              color="red"
             />
           ) : (
-            <FcLike
+            <AiOutlineHeart
               className={`w-[100%] h-[100%]   hover:scale-125  cursor-pointer  `}
               onClick={handler}
             />
@@ -40,7 +41,7 @@ const LikeButton: FC<ILikeButton> = ({
                 ? "bg-white !text-black"
                 : rating > 0
                 ? "bg-green-600"
-                : "bg-red-600"
+                : "bg-black"
             } rounded-full w-6 h-6 flex items-center justify-center text-center  absolute -bottom-1 left-1/2 -translate-x-1/2 font-medium text-2xl text-white`}
           >
             {" "}
