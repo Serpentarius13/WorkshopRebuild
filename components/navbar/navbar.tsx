@@ -68,11 +68,14 @@ const Navbar: FC = () => {
         <div className=" justify-around items-center space-x-4 hidden xl:flex">
           <Links />
         </div>
+        {!dropdown && <ButtonCollapse handler={setDropdown} state={dropdown} />}
       </div>
 
-<div className='fixed top-4 right-4 z-[500]'> 
-        <ButtonCollapse handler={setDropdown} state={dropdown} />
+      {dropdown && (
+        <div className="fixed top-4 right-4 z-[500]">
+          <ButtonCollapse handler={setDropdown} state={dropdown} />
         </div>
+      )}
 
       {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
     </>

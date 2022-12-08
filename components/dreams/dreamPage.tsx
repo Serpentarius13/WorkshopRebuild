@@ -17,6 +17,7 @@ import { gql, useMutation } from "@apollo/client";
 
 import { client } from "../../apollo-client";
 import LikeButton from "./dreamLikeButton";
+import StatusPopOver, { StatusTypes } from "../statusPopOver";
 
 function countAllNestedArrays(obj) {
   let count = 0;
@@ -69,6 +70,14 @@ const DreamFullReadPage = ({ dream, refetch }) => {
       return;
     }
   };
+
+  if (!dream)
+    return (
+      <div className="w-screen h-screen flex items-center justify-center">
+        {" "}
+        <StatusPopOver type={StatusTypes.STATUS_ERROR} />{" "}
+      </div>
+    );
 
   return (
     <div className="container mx-auto py-12 px-4 relative ">
