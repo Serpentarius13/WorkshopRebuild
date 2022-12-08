@@ -19,7 +19,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="description" content="Dream workshop website" />
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
+          content="width=device-width, initial-scale=1"
+          charSet="utf-8"
+          lang="en"
         />
         <link rel="icon" href="/aten.jpg" />
       </Head>
