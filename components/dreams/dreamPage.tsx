@@ -80,7 +80,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
     );
 
   return (
-    <div className="container mx-auto py-12 px-4 relative ">
+    <div className="container mx-auto py-12 px-4 relative  md:overflow-hidden overflow-scroll ">
       <div className="flex justify-between items-center">
         {" "}
         <h1 className="text-4xl font-medium"> {dreamName} </h1>{" "}
@@ -116,7 +116,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
         Comments: {countAllNestedArrays(dream)}{" "}
       </p>{" "}
       <p className="text-red-400"> Rating: {rating} </p>{" "}
-      <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4  overflow-auto">
+      <div className="w-[100%] flex flex-col justify-start space-y-4 mt-4">
         {" "}
         {comments.map((comment, ix) => {
           return (

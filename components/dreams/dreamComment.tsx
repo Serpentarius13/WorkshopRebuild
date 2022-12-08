@@ -1,6 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
 
-import { client } from "../../apollo-client";
 import CreateCommentForm from "../reusable-form/formTypes/createCommentForm";
 import LikeButton from "./dreamLikeButton";
 
