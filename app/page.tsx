@@ -6,6 +6,7 @@ import HomePageFunctionals from "../components/homePage/homePageFunctionals";
 import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock";
 
 import { useEffect } from "react";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -30,13 +31,14 @@ export default function Home() {
         <HomeTestimonialsBlock />
         <p className="italic text-center w-[60%] mx-auto pt-8">
           You too can be a part of this evergrowing community of wonder and
-          research. <br/> Dive deep into the meaning of human soul with <br />
+          research. <br /> Dive deep into the meaning of human soul with <br />
           <span className="text-purple-800  font-medium text-6xl underline">
             us.{" "}
           </span>{" "}
           <br />
         </p>
         <HomePageFunctionals />
+      
       </div>
     </>
   );

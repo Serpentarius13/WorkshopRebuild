@@ -6,6 +6,16 @@ const nextConfig = {
     appDir: true,
     esmExternals: false,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "/v0/b/todo-72003.appspot.com/o/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
