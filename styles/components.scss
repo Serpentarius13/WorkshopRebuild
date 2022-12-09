@@ -152,6 +152,39 @@
   .popover {
     animation: widthen 0.3s linear forwards 1;
   }
+
+  .stars {
+    width: 100vw;
+    height: 300vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    z-index: -1;
+    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .span-star {
+    fill: orange;
+    margin: 6px;
+    border-radius: 50%;
+    animation: ascend linear infinite;
+    z-index: 123123123213;
+  }
+}
+
+@keyframes ascend {
+  0% {
+    transform: translateY(110vh) rotate(120deg);
+  }
+
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+  }
 }
 
 @media (min-width: 800px) {

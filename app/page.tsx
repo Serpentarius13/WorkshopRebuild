@@ -8,6 +8,8 @@ import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock"
 import { useEffect } from "react";
 import Image from "next/image";
 
+import { GiMoebiusStar } from "react-icons/gi";
+
 export default function Home() {
   return (
     <>
@@ -38,7 +40,21 @@ export default function Home() {
           <br />
         </p>
         <HomePageFunctionals />
-      
+      </div>
+
+      <div className="stars">
+        {Array.from(Array(40)).map((el, ix) => {
+          return (
+            <GiMoebiusStar
+              className="span-star"
+              style={{
+                animationDuration: `${Math.random() * 15}s`,
+              }}
+              key={ix}
+              size={48}
+            />
+          );
+        })}
       </div>
     </>
   );
