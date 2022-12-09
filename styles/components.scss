@@ -140,6 +140,13 @@
     grid-auto-columns: 100%;
     overflow: scroll;
   }
+
+  .profileSection {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: black purple;
+    scrollbar-gutter: stable;
+  }
 }
 
 @media (min-width: 800px) {
