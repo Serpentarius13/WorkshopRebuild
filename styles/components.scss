@@ -148,6 +148,10 @@
     scrollbar-color: black purple;
     scrollbar-gutter: stable;
   }
+
+  .popover {
+    animation: widthen 0.3s linear forwards 1;
+  }
 }
 
 @media (min-width: 800px) {

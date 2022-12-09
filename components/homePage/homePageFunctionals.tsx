@@ -31,8 +31,8 @@ const HomePageFunctionals = () => {
         </div>
       </HomeBlurAppear>
       <HomeBlurAppear>
-        <div className="w-[100%] min-h-[16rem] flex flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red p-8 functional-block">
-          <div className="w-[100%] md:w-[50%] min-h-[18rem] relative flex items-center justify-center">
+        <div className="w-[100%] min-h-[16rem] pt-12 flex flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red p-12 functional-block">
+          <div className="w-[100%] md:w-[50%] min-h-[14rem] relative flex items-center justify-center">
             <UniversalButton
               buttonType={ButtonTypes.CTA_DREAM_BUTTON}
               text="Start now!"

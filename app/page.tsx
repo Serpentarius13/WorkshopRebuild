@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <HomeHeader />
-      <div className="container mx-auto p-8 flex flex-col items-center justify-center space-y-6">
+      <div className="container mx-auto p-8 flex flex-col items-center justify-center space-y-8">
         {" "}
         <p className="italic text-center w-[60%]  mx-auto   ">
           {" "}
@@ -31,7 +31,7 @@ export default function Home() {
         <p className="italic text-center w-[60%] mx-auto pt-8">
           You too can be a part of this evergrowing community of wonder and
           research. <br/> Dive deep into the meaning of human soul with <br />
-          <span className="text-purple-800 font-medium text-2xl">
+          <span className="text-purple-800  font-medium text-6xl underline">
             us.{" "}
           </span>{" "}
           <br />
