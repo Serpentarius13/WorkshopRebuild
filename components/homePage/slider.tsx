@@ -10,6 +10,7 @@ import {
   BsFillArrowLeftCircleFill,
   BsFillArrowRightCircleFill,
 } from "react-icons/bs";
+import SliderDreams from "./sliderDreams";
 
 const Sliderish = () => {
   const [slide, setSlide] = useState(1);
@@ -44,9 +45,7 @@ const Sliderish = () => {
               transform: `translateX(${-slide * 33.333 + 33.333}%)`,
             }}
           >
-            <DreamShowcase />
-            <DreamShowcase />
-            <DreamShowcase />
+            <SliderDreams />
           </div>
         </div>
         <BsFillArrowLeftCircleFill
