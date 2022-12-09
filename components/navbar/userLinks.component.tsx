@@ -1,13 +1,16 @@
 import { useSnapshot } from "valtio";
-import {
-  store,
-  userStore,
-} from "../../store/store";
+import { store, userStore } from "../../store/store";
 
 import { ModalTypes } from "../../types/enum";
 
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
+
+import { BiLogIn, BiLogOut } from "react-icons/bi";
+
+import { FiUserPlus } from "react-icons/fi";
+
+import { CgProfile } from "react-icons/cg";
 
 interface UserLinks {
   style: string;
@@ -30,11 +33,11 @@ const UserLinks: FC<UserLinks> = ({ style }) => {
           {" "}
           <Link className={style} href="/personal">
             {" "}
-            Your page{" "}
+            <CgProfile /> <span> Your page </span>{" "}
           </Link>
           <button className={style} onClick={() => logout()}>
             {" "}
-            Logout
+            <BiLogOut /> <span> Logout </span>
           </button>
         </>
       ) : hydrated ? (
@@ -42,14 +45,14 @@ const UserLinks: FC<UserLinks> = ({ style }) => {
           {" "}
           <button className={style} onClick={() => openModal(ModalTypes.LOGIN)}>
             {" "}
-            Login{" "}
+            <BiLogIn /> <span> Login </span>{" "}
           </button>
           <button
             className={style}
             onClick={() => openModal(ModalTypes.SIGNUP)}
           >
             {" "}
-            Sign up
+            <FiUserPlus /> <span> Sign up </span>
           </button>{" "}
         </>
       ) : (

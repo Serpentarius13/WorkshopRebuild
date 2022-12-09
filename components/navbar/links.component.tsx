@@ -4,6 +4,10 @@ import { store } from "../../store/store";
 import UserLinks from "./userLinks.component";
 import { ModalTypes } from "./../../types/enum";
 
+import { BsVectorPen } from "react-icons/bs";
+
+import { AiOutlineRead } from "react-icons/ai";
+
 interface LinksProps {
   expanded?: boolean;
 }
@@ -13,24 +17,19 @@ const Links: FC<LinksProps> = ({ expanded }) => {
     expanded
       ? "text-8xl text-bold nav-link text-black text-inherit "
       : "text-2xl text-medium text-white"
-  }  cursor-pointer underline `;
+  }  cursor-pointer underline flex space-x-2 items-end justify-center p-[4px] `;
 
   const { openModal } = store;
 
   return (
     <>
-      <button
-        onClick={() => {
-          console.log("Opening");
-          openModal(ModalTypes.CREATE_DREAM);
-        }}
-        className={style}
-      >
-        Write 
+      <button className={style}>
+        {" "}
+        <BsVectorPen /> <span className="text-center"> Write </span>
       </button>
       <Link className={style} href="/dreams/1">
         {" "}
-        Read
+        <AiOutlineRead /> <span> Read </span>
       </Link>
       <UserLinks style={style} />
     </>

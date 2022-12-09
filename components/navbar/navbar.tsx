@@ -48,9 +48,11 @@ const Navbar: FC = () => {
         ref={ref}
         className={`  w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center z-[100]   `}
       >
-        <div className=" flex items-center  space-x-2 ">
+        <div
+          onClick={() => router.push("/")}
+          className=" flex items-center  space-x-2 cursor-pointer"
+        >
           <Image
-            onClick={() => router.push("/")}
             src="/aten.jpg"
             alt="aten"
             width={32}
