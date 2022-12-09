@@ -8,12 +8,10 @@ import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock"
 import { useEffect } from "react";
 
 export default function Home() {
-  
-
   return (
     <>
       <HomeHeader />
-      <div className="container mx-auto p-8 flex flex-col items-center justify-center space-y-8">
+      <div className="container mx-auto p-8 flex flex-col items-center justify-center space-y-6">
         {" "}
         <p className="italic text-center w-[60%]  mx-auto   ">
           {" "}
@@ -30,10 +28,12 @@ export default function Home() {
           look for yourself{" "}
         </h3>
         <HomeTestimonialsBlock />
-        <p className="italic text-center w-[60%] mx-auto">
+        <p className="italic text-center w-[60%] mx-auto pt-8">
           You too can be a part of this evergrowing community of wonder and
-          research. Dive deep into the meaning of human soul with{" "}
-          <span className="text-purple-800 font-medium text-2xl">us. </span>{" "}
+          research. <br/> Dive deep into the meaning of human soul with <br />
+          <span className="text-purple-800 font-medium text-2xl">
+            us.{" "}
+          </span>{" "}
           <br />
         </p>
         <HomePageFunctionals />

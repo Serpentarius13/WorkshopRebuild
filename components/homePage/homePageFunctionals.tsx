@@ -4,17 +4,23 @@ import CreateDreamForm from "../reusable-form/formTypes/createDreamForm";
 import Sliderish from "./slider";
 import ReusableForm from "../reusable-form/form.component";
 import { userSignUpBlueprint } from "../modalOver";
-import { QueryNames } from "../../types/enum";
+import { ModalTypes, QueryNames } from "../../types/enum";
 
 import { useRef, useEffect } from "react";
 import HomeBlurAppear from "./homeBlurAppearElement";
 import HomeUserSignUp from "./homeUserSignUp";
+import UniversalButton from "../uniButton.component";
+
+import { ButtonTypes } from "../../types/enum";
+import { useSnapshot } from "valtio";
+import { store } from "../../store/store";
 
 const HomePageFunctionals = () => {
+  const { openModal } = useSnapshot(store);
   return (
     <>
       <HomeBlurAppear>
-        <div className="w-[100%] min-h-[16rem]  flex space-y-4 flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center functional-block">
+        <div className="w-[100%] min-h-[16rem]  flex space-y-4 flex-col md:space-x-36 md:flex-row md:space-y-0  items-center justify-center functional-block">
           <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex items-center justify-center text-3xl font-bold break-keep text-purple-600 text-center">
             {" "}
             Read, rate and comment dreams of other users
@@ -25,9 +31,13 @@ const HomePageFunctionals = () => {
         </div>
       </HomeBlurAppear>
       <HomeBlurAppear>
-        <div className="w-[100%] min-h-[16rem] flex flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red pt-10 functional-block">
-          <div className="w-[100%] md:w-[50%] min-h-[24rem] relative flex items-center justify-center">
-            <CreateDreamForm />
+        <div className="w-[100%] min-h-[16rem] flex flex-col-reverse md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red p-8 functional-block">
+          <div className="w-[100%] md:w-[50%] min-h-[18rem] relative flex items-center justify-center">
+            <UniversalButton
+              buttonType={ButtonTypes.CTA_DREAM_BUTTON}
+              text="Start now!"
+              onClick={() => openModal(ModalTypes.CREATE_DREAM)}
+            />
           </div>
           <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex-col items-center justify-center text-3xl font-bold break-keep text-purple-600 text-center pb-10 md:pb-0">
             {" "}

@@ -46,7 +46,7 @@
   .inputField:required ~ .inputLabel,
   .inputField:not(:placeholder-shown) ~ .inputLabel {
     padding: 6px;
-    background-color: purple;
+    background-color: #5f3dc4;
     color: white;
     top: -10px;
     left: calc(93% - 64px);
@@ -57,7 +57,7 @@
 
     font-size: 14px;
 
-    box-shadow: 0 0 8px purple;
+    box-shadow: 0 0 8px #5f3dc4;
     font-weight: bold;
 
     transition: 0.3s all ease-out;
@@ -65,6 +65,7 @@
 
   .inputField {
     transition: 1.5s border ease-out;
+    border-radius: 12px;
   }
 
   .inputField:not(:empty) {
@@ -83,7 +84,7 @@
     background-color: transparent;
     border: 8px solid;
     position: fixed;
-    z-index: 123;
+    z-index: 123123213;
 
     border-radius: 4123px;
 
@@ -95,7 +96,7 @@
     background-color: transparent;
     border: 8px solid;
     position: fixed;
-    z-index: 123;
+    z-index: 123123213;
 
     animation: circle 0.5s forwards linear;
     animation-direction: reverse;

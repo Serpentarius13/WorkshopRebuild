@@ -1,10 +1,6 @@
 import { FC, useEffect, useState } from "react";
 
-export enum ButtonTypes {
-  FORM_BUTTON = "FORM_BUTTON",
-  MODAL_BUTTON = "MODAL_BUTTON",
-  LEAVE_COMMENT = "LEAVE_COMMENT",
-}
+import { ButtonTypes } from "./../types/enum";
 
 interface ButtonProps {
   buttonType: ButtonTypes | string;
@@ -32,6 +28,12 @@ const UniversalButton: FC<ButtonProps> = ({
   const commentButtonStyle =
     "px-6 py-3 bg-orange-500 text-white hover:bg-orange-600 active:bg-red-800";
 
+  const ctaUserButtonStyle =
+    " px-24 py-10 text-3xl font-bold rounded-full bg-orange-500 text-white active:bg-red-800 hover:bg-orange-600 hover:-translate-y-4 transition-all ";
+
+  const ctaDreamButtonStyle =
+    "px-24 py-10 text-3xl font-bold rounded-full bg-purple-500 text-white active:bg-purple-800 hover:bg-purple-600 hover:-translate-y-4 transition-all ";
+
   const styleDecide = () => {
     switch (buttonType) {
       case ButtonTypes.FORM_BUTTON:
@@ -40,7 +42,10 @@ const UniversalButton: FC<ButtonProps> = ({
         return modalButtonStyle;
       case ButtonTypes.LEAVE_COMMENT:
         return commentButtonStyle;
-      
+      case ButtonTypes.CTA_USER_BUTTON:
+        return ctaUserButtonStyle;
+      case ButtonTypes.CTA_DREAM_BUTTON:
+        return ctaDreamButtonStyle;
       default:
         return "";
     }

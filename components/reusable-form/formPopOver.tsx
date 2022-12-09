@@ -3,7 +3,8 @@ import { store } from "../../store/store";
 
 import { useSnapshot } from "valtio";
 
-import UniversalButton, { ButtonTypes } from "../uniButton.component";
+import UniversalButton from "../uniButton.component";
+import { ButtonTypes } from "../../types/enum";
 import ReusableForm, { ReusableFormProps } from "./form.component";
 
 interface FormPopOver {

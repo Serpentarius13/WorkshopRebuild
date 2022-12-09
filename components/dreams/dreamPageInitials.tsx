@@ -1,6 +1,7 @@
 import { store } from "./../../store/store";
 import { ModalTypes } from "../../types/enum";
-import UniversalButton, { ButtonTypes } from "./../uniButton.component";
+import UniversalButton from "./../uniButton.component";
+import { ButtonTypes } from "./../../types/enum";
 
 interface DreamInitialsInterface {
   email: string;

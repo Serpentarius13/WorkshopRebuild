@@ -2,8 +2,9 @@
 
 import { store, userStore } from "../../store/store";
 import { ModalTypes, QueryNames } from "./../../types/enum";
-import UniversalButton, { ButtonTypes } from "../uniButton.component";
+import UniversalButton from "../uniButton.component";
 import DreamPageInitials from "./dreamPageInitials";
+import { ButtonTypes } from "./../../types/enum";
 
 import { useState, useEffect } from "react";
 import SendEmailForm from "../reusable-form/formTypes/sendEmailForm";
