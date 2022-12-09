@@ -1,7 +1,7 @@
 const ControlPanel = ({ navState }) => {
   return (
     <>
-      <h2 className='text-center'> Control panel: </h2>
+      <h2 className='text-center font-bold text-3xl cursor-default'> Control panel: </h2>
       <div className="min-h-[30%] w-[95%] mx-auto grid grid-cols-2 gap-4 p-6">
         <button
           className="px-6 py-3 bg-purple-800 text-white"

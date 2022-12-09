@@ -3,6 +3,10 @@ export const calcDate = (date) => {
 
   const diff = cur - +date;
 
+  console.log(date, cur, "COMPARE");
+
+  console.log(diff);
+
   let delta = Math.abs(diff) / 1000;
 
   const days = Math.floor(delta / 86400);

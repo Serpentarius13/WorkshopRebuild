@@ -91,6 +91,11 @@ const userLoginBlueprint = [
 
 export const userSignUpBlueprint = [
   {
+    name: "name",
+    label: "Your username",
+    settings: { required: "Please fill this field" },
+  },
+  {
     name: "email",
     label: "Your email",
     settings: {
@@ -99,15 +104,18 @@ export const userSignUpBlueprint = [
     },
   },
   {
-    name: "name",
-    label: "Your username",
-    settings: { required: "Please fill this field" },
-  },
-  {
     name: "password",
     label: "Your password",
     settings: {
       required: "Please fill this field",
+    },
+  },
+  {
+    name: "avatar",
+    label: "Your avatar",
+    settings: {
+      type: "file",
+      required: "Please upload your avatar",
     },
   },
 ];

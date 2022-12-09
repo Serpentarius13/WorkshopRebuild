@@ -7,8 +7,8 @@ import { slideStyle } from "./personalLayout";
 
 const MainSlide = ({ createdAt, setOffset, name, data }) => {
   return (
-    <div className="w-screen h-screen bg-red-900   ">
-      <div className={`${slideStyle} bg-blue-400`}>
+    <div className="w-screen h-screen bg-red-900     ">
+      <div className={`${slideStyle} bg-blue-400 flex flex-col items-center justify-center p-4 `}>
         <Greetings createdAt={createdAt} name={name} />
 
         <div className="control mt-4">
@@ -20,8 +20,9 @@ const MainSlide = ({ createdAt, setOffset, name, data }) => {
             data={data}
             options={{
               font: {
-                size: 18,
+                size: 48,
               },
+              responsive: true,
               plugins: {
                 legend: {
                   position: "bottom",

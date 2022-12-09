@@ -17,6 +17,7 @@ import { RedirectFunction } from "../../utils/redirect";
 
 import { getToken, setToken } from "../../utils/cookies";
 import { QueryNames, ButtonTypes } from "../../types/enum";
+import { uploadFileWithLink } from "../../utils/firestore";
 
 interface BlueprintData {
   name: string;
@@ -115,6 +116,16 @@ const ReusableForm: FC<ReusableFormProps> = ({
         const key = Object.keys(el)[0];
         formData[key] = additionalVariables[ix][key];
       });
+
+      console.log(formData)
+
+      if (formData["avatar"]) {
+        await uploadFileWithLink(formData).then(
+          (res) => (formData["avatar"] = res)
+        );
+      }
+
+      console.log(formData);
       const query = queryCreator(formData);
 
       const { data } = await axios

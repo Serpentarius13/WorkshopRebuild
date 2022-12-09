@@ -58,6 +58,9 @@ const FormInput: FC<FormInputProps> = ({
             defaultValue=""
             placeholder="2"
             type={settings?.type}
+            accept={
+              settings.type === "file" ? 'accept="image/png, image/jpeg"' : ""
+            }
           />
         )}
         <label

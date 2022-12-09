@@ -14,7 +14,7 @@ import DreamOrComment from "./profileDream";
 import DreamAndCommentPages from "./DreamAndCommentPages";
 
 export const slideStyle =
-  "w-[80%] md:w-[50%] p-4  mx-auto mt-8 rounded-lg h-[85%]";
+  "w-[80%] md:w-[50%] p-4  mx-auto mt-8 rounded-lg min-h-[85%]";
 
 const PersonalLayout = () => {
   const ref = useRef<any>(null);
@@ -24,19 +24,16 @@ const PersonalLayout = () => {
 
   const { name, createdAt } = user;
 
-  const genChartData = () => {
-    return {
-      labels: ["Comments", "Dreams"],
-      datasets: [
-        {
-          data: [comments.length, dreams.length],
-          backgroundColor: ["#3b82f6", "#a855f7"],
-          borderColor: "grey",
-        },
-      ],
-    };
+  const data = {
+    labels: ["Comments", "Dreams"],
+    datasets: [
+      {
+        data: [comments.length, dreams.length],
+        backgroundColor: ["#3b82f6", "#a855f7"],
+        borderColor: "black",
+      },
+    ],
   };
-
   const { hours, minutes, days } = calcDate(createdAt);
 
   return (
@@ -44,14 +41,10 @@ const PersonalLayout = () => {
       <Buttons offset={offset} setOffset={setOffset} />
       <div
         className="w-[300%] h-screen flex  "
-        style={{
-          transform: `translateX(-${offset}%)`,
-          transition: "1s all",
-          marker: "",
-        }}
+        style={{ transform: `translateX(-${offset}%)`, transition: "1s all" }}
       >
         <MainSlide
-          data={genChartData()}
+          data={data}
           name={name}
           createdAt={createdAt}
           setOffset={setOffset}
@@ -101,7 +94,7 @@ const Buttons = ({ offset, setOffset }) => {
 
 const user = {
   _id: "123123213",
-  createdAt: 1662763219,
+  createdAt: 1670560657915,
   name: "Bobkin",
 };
 
