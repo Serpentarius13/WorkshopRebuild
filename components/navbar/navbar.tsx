@@ -43,10 +43,10 @@ const Navbar: FC = () => {
     };
   }, []);
   return (
-    <>
+    <div className="flex justify-center w-screen">
       <div
         ref={ref}
-        className={`  w-screen h-8 py-8 px-8 bg-slate-600 flex xl:justify-around items-center justify-center z-[100]   `}
+        className={`  w-screen h-8 py-8 px-8  flex xl:justify-around items-center justify-center z-[100] border-b-white border-b-2   `}
       >
         <div
           onClick={() => router.push("/")}
@@ -73,7 +73,7 @@ const Navbar: FC = () => {
         <ButtonCollapse handler={setDropdown} state={dropdown} />
         {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
       </div>
-    </>
+    </div>
   );
 };
 export default Navbar;

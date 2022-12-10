@@ -17,7 +17,7 @@ const Links: FC<LinksProps> = ({ expanded }) => {
     expanded
       ? "text-8xl text-bold nav-link text-black text-inherit "
       : "text-2xl text-medium text-white"
-  }  cursor-pointer underline flex space-x-2 items-end justify-center p-[4px] `;
+  }  cursor-pointer underline flex space-x-2 items-end justify-center p-[4px] z-[10] `;
 
   const { openModal } = store;
 

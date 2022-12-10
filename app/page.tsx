@@ -44,11 +44,12 @@ export default function Home() {
 
       <div className="stars">
         {Array.from(Array(40)).map((el, ix) => {
+          const speed = Math.max(3, Math.random() * 15);
           return (
             <GiMoebiusStar
               className="span-star"
               style={{
-                animationDuration: `${Math.random() * 15}s`,
+                animationDuration: `${speed}s`,
               }}
               key={ix}
               size={48}

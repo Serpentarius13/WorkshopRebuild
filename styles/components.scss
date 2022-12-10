@@ -10,15 +10,14 @@
 
   .nav-links {
     animation: 1s heighten ease-out forwards;
-    z-index: 123;
+    z-index: 1;
   }
 
   .nav-links::before {
     position: fixed;
     content: "";
     width: 100%;
-
-    z-index: -121;
+    z-index: 2;
 
     right: 0%;
     bottom: 0%;
@@ -130,9 +129,11 @@
 
   .nav-stick {
     position: fixed !important;
-    animation: widthen 0.1s forwards ease-out 1;
+    animation: appear 0.4s forwards ease-out 1;
     transform-origin: right;
-    z-index: 123;
+    z-index: 1;
+
+    @apply w-[95vw] rounded-lg bg-gray-800  #{!important};
   }
 
   .setka {
@@ -161,7 +162,7 @@
     left: 0;
     display: flex;
 
-    z-index: -1;
+    z-index: -7;
     background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
     background-size: 100% 100%;
     background-position: center;
@@ -174,6 +175,15 @@
     border-radius: 50%;
     animation: ascend linear infinite;
     z-index: 123123123213;
+  }
+}
+
+@keyframes appear {
+  0% {
+  }
+
+  100% {
+    margin-top: 8px;
   }
 }
 
