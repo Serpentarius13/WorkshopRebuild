@@ -6,10 +6,10 @@ import "chart.js/auto";
 import { slideStyle } from "./personalLayout";
 
 const MainSlide = ({
-  createdAt,
   setOffset,
-  name,
+  user,
   data: { comments, dreams },
+  refetch
 }) => {
   const data = {
     labels: ["Comments", "Dreams"],
@@ -29,10 +29,10 @@ const MainSlide = ({
       <div
         className={`${slideStyle} flex flex-col items-center justify-center `}
       >
-        <Greetings createdAt={createdAt} name={name} />
+        <Greetings user={user} />
 
         <div className="control mt-4 bg-gray-800 p-4 rounded-xl">
-          <ControlPanel navState={setOffset} />
+          <ControlPanel  refetch={refetch} comments={comments} dreams={dreams} navState={setOffset} />
         </div>
 
         <div className=" h-64 p-8 mx-auto flex items-center justify-center bg-gray-800 mt-4 rounded-xl">

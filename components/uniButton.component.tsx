@@ -29,7 +29,7 @@ const UniversalButton: FC<ButtonProps> = ({
     "px-6 py-3 bg-orange-500 text-white hover:bg-orange-600 active:bg-red-800";
 
   const ctaUserButtonStyle =
-    " px-24 py-10 text-3xl font-bold rounded-full bg-orange-500 text-white active:bg-red-800 hover:bg-orange-600 hover:-translate-y-4 transition-all ";
+    " px-24 py-10 text-3xl font-bold rounded-full bg-orange-500 text-white active:bg-red-800 hover:bg-orange-600 hover:-translate-y-4 transition-all  ";
 
   const ctaDreamButtonStyle =
     "px-24 py-10 text-3xl font-bold rounded-full bg-purple-500 text-white active:bg-purple-800 hover:bg-purple-600 hover:-translate-y-4 transition-all ";

@@ -16,15 +16,12 @@ import DreamAndCommentPages from "./DreamAndCommentPages";
 export const slideStyle =
   "w-[80%] md:w-[50%]  mx-auto mt-2 md:mt-8 rounded-lg min-h-[85%]";
 
-const PersonalLayout = ({dreams, comments, user}) => {
+const PersonalLayout = ({ dreams, comments, user, refetch }) => {
   const ref = useRef<any>(null);
   const chart = useRef<any>();
 
   const [offset, setOffset] = useState(0);
 
-  const { name, createdAt } = user;
-
-  const { hours, minutes, days } = calcDate(createdAt);
 
   return (
     <div ref={ref} className="w-screen fixed">
@@ -35,9 +32,9 @@ const PersonalLayout = ({dreams, comments, user}) => {
       >
         <MainSlide
           data={{ comments, dreams }}
-          name={name}
-          createdAt={createdAt}
+          user={user}
           setOffset={setOffset}
+          refetch={refetch}
         />
 
         <DreamAndCommentPages dreams={dreams} comments={comments} />
@@ -62,23 +59,23 @@ const Buttons = ({ offset, setOffset }) => {
     else setOffset(nextOffset);
   };
   return (
-    <div className="absolute top-1/2 -translate-y-3/4 left-1/2 -translate-x-1/2 w-screen md:p-4 p-1 flex items-center justify-between z-[400]">
+    <>
       {" "}
       <button
         onClick={prevPage}
-        className="px-6 py-3 bg-white text-black z-[50] rounded-full border-orange-500 border-4 "
+        className="px-6 py-3 bg-white text-black  rounded-full border-orange-500 border-4 absolute top-1/2 -translate-y-3/4   left-4 z-[400]"
       >
         {" "}
         <BiLeftArrow />
       </button>
       <button
         onClick={nextPage}
-        className="px-6 py-3 bg-white text-black z-[50] rounded-full border-orange-500 border-4"
+        className="px-6 py-3 bg-white text-black  rounded-full border-orange-500 border-4 absolute top-1/2 -translate-y-3/4   right-4 z-[400]"
       >
         {" "}
         <BiRightArrow />
       </button>{" "}
-    </div>
+    </>
   );
 };
 

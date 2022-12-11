@@ -15,7 +15,7 @@ import { calcDate } from "./../../utils/date";
 const PersonalPage = () => {
   const { openModal } = store;
 
-  const { data, loading, error } = useQuery(getUserData, { client });
+  const { data, loading, error, refetch } = useQuery(getUserData, { client });
   const { currentUser } = useSnapshot(userStore);
 
   if (loading) return <Loading />;
@@ -48,6 +48,7 @@ const PersonalPage = () => {
       user={currentUser}
       dreams={data.getUserData.dreams}
       comments={data.getUserData.comments}
+      refetch={refetch}
     />
   );
 };

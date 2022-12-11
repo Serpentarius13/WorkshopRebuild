@@ -27,6 +27,7 @@ export const getUser = gql`
       email
       _id
       createdAt
+      avatar
     }
   }
 `;
@@ -94,6 +95,7 @@ export const getUserData = gql`
         time
         rating
         likedBy
+        isPrivate
       }
 
       comments {
