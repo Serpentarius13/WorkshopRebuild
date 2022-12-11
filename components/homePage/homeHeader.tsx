@@ -7,9 +7,9 @@ const HomeHeader = () => {
       <div className="sun" />
       <div className="moon">
         {" "}
-        <div className="dot top-8 left-8" />{" "}
-        <div className="dot top-16 left-20" />{" "}
-        <div className="dot top-14 left-12" />{" "}
+        <div className="dot top-8 left-16" />{" "}
+        <div className="dot top-24 left-36" />{" "}
+        <div className="dot top-20 left-20" />{" "}
       </div>{" "}
       <div className="stars -z-[6]">
         {Array.from(Array(40)).map((el, ix) => {
