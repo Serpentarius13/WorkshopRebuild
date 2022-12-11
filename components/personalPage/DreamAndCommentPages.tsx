@@ -13,11 +13,21 @@ const DreamAndCommentPages = ({ dreams, comments }) => {
         }}
       >
         <ul
-          className={`${slideStyle} bg-gray-800 list-none h-[100%] overflow-y-auto flex flex-col items-center  p-6 space-y-4 profile-section`}
+          className={`${slideStyle}  bg-gray-800 list-none overflow-y-auto flex flex-col items-center  p-6 space-y-4 `}
         >
-          {dreams.map((dream) => (
-            <DreamOrComment source={dream} key={dream._id} />
-          ))}{" "}
+          {dreams.length > 0 ? (
+            <>
+              {" "}
+              {dreams.map((dream) => (
+                <DreamOrComment source={dream} key={dream._id} />
+              ))}{" "}
+            </>
+          ) : (
+            <p className="text-center font-bold text-white text-2xl ">
+              {" "}
+              No dreams yet you have!{" "}
+            </p>
+          )}
         </ul>
       </div>
       <div
@@ -26,13 +36,22 @@ const DreamAndCommentPages = ({ dreams, comments }) => {
           backgroundImage: "linear-gradient(to right, #5f3dc4, #91a7ff)",
         }}
       >
-        <div className={`${slideStyle} bg-gray-800 p-4`}>
-          <ul className="list-none h-[100%] overflow-y-auto flex flex-col items-center  p-2 space-y-4 profile-section ">
-            {comments.map((comment) => (
-              <DreamOrComment source={comment} key={comment._id} />
-            ))}{" "}
-          </ul>
-        </div>
+        <ul
+          className={`${slideStyle} bg-gray-800 list-none overflow-y-auto flex flex-col items-center  p-6 space-y-4`}
+        >
+          {comments.length > 0 ? (
+            <>
+              {comments.map((comment) => (
+                <DreamOrComment source={comment} key={comment._id} />
+              ))}
+            </>
+          ) : (
+            <p className="text-center font-bold text-white text-2xl ">
+              {" "}
+              No comments yet you have!{" "}
+            </p>
+          )}
+        </ul>
       </div>
     </>
   );

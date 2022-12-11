@@ -41,7 +41,6 @@ export const dreamFields = [
   "authorId",
 ];
 
-
 export const getOneDream = gql`
   query Query($id: String) {
     getOneDream(id: $id) {
@@ -80,5 +79,32 @@ export const getOneDream = gql`
     createdAt
     likedBy
     _id
+  }
+`;
+
+export const getUserData = gql`
+  query Query {
+    getUserData {
+      dreams {
+        _id
+        dreamName
+        name
+        description
+        email
+        time
+        rating
+        likedBy
+      }
+
+      comments {
+        commentText
+        commentRating
+        commentAuthor
+        commentAuthorId
+        _id
+        likedBy
+        commentRating
+      }
+    }
   }
 `;

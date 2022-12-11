@@ -4,7 +4,9 @@ import { gql, useQuery } from "@apollo/client";
 import Error from "next/error";
 import { useSnapshot } from "valtio";
 import { client } from "../../apollo-client";
+import PersonalLayout from "../../components/personalPage/personalLayout";
 import Loading from "../../components/status/Loading";
+import { getUserData } from "../../queries/queries";
 import { store, userStore } from "../../store/store";
 import { ModalTypes } from "../../types/enum";
 
@@ -13,35 +15,7 @@ import { calcDate } from "./../../utils/date";
 const PersonalPage = () => {
   const { openModal } = store;
 
-  const { data, loading, error } = useQuery(
-    gql`
-      query Query {
-        getUserData {
-          dreams {
-            _id
-            dreamName
-            name
-            description
-            email
-            time
-            rating
-            likedBy
-          }
-
-          comments {
-            commentText
-            commentRating
-            commentAuthor
-            commentAuthorId
-            _id
-            likedBy
-            commentRating
-          }
-        }
-      }
-    `,
-    { client }
-  );
+  const { data, loading, error } = useQuery(getUserData, { client });
   const { currentUser } = useSnapshot(userStore);
 
   if (loading) return <Loading />;
@@ -67,41 +41,14 @@ const PersonalPage = () => {
       </div>
     );
 
-  const { name, email, _id, createdAt } = currentUser;
-
-  const { dreams, comments } = data.getUserData;
-
-  const { days, hours, minutes } = calcDate(createdAt);
+  console.log(data.getUserData.dreams, data.getUserData.comments);
 
   return (
-    <div className="container p-4 mx-auto flex flex-col items-center justify-center space-y-4">
-      <h1> Hello, {name}. Glad to see you. </h1>
-     
-      <div className="w-[100%] h-screen p-4 flex flex-col md:flex-row space-x-4 items-center justify-center">
-        <div className="w-[50%] flex flex-col items-center justify-start">
-          <h3> Your dreams: </h3>
-          {dreams.map((dream) => {
-            return (
-              <p className=" break-words" key={dream._id}>
-                {" "}
-                {dream.dreamName}{" "}
-              </p>
-            );
-          })}{" "}
-        </div>
-        <div className="w-[50%] flex flex-col items-center justify-start">
-          Your comments:
-          {comments.map((comment) => {
-            return (
-              <p className="w-[30%] break-words" key={comment._id}>
-                {" "}
-                {comment.commentText}{" "}
-              </p>
-            );
-          })}{" "}
-        </div>
-      </div>
-    </div>
+    <PersonalLayout
+      user={currentUser}
+      dreams={data.getUserData.dreams}
+      comments={data.getUserData.comments}
+    />
   );
 };
 export default PersonalPage;

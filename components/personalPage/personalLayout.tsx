@@ -16,7 +16,7 @@ import DreamAndCommentPages from "./DreamAndCommentPages";
 export const slideStyle =
   "w-[80%] md:w-[50%]  mx-auto mt-2 md:mt-8 rounded-lg min-h-[85%]";
 
-const PersonalLayout = () => {
+const PersonalLayout = ({dreams, comments, user}) => {
   const ref = useRef<any>(null);
   const chart = useRef<any>();
 
@@ -82,166 +82,166 @@ const Buttons = ({ offset, setOffset }) => {
   );
 };
 
-const user = {
-  _id: "123123213",
-  createdAt: 1670560657915,
-  name: "Bobkin",
-};
+// const user = {
+//   _id: "123123213",
+//   createdAt: 1670560657915,
+//   name: "Bobkin",
+// };
 
-const comments = [
-  {
-    commentTime: new Date(),
-    commentText:
-      "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
-    commentAuthor: "213123123123123",
-    rating: 123,
-  },
-  {
-    commentTime: new Date(),
-    commentText:
-      "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
-    commentAuthor: "213123123123123",
-    rating: 123,
-  },
-  {
-    commentTime: new Date(),
-    commentText:
-      "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
-    commentAuthor: "213123123123123",
-    rating: 123,
-  },
-  {
-    commentTime: new Date(),
-    commentText:
-      "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
-    commentAuthor: "213123123123123",
-    rating: 123,
-  },
-  {
-    commentTime: new Date(),
-    commentText:
-      "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
-    commentAuthor: "213123123123123",
-    rating: 123,
-  },
-];
+// const comments = [
+//   {
+//     commentTime: new Date(),
+//     commentText:
+//       "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
+//     commentAuthor: "213123123123123",
+//     rating: 123,
+//   },
+//   {
+//     commentTime: new Date(),
+//     commentText:
+//       "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
+//     commentAuthor: "213123123123123",
+//     rating: 123,
+//   },
+//   {
+//     commentTime: new Date(),
+//     commentText:
+//       "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
+//     commentAuthor: "213123123123123",
+//     rating: 123,
+//   },
+//   {
+//     commentTime: new Date(),
+//     commentText:
+//       "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
+//     commentAuthor: "213123123123123",
+//     rating: 123,
+//   },
+//   {
+//     commentTime: new Date(),
+//     commentText:
+//       "0LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM LOREM ",
+//     commentAuthor: "213123123123123",
+//     rating: 123,
+//   },
+// ];
 
-const dreams = [
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-  {
-    name: "Bob",
-    email: "213123",
-    _id: "63916eaec776b3d1a871f167",
-    dreamName: "123213213",
-    description:
-      "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
-    rating: 123,
-  },
-];
+// const dreams = [
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+//   {
+//     name: "Bob",
+//     email: "213123",
+//     _id: "63916eaec776b3d1a871f167",
+//     dreamName: "123213213",
+//     description:
+//       "12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex12321312312312x21ex",
+//     rating: 123,
+//   },
+// ];

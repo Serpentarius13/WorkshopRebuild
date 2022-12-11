@@ -5,6 +5,6 @@ import { useEffect } from "react";
 import PersonalLayout from "../../components/personalPage/personalLayout";
 
 const Test = () => {
-  return <PersonalLayout />;
+  return <></>
 };
 export default Test;

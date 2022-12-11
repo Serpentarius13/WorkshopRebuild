@@ -54,7 +54,7 @@ const DreamOrComment = ({ source }) => {
           } `}
         >
           {" "}
-          {source.rating || source.commentRating}{" "}
+          {source.rating || source.commentRating || 0}{" "}
         </div>{" "}
       </div>{" "}
     </li>
