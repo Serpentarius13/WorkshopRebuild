@@ -60,7 +60,9 @@ const Comment = ({ comment, level = 0, likeHandler, refetch }) => {
           rating={commentRating}
           condition={likedBy.includes(id)}
           size={14}
-          handler={async () => await likeHandler(false, _id)}
+          handler={async () =>
+            await likeHandler(false, _id).then((_) => refetch())
+          }
         />{" "}
       </div>
       <p className="break-words "> {commentText} </p>{" "}
