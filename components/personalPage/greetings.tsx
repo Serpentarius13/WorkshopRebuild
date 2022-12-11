@@ -5,12 +5,12 @@ const Greetings = ({ name, createdAt }) => {
 
   console.log(days, hours, minutes);
   return (
-    <div className="text-3xl text-center cursor-default">
+    <div className="text-1xl md:!text-3xl text-center cursor-default bg-gray-800 p-4 w-[100%] rounded-xl text-white">
       <h1>
         {" "}
-        Hello, <i>{name} </i>{" "}
+        Hello, <i className='text-orange-500'>{name} </i>{" "}
       </h1>
-      <h2 className="text-center leading-tight">
+      <h2 className="text-center leading-tight text-sm">
         It has been {days ? <span> {days} days,</span> : ""}{" "}
         {hours ? <span> {hours} hours,</span> : ""}{" "}
         {minutes && (
@@ -20,7 +20,7 @@ const Greetings = ({ name, createdAt }) => {
           </span>
         )}{" "}
         since you joined.
-        <br /> <span className=' font-bold'> Thanks for staying with us. </span>
+        <br /> <span className=' font-bold text-orange-600'> Thanks for staying with us. </span>
       </h2>
     </div>
   );

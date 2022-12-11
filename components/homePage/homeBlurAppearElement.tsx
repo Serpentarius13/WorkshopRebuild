@@ -13,7 +13,7 @@ const HomeBlurAppear = ({ children }) => {
     const offset = window.pageYOffset;
     const y = ref.current.getBoundingClientRect().y;
 
-    if (offset + 200 > y) {
+    if (offset > y) {
       ref.current.classList.remove("notShown");
       ref.current.classList.add("appear");
       document.removeEventListener("scroll", animate);
@@ -34,7 +34,7 @@ const HomeBlurAppear = ({ children }) => {
   }, [hasJs, animate]);
   return (
     <div
-      className={` w-[100%] h-[100%] flex items-center justify-center relative `}
+      className={` w-[100%] h-[100%] flex flex-col space-y-4 md:space-y-8 items-center justify-center relative `}
       ref={ref}
     >
       {children}

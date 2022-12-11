@@ -6,12 +6,20 @@ const DreamOrComment = ({ source }) => {
   const router = useRouter();
 
   return (
-    <li className="w-[95%] md:w-[65%] mx-auto h-24 flex bg-white text-black rounded-l-xl ">
-      <div className="flex-1 h-[100%] w-[85%] border-r-purple-800 border-2 p-4  rounded-l-3xl ">
+    <li
+      className={`w-[95%] md:w-[65%] mx-auto h-24 flex bg-white text-black rounded-l-xl border-4 ${
+        source.dreamName ? "border-purple-800" : "border-blue-500"
+      }`}
+    >
+      <div
+        className={`flex-1 h-[100%] w-[85%] ${
+          source.dreamName ? "border-r-purple-800" : "border-r-blue-500"
+        } border-2 p-4  rounded-l-3xl `}
+      >
         <h1> {source.dreamName || source.name} </h1>
         <p
           className={`w-[95%] ${
-            source.dreamName ? "h-[60%]" : "h-[95%]"
+            source.dreamName ? "h-[60%]" : "h-[93%]"
           } break-words overflow-hidden`}
         >
           {" "}

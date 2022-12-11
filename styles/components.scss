@@ -32,13 +32,13 @@
   }
 
   .notShown {
-    opacity: 0;
+    opacity: 0 !important;
 
-    @media screen and (prefers-reduced-motion: reduce) {
-      & {
-        opacity: 1;
-      }
-    }
+    // @media screen and (prefers-reduced-motion: reduce) {
+    //   & {
+    //     opacity: 1;
+    //   }
+    // }
   }
 
   .inputField:focus ~ .inputLabel,

@@ -3,7 +3,7 @@
 import ReusableForm from "../reusable-form/form.component";
 import { ButtonTypes, ModalTypes, QueryNames } from "../../types/enum";
 import { userSignUpBlueprint } from "../modalOver";
-import HomeBlurAppear from "./homeBlurAppearElement";
+
 import { useSnapshot } from "valtio";
 import { store, userStore } from "../../store/store";
 
@@ -21,7 +21,7 @@ const HomeUserSignUp = () => {
     setCurUser(currentUser?._id);
   }, [currentUser]);
   return (
-    <HomeBlurAppear>
+    <>
       <div className="w-[100%] min-h-[18rem] flex flex-col bg-gray-800 rounded-xl md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red pt-10 functional-block">
         <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex-col items-center justify-center text-3xl font-bold break-keep text-orange-500 text-center pb-10 md:pb-0">
           {" "}
@@ -51,7 +51,7 @@ const HomeUserSignUp = () => {
       ) : (
         ""
       )}
-    </HomeBlurAppear>
+    </>
   );
 };
 export default HomeUserSignUp;
