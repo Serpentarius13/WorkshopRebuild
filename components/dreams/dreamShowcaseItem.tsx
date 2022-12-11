@@ -2,8 +2,8 @@ const DreamShowcase = ({ fakeDream }) => {
   return (
     <div className="w-[33%] h-[18rem]  p-4  space-y-4 relative">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl text-center text-orange-500"> {fakeDream.dreamName} </h1>{" "}
-        <p className="px-4 py-2 bg-orange-500 text-white">
+        <h1 className="text-2xl text-center text-purple-500"> {fakeDream.dreamName} </h1>{" "}
+        <p className="px-4 py-2 bg-purple-500 text-white">
           {" "}
           <span className="italic"> By: </span> {fakeDream.name}{" "}
         </p>

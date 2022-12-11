@@ -38,7 +38,7 @@ export default function Home() {
         <p className="italic text-center md:w-[60%]  mx-auto  rounded-xl bg-gray-800 text-2xl text-white  p-4  ">
           You too can be a part of this evergrowing community of wonder and
           research. <br /> Dive deep into the meaning of human soul with <br />
-          <span className="text-orange-500  font-medium text-6xl underline">
+          <span className="text-orange-500  font-medium text-3xl underline">
             us.{" "}
           </span>{" "}
           <br />
