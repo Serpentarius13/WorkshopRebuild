@@ -40,7 +40,6 @@
     }
     100% {
       opacity: 1;
-
     }
   }
 
@@ -60,5 +59,42 @@
       min-width: 300vh;
     }
   }
+  @keyframes appear-nav {
+    0% {
+    }
 
+    100% {
+      margin-top: 8px;
+    }
+  }
+
+  @keyframes ascend {
+    0% {
+      transform: translateY(110vh) rotate(120deg);
+    }
+
+    100% {
+      transform: translateY(-10vh) rotate(360deg);
+    }
+  }
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes disAppear {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
 }

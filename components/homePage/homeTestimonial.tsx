@@ -23,12 +23,12 @@ const HomeTestimonial: FC<HomeTestimonial> = ({
     <HomeBlurAppear>
       <div
         ref={ref}
-        className={` max-w-[70rem]  flex bg-gray-900  px-8 py-2 rounded-xl  ${
+        className={` max-w-[70rem]  flex bg-gray-900  md:px-8 md:py-2 px-4 py-1 rounded-xl  ${
           reversed ? "flex-row-reverse" : ""
         }`}
       >
         <div className="w-[80px] flex items-center justify-center  ">
-          <div className="w-24 h-18 overflow-hidden  rounded-full flex items-center justify-center border-orange-400 border-4   ">
+          <div className="w-24 h-18 overflow-hidden  rounded-full flex items-center justify-center border-orange-500 border-4   ">
             <Image
               src={imageSource}
               width={96}
@@ -47,7 +47,7 @@ const HomeTestimonial: FC<HomeTestimonial> = ({
           <p
             className={`${
               reversed ? "text-start" : "text-end"
-            } text-1xl font-medium `}
+            } text-1xl font-medium text-orange-500 `}
           >
             - {author}.
           </p>

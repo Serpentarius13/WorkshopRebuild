@@ -42,6 +42,7 @@ const Prophecy: FC = () => {
           <button
             style={{ display: "grid", placeItems: "center" }}
             onClick={getProphecy}
+            className="border-2 border-orange-500 rounded-full"
           >
             <Image
               src="/crystalBall.svg"

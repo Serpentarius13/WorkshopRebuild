@@ -5,7 +5,7 @@
     overflow: hidden;
     white-space: nowrap;
 
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .nav-links {
@@ -129,11 +129,11 @@
 
   .nav-stick {
     position: fixed !important;
-    animation: appear 0.4s forwards ease-out 1;
+    animation: appear-nav 0.4s forwards ease-out 1;
     transform-origin: right;
     z-index: 1;
 
-    @apply w-[95vw] rounded-lg bg-gray-800  #{!important};
+    @apply w-[95vw] rounded-lg bg-gray-800 border-b-white border-b-2   #{!important};
   }
 
   .setka {
@@ -154,19 +154,47 @@
     animation: widthen 0.3s linear forwards 1;
   }
 
-  .stars {
-    width: 100vw;
-    height: 300vh;
+  @mixin mainPage {
+    width: 300vw;
+    height: 300%;
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
 
     z-index: -7;
-    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .stars {
+    @include mainPage;
+    animation: appear 1s linear;
+    background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
+  }
+
+  .sun {
+    @apply w-36 h-36 bg-orange-400 rounded-full top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute;
+
+    animation: sunshine 1.5s infinite linear;
+  }
+
+  .daytime {
+    @include mainPage;
+    z-index: 123;
+    background: #c2e59c; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #64b3f4,
+      #c2e59c
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #64b3f4,
+      #c2e59c
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
   .span-star {
@@ -178,22 +206,16 @@
   }
 }
 
-@keyframes appear {
+@keyframes sunshine {
   0% {
+    box-shadow: 0 0 36px orange;
+  }
+  50% {
+    box-shadow: 0 0 12px orange;
   }
 
   100% {
-    margin-top: 8px;
-  }
-}
-
-@keyframes ascend {
-  0% {
-    transform: translateY(110vh) rotate(120deg);
-  }
-
-  100% {
-    transform: translateY(-10vh) rotate(360deg);
+    box-shadow: 0 0 36px orange;
   }
 }
 

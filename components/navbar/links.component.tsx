@@ -23,7 +23,10 @@ const Links: FC<LinksProps> = ({ expanded }) => {
 
   return (
     <>
-      <button className={style}>
+      <button
+        className={style}
+        onClick={() => openModal(ModalTypes.CREATE_DREAM)}
+      >
         {" "}
         <BsVectorPen /> <span className="text-center"> Write </span>
       </button>
