@@ -46,7 +46,7 @@ const Navbar: FC = () => {
     <div className="flex justify-center w-screen">
       <div
         ref={ref}
-        className={`  w-screen h-8 py-8 px-8 bg-gray-800 flex xl:justify-around items-center justify-center z-[100] transition-all absolute   `}
+        className={`  w-screen h-8 py-8 px-8 bg-gray-800 flex xl:justify-around items-center justify-center z-[1] transition-all   `}
       >
         <div
           onClick={() => router.push("/")}
@@ -71,8 +71,8 @@ const Navbar: FC = () => {
           <Links />
         </div>
         <ButtonCollapse handler={setDropdown} state={dropdown} />
-        {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
       </div>
+      {dropdown && <NavBarLinks setExpanded={() => setDropdown(false)} />}
     </div>
   );
 };

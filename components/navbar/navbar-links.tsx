@@ -1,4 +1,3 @@
-
 import Links from "./links.component";
 
 const NavBarLinks = ({ setExpanded }) => {
@@ -8,7 +7,6 @@ const NavBarLinks = ({ setExpanded }) => {
       className="nav-links  w-screen text-center fixed flex flex-col space-y-7 items-center justify-center top-0 left-0  bg-gray-200"
     >
       <Links expanded={true} />
-
     </div>
   );
 };
