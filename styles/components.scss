@@ -172,7 +172,7 @@
   }
 
   @mixin flyingEntity {
-    @apply w-96 h-96 rounded-full absolute top-1/2  left-1/2 -translate-y-1/2;
+    @apply w-96 h-96 rounded-full absolute top-[45%]  left-1/2 -translate-y-1/2;
   }
 
   .text-header {
