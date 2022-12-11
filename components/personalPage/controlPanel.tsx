@@ -2,6 +2,7 @@ import { gql, useLazyQuery, useMutation } from "@apollo/client";
 import StatusPopOver, { StatusTypes } from "../statusPopOver";
 
 import { client } from "../../apollo-client";
+import { memo } from "react";
 
 const ControlPanel = ({ navState, dreams, comments, refetch }) => {
   const [deleteAllDreams, { loading, error }] = useMutation(
@@ -102,4 +103,5 @@ const ControlPanel = ({ navState, dreams, comments, refetch }) => {
     </>
   );
 };
-export default ControlPanel;
+export default memo(ControlPanel)
+

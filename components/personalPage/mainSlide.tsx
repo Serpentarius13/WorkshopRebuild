@@ -5,6 +5,8 @@ import { Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 import { slideStyle } from "./personalLayout";
 
+import {memo} from 'react'
+
 const MainSlide = ({
   setOffset,
   user,
@@ -63,4 +65,4 @@ const MainSlide = ({
     </div>
   );
 };
-export default MainSlide;
+export default memo(MainSlide);

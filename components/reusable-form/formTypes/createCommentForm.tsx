@@ -1,12 +1,14 @@
+import { useRouter } from "next/navigation";
 import { QueryNames } from "../../../types/enum";
 import ReusableForm from "../form.component";
 
 const CreateCommentForm = ({ id, close = () => {}, isDream = true }) => {
+  const dreamId = location.pathname.split("/")[2];
   return (
     <ReusableForm
       blueprint={commentBlueprint}
       type={true}
-      additionalVariables={[{ id: id }]}
+      additionalVariables={[{ dreamId }, { id }]}
       name={
         isDream
           ? QueryNames.ADD_COMMENT_TO_DREAM

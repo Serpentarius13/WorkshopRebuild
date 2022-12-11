@@ -1,7 +1,7 @@
 import { slideStyle } from "./personalLayout";
 import DreamOrComment from "./profileDream";
 
-import { useRef, useCallback } from "react";
+import { memo } from "react";
 
 const DreamAndCommentPages = ({ dreams, comments }) => {
   return (
@@ -56,4 +56,4 @@ const DreamAndCommentPages = ({ dreams, comments }) => {
     </>
   );
 };
-export default DreamAndCommentPages;
+export default memo(DreamAndCommentPages);

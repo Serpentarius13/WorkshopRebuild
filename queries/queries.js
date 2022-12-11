@@ -106,6 +106,7 @@ export const getUserData = gql`
         _id
         likedBy
         commentRating
+        commentParentDream
       }
     }
   }

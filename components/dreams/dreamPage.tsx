@@ -105,7 +105,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
       </div>
       {formVis && (
         <CreateCommentForm
-          id={_id}
+          id={""}
           close={() => {
             setFormVis(false);
             refetch();

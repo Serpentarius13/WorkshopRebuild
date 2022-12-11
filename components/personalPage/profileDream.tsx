@@ -1,6 +1,6 @@
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { HiOutlineExternalLink } from "react-icons/hi";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation"; 
 
 const DreamOrComment = ({ source }) => {
   const router = useRouter();
@@ -35,11 +35,7 @@ const DreamOrComment = ({ source }) => {
         />{" "}
         <HiOutlineExternalLink
           onClick={() => {
-            router.push(
-              source.parentId
-                ? `/dream/${source.parentId}`
-                : `/dream/${source._id}`
-            );
+            router.push(`/dream/${source.commentParentDream || source._id}`);
           }}
           className="cursor-pointer"
           size={24}

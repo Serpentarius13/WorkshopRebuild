@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 
 import { BiLeftArrow, BiRightArrow } from "react-icons/bi";
 
@@ -42,7 +42,7 @@ const PersonalLayout = ({ dreams, comments, user, refetch }) => {
     </div>
   );
 };
-export default PersonalLayout;
+export default memo(PersonalLayout);
 
 const Buttons = ({ offset, setOffset }) => {
   const onePage = 33.333;
