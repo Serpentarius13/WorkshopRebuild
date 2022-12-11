@@ -83,15 +83,11 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
   const { toggleCircle } = useSnapshot(store);
   const handleClickOutside = (event) => {
-    if (event.target.classList.contains("popover")) {
-      toggleCircle();
-    }
-    console.log("first");
     if (event.key === "Escape") toggleCircle();
   };
 
   useEffect(() => {
-    const checkingFor = ["keypress", "click"];
+    const checkingFor = ["keydown"];
 
     checkingFor.forEach((el) =>
       document.addEventListener(el, handleClickOutside, true)
@@ -117,7 +113,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
         formData[key] = additionalVariables[ix][key];
       });
 
-      console.log(formData)
+      console.log(formData);
 
       if (formData["avatar"]) {
         await uploadFileWithLink(formData).then(
