@@ -51,7 +51,9 @@ const FormInput: FC<FormInputProps> = ({
           />
         ) : (
           <input
-            className={` inputField h-8 p-4 w-[100%] outline-none mt-auto ${border} ${
+            className={` inputField h-10 flex items-center justify-center p-1 file:rounded-full file:bg-transparent ${
+              settings.type === "file" ? "text-white" : ""
+            }  file:text-orange-500 file:border-white file:border-2 file:ml-2 w-[100%] outline-none mt-auto ${border} ${
               errors[name]?.message ? "border-4 !border-red-800" : ""
             } `}
             {...registerFunction(name, settings)}

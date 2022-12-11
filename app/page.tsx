@@ -16,7 +16,7 @@ export default function Home() {
       <HomeHeader />
       <div className="container mx-auto p-8 flex flex-col items-center justify-center space-y-8">
         {" "}
-        <p className="italic text-center md:w-[60%]  mx-auto  rounded-xl bg-gray-800 text-2xl text-white  p-4  ">
+        <p className="italic text-center lg:w-[60%]  mx-auto  rounded-xl bg-gray-800 text-2xl text-white  p-4  ">
           {" "}
           Since ancient times people believed that dreams have some extra sense
           to them. Wise philosophers and artisans of the past admitted that
@@ -45,20 +45,6 @@ export default function Home() {
         </p>
         <HomePageFunctionals />
       </div>{" "}
-      <div className="stars">
-        {Array.from(Array(40)).map((el, ix) => {
-          const speed = Math.max(3, Math.random() * 15);
-          return (
-            <GiMoebiusStar
-              className="span-star w-10 h-10"
-              style={{
-                animationDuration: `${speed}s`,
-              }}
-              key={ix}
-            />
-          );
-        })}
-      </div>
     </>
   );
 }

@@ -1,10 +1,14 @@
 "use client";
 
-import { useEffect } from "react";
+import { GiMoebiusStar } from "react-icons/gi";
 
-import PersonalLayout from "../../components/personalPage/personalLayout";
-
-const Test = () => {
-  return <></>
+const Page = () => {
+  return (
+    <div className="w-screen h-screen relative">
+      {" "}
+      
+    </div>
+  );
 };
-export default Test;
+
+export default Page;
