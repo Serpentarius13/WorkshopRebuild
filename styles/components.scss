@@ -45,10 +45,12 @@
   .inputField:required ~ .inputLabel,
   .inputField:not(:placeholder-shown) ~ .inputLabel {
     padding: 6px;
-    background-color: #5f3dc4;
+    background-color: #f97316;
     color: white;
     top: -10px;
     left: calc(93% - 64px);
+
+    @apply bg-orange-500 rounded-xl;
 
     max-width: 70%;
 
@@ -56,7 +58,7 @@
 
     font-size: 14px;
 
-    box-shadow: 0 0 8px #5f3dc4;
+    box-shadow: 0 0 8px #c2410c;
     font-weight: bold;
 
     transition: 0.3s all ease-out;
@@ -171,30 +173,8 @@
 
   .stars {
     @include mainPage;
-    animation: appear 1s linear;
+
     background-image: linear-gradient(-20deg, #2b5876 0%, #4e4376 100%);
-  }
-
-  .sun {
-    @apply w-36 h-36 bg-orange-400 rounded-full top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 absolute;
-
-    animation: sunshine 1.5s infinite linear;
-  }
-
-  .daytime {
-    @include mainPage;
-    z-index: 123;
-    background: #c2e59c; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #64b3f4,
-      #c2e59c
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-      to right,
-      #64b3f4,
-      #c2e59c
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   }
 
   .span-star {
@@ -203,19 +183,6 @@
     border-radius: 50%;
     animation: ascend linear infinite;
     z-index: 350;
-  }
-}
-
-@keyframes sunshine {
-  0% {
-    box-shadow: 0 0 36px orange;
-  }
-  50% {
-    box-shadow: 0 0 12px orange;
-  }
-
-  100% {
-    box-shadow: 0 0 36px orange;
   }
 }
 

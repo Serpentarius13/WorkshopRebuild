@@ -10,37 +10,7 @@ import Image from "next/image";
 
 import { GiMoebiusStar } from "react-icons/gi";
 
-import { motion, useAnimationControls } from "framer-motion";
-
 export default function Home() {
-  const ref = useRef<any>(null);
-
-  const daytimeRef = useRef<any>(null);
-
-  const animation = useAnimationControls();
-
-  const sunAnimation = useAnimationControls();
-
-  const [isNightTime, setNightTime] = useState(false);
-
-  useEffect(() => {
-    sunAnimation.start({
-      left: "50%",
-      translateX: "50%",
-      transition: {
-        duration: 3,
-      },
-    });
-    setTimeout(() => {
-      animation.start({
-        opacity: 0,
-        transition: {
-          duration: 2,
-        },
-      });
-    }, 2500);
-  }, []);
-
   return (
     <>
       <HomeHeader />
@@ -62,32 +32,19 @@ export default function Home() {
         <h3 className="text-6xl text-center tracking-tight  text-white flex  ">
           {" "}
           <span className="underline "> look for yourself </span>{" "}
-          <span ref={ref} className="no-underline arr">
-            {" "}
-            &darr;{" "}
-          </span>{" "}
+          <span className="no-underline arr"> &darr; </span>{" "}
         </h3>
         <HomeTestimonialsBlock />
-        <p className="italic text-center w-[60%] mx-auto pt-8">
+        <p className="italic text-center md:w-[60%]  mx-auto  rounded-xl bg-gray-800 text-2xl text-white  p-4  ">
           You too can be a part of this evergrowing community of wonder and
           research. <br /> Dive deep into the meaning of human soul with <br />
-          <span className="text-purple-800  font-medium text-6xl underline">
+          <span className="text-orange-500  font-medium text-6xl underline">
             us.{" "}
           </span>{" "}
           <br />
         </p>
         <HomePageFunctionals />
       </div>{" "}
-      <motion.div animate={animation} ref={daytimeRef} className="daytime">
-        <div className="w-screen h-screen relative bg-purple-300">
-          {" "}
-          <div className="sun "> </div>{" "}
-          <motion.div
-            animate={sunAnimation}
-            className="absolute left-[200%] top-1/3 -translate-y-1/2  h-32 w-32 bg-purple-800 rounded-full "
-          ></motion.div>
-        </div>
-      </motion.div>
       <div className="stars">
         {Array.from(Array(40)).map((el, ix) => {
           const speed = Math.max(3, Math.random() * 15);

@@ -175,7 +175,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
     <form
       ref={ref}
       onSubmit={handleSubmit(sendData)}
-      className="form relative bg-blue-200 flex flex-col p-4  items-center justify-center  space-y-4  rounded-xl z-[500]"
+      className="form relative bg-gray-800 flex flex-col p-4  items-center justify-center  space-y-4  rounded-xl z-[500]"
     >
       {" "}
       {blueprint.map((field) => (

@@ -22,12 +22,12 @@ const HomeUserSignUp = () => {
   }, [currentUser]);
   return (
     <HomeBlurAppear>
-      <div className="w-[100%] min-h-[18rem] flex flex-col md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red pt-10 functional-block">
-        <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex-col items-center justify-center text-3xl font-bold break-keep text-purple-600 text-center pb-10 md:pb-0">
+      <div className="w-[100%] min-h-[18rem] flex flex-col bg-gray-800 rounded-xl md:space-x-36 md:flex-row md:space-y-0  items-center justify-center bg-red pt-10 functional-block">
+        <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex-col items-center justify-center text-3xl font-bold break-keep text-orange-500 text-center pb-10 md:pb-0">
           {" "}
           Create your personal account where you can keep track of your dreams.
           <br />
-          <span className="italic text-black text-sm  ">
+          <span className="italic text-white text-sm  ">
             {" "}
             If you are logged in, your dreams are automatically signed by you
             and you can turn their visibility off to keep using our website as

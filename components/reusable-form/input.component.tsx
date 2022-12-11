@@ -29,7 +29,7 @@ const FormInput: FC<FormInputProps> = ({
 
   console.log(errors);
 
-  const border = settings?.required ? "border-4 border-purple-800" : "";
+  const border = settings?.required ? "border-2 border-orange-500" : "";
 
   return (
     <>

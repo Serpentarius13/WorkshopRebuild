@@ -49,14 +49,14 @@ const Sliderish = () => {
           </div>
         </div>
         <BsFillArrowLeftCircleFill
-          className="absolute top-1/2 -left-[10%] -translate-y-1/2 w-8 h-8 btn-control cursor-pointer hover:fill-blue-800 transition-all"
+          className="absolute top-1/2 -left-[10%] -translate-y-1/2 w-8 h-8 btn-control cursor-pointer hover:fill-orange-700 transition-all"
           onClick={() => goLeft()}
-          color={"#5f3dc4"}
+          color={"#f97316"}
         />{" "}
         <BsFillArrowRightCircleFill
-          className="absolute top-1/2 -right-[10%]  -translate-y-1/2 w-8 h-8 btn-control cursor-pointer hover:fill-blue-800 transition-all"
+          className="absolute top-1/2 -right-[10%]  -translate-y-1/2 w-8 h-8 btn-control cursor-pointer hover:fill-orange-700 transition-all"
           onClick={() => goRight()}
-          color={"#5f3dc4"}
+          color={"#f97316"}
         />{" "}
         <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 space-x-2 transition-all">
           {Array.from(Array(3)).map((el, ix) => {
@@ -64,7 +64,7 @@ const Sliderish = () => {
             return (
               <button
                 className={`w-4 h-4 rounded-full ${
-                  index === slide ? "bg-purple-800" : "bg-purple-300"
+                  index === slide ? "bg-orange-500" : "bg-orange-200"
                 }`}
                 key={ix}
                 onClick={() => setSlide(index)}

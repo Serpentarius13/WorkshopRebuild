@@ -21,9 +21,9 @@ const UniversalButton: FC<ButtonProps> = ({
   };
 
   const formButtonStyle =
-    "border-0 outline-none py-2 px-6 bg-purple-800 text-white hover:bg-blue-800 focus:outline-white";
+    "border-0 outline-none py-2 px-6 bg-orange-500 rounded-full text-white hover:bg-orange-700 active:bg-red-500 focus:outline-white";
   const modalButtonStyle =
-    "absolute top-1 right-1 bg-purple-800 w-8 h-8 text-white rounded-full hover:bg-blue-800  ";
+    "absolute -top-6 -right-4 bg-orange-500 w-14 h-14 text-white rounded-full hover:bg-orange-700 active:bg-red-500 text-2xl ";
 
   const commentButtonStyle =
     "px-6 py-3 bg-orange-500 text-white hover:bg-orange-600 active:bg-red-800";
