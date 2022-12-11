@@ -1,9 +1,23 @@
 import { RiDeleteBin2Fill } from "react-icons/ri";
 import { HiOutlineExternalLink } from "react-icons/hi";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
+import { gql, useMutation } from "@apollo/client";
+import { client } from "../../apollo-client";
+import StatusPopOver, { StatusTypes } from "../statusPopOver";
 
-const DreamOrComment = ({ source }) => {
+const DreamOrComment = ({ source, refetch }) => {
   const router = useRouter();
+
+  const [deleteContent, { data, loading, error }] = useMutation(
+    gql`
+      mutation Mutation($id: String, $isDream: Boolean) {
+        deleteContent(id: $id, isDream: $isDream)
+      }
+    `,
+    { client }
+  );
+
+  if (error) return <StatusPopOver type={StatusTypes.STATUS_ERROR} />;
 
   return (
     <li
@@ -32,6 +46,14 @@ const DreamOrComment = ({ source }) => {
           className="cursor-pointer"
           color={"red"}
           size={24}
+          onClick={async () => {
+            (await source.dreamName)
+              ? deleteContent({ variables: { id: source._id, isDream: true } })
+              : deleteContent({
+                  variables: { id: source._id, isDream: false },
+                });
+            refetch();
+          }}
         />{" "}
         <HiOutlineExternalLink
           onClick={() => {

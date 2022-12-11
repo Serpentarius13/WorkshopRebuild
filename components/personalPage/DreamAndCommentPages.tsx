@@ -3,7 +3,7 @@ import DreamOrComment from "./profileDream";
 
 import { memo } from "react";
 
-const DreamAndCommentPages = ({ dreams, comments }) => {
+const DreamAndCommentPages = ({ refetch, dreams, comments }) => {
   return (
     <>
       <div
@@ -19,7 +19,7 @@ const DreamAndCommentPages = ({ dreams, comments }) => {
             <>
               {" "}
               {dreams.map((dream) => (
-                <DreamOrComment source={dream} key={dream._id} />
+                <DreamOrComment refetch={refetch} source={dream} key={dream._id} />
               ))}{" "}
             </>
           ) : (
@@ -42,7 +42,7 @@ const DreamAndCommentPages = ({ dreams, comments }) => {
           {comments.length > 0 ? (
             <>
               {comments.map((comment) => (
-                <DreamOrComment source={comment} key={comment._id} />
+                <DreamOrComment refetch={refetch} source={comment} key={comment._id} />
               ))}
             </>
           ) : (

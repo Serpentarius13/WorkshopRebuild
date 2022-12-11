@@ -37,7 +37,7 @@ const PersonalLayout = ({ dreams, comments, user, refetch }) => {
           refetch={refetch}
         />
 
-        <DreamAndCommentPages dreams={dreams} comments={comments} />
+        <DreamAndCommentPages refetch={refetch} dreams={dreams} comments={comments} />
       </div>
     </div>
   );
