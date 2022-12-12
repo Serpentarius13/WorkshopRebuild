@@ -22,7 +22,7 @@ const HomeUserSignUp = () => {
   }, [currentUser]);
   return (
     <>
-      <div className="w-[100%] min-h-[18rem] p-12 flex flex-col  bg-gray-800 rounded-xl md:flex-row md:space-y-0 relative  items-center justify-around bg-red  functional-block">
+      <div className="w-[100%] min-h-[18rem] p-4 md:p-12 flex flex-col  bg-gray-800 rounded-xl md:flex-row md:space-y-0 relative  items-center justify-around bg-red  functional-block">
         <p className="w-[100%] md:w-[50%] py-4 h-[100%] flex-col items-center justify-center text-3xl font-bold break-keep text-orange-500  pb-10   md:pb-0">
           {" "}
           Create your personal account where you can keep track of your dreams.
