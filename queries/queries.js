@@ -16,6 +16,7 @@ export const getAllDreams = gql`
       description
       dreamName
       authorId
+      _id
     }
   }
 `;

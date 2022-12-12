@@ -3,13 +3,13 @@ import { GiMoebiusStar } from "react-icons/gi";
 const HomeHeader = () => {
   return (
     <>
-      <div className="w-screen h-[20%] md:h-[33%]  "> </div>
+      <div className="w-screen h-[20%] md:h-[25%]  "> </div>
       <div className="sun" />
       <div className="moon">
         {" "}
-        <div className="dot top-8 left-16" />{" "}
-        <div className="dot top-24 left-36" />{" "}
-        <div className="dot top-20 left-20" />{" "}
+        <div className="dot top-16 left-24" />{" "}
+        <div className="dot top-32 left-44" />{" "}
+        <div className="dot top-28 left-28" />{" "}
       </div>{" "}
       <div className="stars -z-[6]">
         {Array.from(Array(40)).map((el, ix) => {
