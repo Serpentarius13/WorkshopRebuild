@@ -9,6 +9,7 @@
 ###### You look at the amount of components and understand that there should be 2 times more
 ###### You finally find this beautiful crappy reusable form design with a thousand crotches to work
 ###### To understand moon animation, youd rather buy yourself a new brain
+###### Recursive comment querying via graphql destroy your sense of sanity
 ###### This bastard uses firebase library only for image storing???????????
 ###### There is not even a chat feature lol talk via email
 ###### I hope author gets 1000 refusals for job offers (lol he got that, be sure)
