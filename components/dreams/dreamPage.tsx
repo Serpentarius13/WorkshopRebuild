@@ -92,7 +92,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
     );
 
   return (
-    <div className="container mx-auto py-12 px-4 relative text-[20px]  ">
+    <div className="container mx-auto mt-12 py-12 px-4 relative text-[20px]  ">
       <div className="flex justify-between items-center">
         {" "}
         <h1 className="text-4xl font-medium"> {dreamName} </h1>{" "}
