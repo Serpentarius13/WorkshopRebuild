@@ -28,16 +28,15 @@ const HomeTestimonial: FC<HomeTestimonial> = ({
         }`}
       >
         <div className="w-[80px] flex items-center justify-center  ">
-          <div className="w-24 h-18 overflow-hidden  rounded-full flex items-center justify-center border-orange-500 border-4   ">
-            <Image
-              src={imageSource}
-              width={64}
-              height={64}
-              alt={imageSource.split(".")[0].replace("/", "")}
-              className=" min-w-[100%] min-h-[85%] "
-            />{" "}
-          </div>
+          <Image
+            src={imageSource}
+            width={64}
+            height={64}
+            alt={imageSource.split(".")[0].replace("/", "")}
+            className=" w-24 h-18 overflow-hidden  rounded-full flex items-center justify-center border-orange-500 border-4  "
+          />{" "}
         </div>
+
         <div className="flex-1  p-6 my-auto space-y-2 text-white text-2xl z-[500]">
           <p className="italic">
             {text}
