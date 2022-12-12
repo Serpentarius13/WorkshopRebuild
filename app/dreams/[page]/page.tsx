@@ -9,25 +9,15 @@ import { countPages, pageSize, makeParams } from "../../../utils/pages";
 import { useRouter } from "next/navigation";
 import StatusPopOver, { StatusTypes } from "../../../components/statusPopOver";
 
+import { getAllDreams } from "./../../../queries/queries";
+
 const Page = async ({ params: { page } }) => {
   const {
     data: { getAll: dreams },
     loading,
     error,
   } = await client.query({
-    query: gql`
-      query Query {
-        getAll {
-          dreamName
-          description
-          name
-          time
-          email
-          authorId
-          _id
-        }
-      }
-    `,
+    query: getAllDreams,
   });
 
   if (dreams.length === 0) {

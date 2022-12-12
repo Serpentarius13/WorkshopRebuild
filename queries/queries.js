@@ -9,7 +9,7 @@ export const sentenceQuery = gql`
 
 export const getAllDreams = gql`
   query Query {
-    getAllDreams {
+    getAll {
       name
       email
       time
