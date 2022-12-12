@@ -2,7 +2,7 @@
 
 import ReusableForm from "../reusable-form/form.component";
 import { ButtonTypes, ModalTypes, QueryNames } from "../../types/enum";
-import { userSignUpBlueprint } from "../modalOver";
+import { userSignUpBlueprint } from "../../utils/blueprints";
 
 import { useSnapshot } from "valtio";
 import { store, userStore } from "../../store/store";
@@ -40,7 +40,7 @@ const HomeUserSignUp = () => {
           onClick={() => openModal(ModalTypes.CREATE_DREAM)}
         />
         {curUser ? (
-          <div className="absolute top-1/2 z-[300] appear -translate-y-1/2 w-[105%] rounded-3xl h-[115%] bg-purple-300 bg-opacity-40 flex items-center justify-center overflow-hidden ">
+          <div className="absolute top-1/2 z-[1] appear -translate-y-1/2 w-[105%] rounded-3xl h-[105%] bg-purple-300 bg-opacity-40 flex items-center justify-center overflow-hidden ">
             <div className="w-[140rem] h-20 bg-purple-800 rotate-45 left-3/6  top-1/2 absolute   flex items-center justify-center ">
               <p className="text-3xl text-white font-bold md:-translate-x-10 ">
                 You already have an account

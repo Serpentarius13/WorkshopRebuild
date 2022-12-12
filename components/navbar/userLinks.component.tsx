@@ -33,7 +33,7 @@ const UserLinks: FC<UserLinks> = ({ style }) => {
           {" "}
           <Link className={style} href="/personal">
             {" "}
-            <CgProfile /> <span> Your page </span>{" "}
+            <CgProfile /> <span> Profile </span>{" "}
           </Link>
           <button className={style} onClick={() => logout()}>
             {" "}
