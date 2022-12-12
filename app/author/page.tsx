@@ -30,14 +30,7 @@ const AuthorPage = () => {
   const size = 48;
   return (
     <div className="w-screen flex items-center justify-center absolute">
-      <div className="w-[90%] md:w-[50%]  p-4 flex flex-col items-center space-y-1 ">
-        <Image
-          src="/Sigmund Freud.png"
-          alt="My pic"
-          width={92}
-          height={92}
-          className="rounded-full"
-        />
+      <div className="w-[90%] md:w-[50%]  p-4 flex flex-col items-center space-y-1 pt-8 ">
         <h1 className="text-3xl text-black text-center">
           {" "}
           Hello, Im <b> Andrei</b>, a front-end developer{" "}
@@ -95,7 +88,7 @@ const AuthorPage = () => {
             Contact me{" "}
           </a>{" "}
           <a
-            className="px-4 py-2 bg-purple-800  text-white text-2xl rounded-xl active:bg-purple-900"
+            className="px-4 py-2 bg-purple-700  text-white text-2xl rounded-xl hover:bg-purple-800 active:bg-purple-900"
             href="https://github.com/Serpentarius13/WorkshopRebuild"
             target="_blank"
             rel="noreferrer"
