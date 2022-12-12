@@ -3,7 +3,7 @@ import { GiMoebiusStar } from "react-icons/gi";
 const HomeHeader = () => {
   return (
     <>
-      <div className="w-screen h-[13%] md:h-[20%]  "> </div>
+      <div className="w-screen h-[13%] md:h-[25%]  "> </div>
       <div className="sun" />
       <div className="moon">
         {" "}

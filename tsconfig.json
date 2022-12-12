@@ -31,7 +31,7 @@
     "**/*.tsx",
     "pages/time.jsx",
     ".next/types/**/*.ts"
-, "app/dreams/[page]/lapp/error.tsxage]/error.tsx"  ],
+, "app/dreams/[page]/lapp/error.tsxage]/error.tsx", "app/dream/loading.js", "app/dreams/loading.js", "app/loading.js"  ],
   "exclude": [
     "node_modules",
     "./pages/time.tsx"

@@ -1,3 +1,5 @@
+"use client";
+
 import { client } from "../../../apollo-client";
 import { gql, useLazyQuery, useQuery } from "@apollo/client";
 
@@ -10,15 +12,16 @@ import { useRouter } from "next/navigation";
 import StatusPopOver, { StatusTypes } from "../../../components/statusPopOver";
 
 import { getAllDreams } from "./../../../queries/queries";
+import Loading from "../../../components/status/Loading";
+import Error from "../../../components/status/Error";
 
-const Page = async ({ params: { page } }) => {
-  const {
-    data: { getAll: dreams },
-    loading,
-    error,
-  } = await client.query({
-    query: getAllDreams,
-  });
+const Page = ({ params: { page } }) => {
+  const { data, loading, error } = useQuery(getAllDreams, { client });
+
+  const dreams = data?.getAll;
+
+  if (loading) return <Loading />;
+  if (error) return <Error />;
 
   if (dreams.length === 0) {
     return (
@@ -88,27 +91,27 @@ const Page = async ({ params: { page } }) => {
 };
 export default Page;
 
-export async function generateStaticParams() {
-  try {
-    const { data: dreams } = await client.query({
-      query: gql`
-        query Query {
-          getAll {
-            dreamName
-            description
-            name
-            time
-            email
-            authorId
-          }
-        }
-      `,
-    });
+// export async function generateStaticParams() {
+//   try {
+//     const { data: dreams } = await client.query({
+//       query: gql`
+//         query Query {
+//           getAll {
+//             dreamName
+//             description
+//             name
+//             time
+//             email
+//             authorId
+//           }
+//         }
+//       `,
+//     });
 
-    const pages = countPages(dreams);
+//     const pages = countPages(dreams);
 
-    return makeParams(pages);
-  } catch (err) {
-    console.log(err);
-  }
-}
+//     return makeParams(pages);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
