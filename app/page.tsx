@@ -5,10 +5,7 @@ import HomePageFunctionals from "../components/homePage/homePageFunctionals";
 
 import HomeTestimonialsBlock from "../components/homePage/homeTestimonialsBlock";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-
-import { GiMoebiusStar } from "react-icons/gi";
+import SendEmailToMeForm from "../components/homePage/sendEmailToMe";
 
 export default function Home() {
   return (
@@ -44,6 +41,7 @@ export default function Home() {
           <br />
         </p>
         <HomePageFunctionals />
+        <SendEmailToMeForm />
       </div>{" "}
     </>
   );

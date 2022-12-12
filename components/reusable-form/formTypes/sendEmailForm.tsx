@@ -4,7 +4,15 @@ import { QueryNames } from "../../../types/enum";
 
 import { FC } from "react";
 
-const SendEmailForm: FC<any> = ({
+import { emailBlueprint } from "../../../utils/blueprints";
+
+interface ISendEmailForm {
+  additionalVariables?: any;
+  closeForm?: () => void;
+  name: QueryNames;
+}
+
+const SendEmailForm: FC<ISendEmailForm> = ({
   additionalVariables = [],
   name,
   closeForm = () => null,
@@ -20,28 +28,3 @@ const SendEmailForm: FC<any> = ({
   );
 };
 export default SendEmailForm;
-
-const emailBlueprint = [
-  {
-    name: "name",
-    label: "Your name",
-    settings: { required: "Please fill this field" },
-  },
-  {
-    name: "email",
-    label: "Your email",
-    settings: {
-      required: "Please fill this field",
-      type: "email",
-    },
-  },
-  {
-    name: "message",
-    label: "Your message",
-    settings: {
-      required: "Please fill this field",
-      minLength: 40,
-      type: "textarea",
-    },
-  },
-];

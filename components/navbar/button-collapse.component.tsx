@@ -4,12 +4,12 @@ interface ButtonCollapseProps {
 }
 
 const ButtonCollapse = ({ handler, state }) => {
-  const spanStyle = `border-4 border-red rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all  !z-[500] `;
+  const spanStyle = `border-4 border-red rounded-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all   `;
   return (
     <button
       onClick={(e) => handler((state) => !state)}
-      className={`btn-nav-collapse  w-4 xl:hidden bg-cyan-900 z-[500] relative ${
-        state ? "!block fixed" : ""
+      className={`btn-nav-collapse  w-4 xl:hidden bg-cyan-900  !z-[500] relative ${
+        state ? "!block fixed " : ""
       }`}
     >
       <span

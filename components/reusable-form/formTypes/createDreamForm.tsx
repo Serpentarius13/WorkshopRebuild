@@ -1,7 +1,7 @@
 "use client";
 
 import ReusableForm from "../form.component";
-import { dreamBlueprint } from "../../modalOver";
+import { dreamBlueprint } from "../../../utils/blueprints";
 import { QueryNames } from "../../../types/enum";
 
 const CreateDreamForm = () => {

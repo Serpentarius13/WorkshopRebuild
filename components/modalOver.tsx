@@ -9,6 +9,8 @@ import SendEmailForm from "./reusable-form/formTypes/sendEmailForm";
 
 import { ModalTypes, QueryNames } from "../types/enum";
 
+import {dreamBlueprint, emailBlueprint, userLoginBlueprint, userSignUpBlueprint} from './../utils/blueprints'
+
 const ModalOver = () => {
   const { modalOpenState, additionalVariables } = useSnapshot(store);
   return (
@@ -74,94 +76,4 @@ const ModalOver = () => {
 };
 export default ModalOver;
 
-const userLoginBlueprint = [
-  {
-    name: "name",
-    label: "Your username",
-    settings: { required: "Please fill this field" },
-  },
-  {
-    name: "password",
-    label: "Your password",
-    settings: {
-      required: "Please fill this field",
-    },
-  },
-];
 
-export const userSignUpBlueprint = [
-  {
-    name: "name",
-    label: "Your username",
-    settings: { required: "Please fill this field" },
-  },
-  {
-    name: "email",
-    label: "Your email",
-    settings: {
-      type: "email",
-      required: "Please fill this field",
-    },
-  },
-  {
-    name: "password",
-    label: "Your password",
-    settings: {
-      required: "Please fill this field",
-    },
-  },
-  {
-    name: "avatar",
-    label: "Your avatar",
-    settings: {
-      type: "file",
-      required: "Please upload your avatar",
-    },
-  },
-];
-
-export const dreamBlueprint = [
-  {
-    name: "name",
-    label: "Your name",
-    settings: {
-      required: false,
-      maxLength: 40,
-    },
-  },
-  {
-    name: "time",
-    label: "Time when dream occured",
-    settings: {
-      required: false,
-      type: "time",
-    },
-  },
-  {
-    name: "email",
-    label: "Your email",
-
-    settings: {
-      required: false,
-      type: "email",
-      maxLength: 40,
-    },
-  },
-  {
-    name: "dreamName",
-    label: "Name of your dream",
-    settings: {
-      required: "Please fill out this field",
-      maxLength: 40,
-    },
-  },
-  {
-    name: "description",
-    label: "Describe your dream",
-    settings: {
-      required: "Please fill out this field",
-      minLength: 40,
-      type: "textarea",
-    },
-  },
-];

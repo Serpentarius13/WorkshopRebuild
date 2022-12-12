@@ -12,11 +12,11 @@ export const RedirectFunction: Redirect = async (type, returnings) => {
       return `/dream/${_id}`;
     case QueryNames.SIGN_IN:
       await login(returnings);
-      return window.location.pathname;
+      return `/personal`;
 
     case QueryNames.SIGN_UP:
       await login(returnings);
-      return window.location.pathname;
+      return `/personal`;
     default:
       return window.location.pathname;
   }

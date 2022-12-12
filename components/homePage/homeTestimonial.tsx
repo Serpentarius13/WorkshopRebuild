@@ -31,8 +31,8 @@ const HomeTestimonial: FC<HomeTestimonial> = ({
           <div className="w-24 h-18 overflow-hidden  rounded-full flex items-center justify-center border-orange-500 border-4   ">
             <Image
               src={imageSource}
-              width={96}
-              height={96}
+              width={64}
+              height={64}
               alt={imageSource.split(".")[0].replace("/", "")}
               className=" min-w-[100%] min-h-[85%] "
             />{" "}

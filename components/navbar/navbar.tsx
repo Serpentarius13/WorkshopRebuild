@@ -46,7 +46,7 @@ const Navbar: FC = () => {
     <div className="flex justify-center w-screen">
       <div
         ref={ref}
-        className={`  w-screen h-8 py-8 px-8 bg-gray-800 flex xl:justify-around items-center justify-center transition-all  fixed z-[4]  `}
+        className={`  w-screen h-8 py-8 px-8 bg-gray-800 flex xl:justify-around items-center justify-center transition-all  fixed z-[2]  `}
       >
         <div
           onClick={() => router.push("/")}
