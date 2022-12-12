@@ -7,6 +7,8 @@ import { useState } from "react";
 import { userStore } from "../../store/store";
 
 import { BsReply } from "react-icons/bs";
+import Image from "next/image";
+import Link from "next/link";
 
 const Comment = ({ comment, level = 0, likeHandler, refetch }) => {
   const nestedComments = (comment.comments || []).map((comment) => {
@@ -21,8 +23,16 @@ const Comment = ({ comment, level = 0, likeHandler, refetch }) => {
     );
   });
 
-  const { commentAuthor, commentText, createdAt, commentRating, likedBy, _id } =
-    comment;
+  const {
+    commentAuthor,
+    commentText,
+    createdAt,
+    commentRating,
+    likedBy,
+    _id,
+    commentAuthorAvatar,
+    commentAuthorId,
+  } = comment;
 
   const date = new Date(+createdAt);
 
@@ -42,14 +52,22 @@ const Comment = ({ comment, level = 0, likeHandler, refetch }) => {
     >
       <div className="flex items-center justify-center space-x-4 ">
         {" "}
-        <p className="text-sm font-bold">
+        <Link
+          href={`/profile/${commentAuthorId}`}
+          className="text-sm font-bold flex space-x-2 items-center mr-8 py-2"
+        >
           {" "}
+          <Image
+            src={
+              commentAuthorAvatar ? commentAuthorAvatar : "/defaultAvatar.png"
+            }
+            alt="User avatar"
+            width={36}
+            height={36}
+          />
           By:{" "}
-          <span className="text-1xl italic font-medium">
-            {" "}
-            {commentAuthor}{" "}
-          </span>{" "}
-        </p>{" "}
+          <span className="text-1xl italic font-medium"> {commentAuthor} </span>{" "}
+        </Link>{" "}
         <p className="text-sm underline  break-keep w-[80%] flex  gap-2">
           {" "}
           <span> {date.toLocaleTimeString()} </span>{" "}

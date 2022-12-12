@@ -54,6 +54,7 @@ export const getOneDream = gql`
       dreamName
       likedBy
       rating
+      avatar
       comments {
         ...CommentFragment
         comments {
@@ -77,6 +78,7 @@ export const getOneDream = gql`
   fragment CommentFragment on Comment {
     commentRating
     commentAuthorId
+    commentAuthorAvatar
     commentAuthor
     commentText
     createdAt

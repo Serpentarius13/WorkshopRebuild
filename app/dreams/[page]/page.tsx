@@ -90,28 +90,3 @@ const Page = ({ params: { page } }) => {
   );
 };
 export default Page;
-
-// export async function generateStaticParams() {
-//   try {
-//     const { data: dreams } = await client.query({
-//       query: gql`
-//         query Query {
-//           getAll {
-//             dreamName
-//             description
-//             name
-//             time
-//             email
-//             authorId
-//           }
-//         }
-//       `,
-//     });
-
-//     const pages = countPages(dreams);
-
-//     return makeParams(pages);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }

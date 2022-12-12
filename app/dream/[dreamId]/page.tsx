@@ -20,6 +20,8 @@ const DreamPage = ({ params: { dreamId } }) => {
 
   const dream = data?.getOneDream;
 
+
+
   if (loading)
     return (
       <div className="w-screen h-screen flex items-center justify-center">

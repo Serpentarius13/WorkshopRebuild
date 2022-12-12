@@ -6,7 +6,6 @@ const Greetings = ({ user }) => {
   const { name, createdAt, avatar } = user;
   const { days, hours, minutes } = calcDate(createdAt);
 
-  console.log(days, hours, minutes);
   return (
     <div className="text-1xl md:!text-3xl text-center cursor-default bg-gray-800 p-4 w-[100%] rounded-xl text-white flex items-center justify-center space-x-4">
       <div className="">

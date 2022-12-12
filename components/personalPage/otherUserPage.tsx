@@ -42,7 +42,7 @@ const OtherUserPage: FC<IOtherUserPage> = ({
           <span className="italic text-orange-500 text-3xl"> {name} </span>
           <div className="flex-1 text-end text-white text-3xl pr-4">
             {" "}
-            Rating: <span ref={ref}> </span>{" "}
+            Rating: <span ref={ref}> 0 </span>{" "}
           </div>
         </div>
         <div className="flex items-center justify-around w-[100%] h-12 text-2xl text-white">
@@ -59,8 +59,8 @@ const OtherUserPage: FC<IOtherUserPage> = ({
         </div>
         <div className="w-[100%] h-[65%] p-4 flex space-x-2 justify-center items-center">
           (
-          <div className="border-r-2 w-[50%] border-orange-500 h-[100%] ">
-            <ul className=" p-2 list-none text-2xl text-white flex flex-col justify-start  space-y-2 overflow-auto ">
+          <div className="border-r-2 w-[50%] border-orange-500 h-[100%]  overflow-auto  ">
+            <ul className=" p-2  list-none text-2xl text-white flex flex-col justify-start  space-y-2">
               {dreams.map((dream) => (
                 <OtherUserDreamOrComment key={dream._id} source={dream} />
               ))}

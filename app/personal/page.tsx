@@ -41,13 +41,7 @@ const PersonalPage = () => {
       </div>
     );
 
-  console.log(data.getUserData.dreams, data.getUserData.comments);
-
   const { comments, dreams, rating } = data?.getUserData;
-
-  console.log(rating);
-
-  console.log(data)
 
   return (
     <PersonalLayout

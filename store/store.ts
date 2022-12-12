@@ -70,29 +70,3 @@ export const userStore = proxy<any>({
   },
 });
 
-// import create from "zustand";
-// import { persist } from "zustand/middleware";
-
-// export const useZustandStore = create<any>()(
-//   persist((set, get) => ({
-//     currentUser: null,
-//     login: async (token = "") => {
-//       try {
-//         setToken(token);
-//         console.log("GETTING USER");
-//         const { data } = await client.query({ query: getUser });
-
-//         set({ currentUser: data.getUser });
-
-//         console.log(get().currentUser, "USER USER USER");
-//       } catch (err) {
-//         return;
-//       }
-//     },
-//     logout: () => {
-//       removeToken();
-//       set({ currentUser: null });
-//       return;
-//     },
-//   }))
-// );

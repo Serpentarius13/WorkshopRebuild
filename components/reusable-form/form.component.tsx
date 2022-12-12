@@ -72,7 +72,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
 
   const queryCreator = createQuery(fields, name, type);
 
-  console.log(name, type);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -115,7 +115,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
         formData[key] = additionalVariables[ix][key];
       });
 
-      console.log(formData);
+  
 
       if (formData["avatar"]) {
         await uploadFileWithLink(formData).then(
@@ -123,7 +123,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
         );
       }
 
-      console.log(formData);
+   
       const query = queryCreator(formData);
 
       const { data } = await axios
@@ -135,7 +135,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
         .then((data) => data);
       const returnings = data.data[name];
 
-      console.log(returnings);
+   
 
       await RedirectFunction(name, returnings).then((path) => {
         setLoading(false);

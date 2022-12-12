@@ -15,8 +15,6 @@ const Page = ({ params: { userId } }) => {
   if (error) return <Error />;
   if (loading) return <Loading />;
   const { dreams, comments, rating, avatar, name } = data?.getOtherUserData;
-  console.log(data);
-  console.log(data);
   return (
     <OtherUserPage
       avatar={avatar}

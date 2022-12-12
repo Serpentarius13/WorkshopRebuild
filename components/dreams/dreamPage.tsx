@@ -50,13 +50,12 @@ const DreamFullReadPage = ({ dream, refetch }) => {
     _id,
     rating,
     likedBy,
-    authorAvatar,
+    avatar,
     authorId,
   } = dream;
 
   let { comments } = dream;
 
-  console.log(authorId, authorAvatar);
 
   const { currentUser } = useSnapshot(userStore);
 
@@ -99,7 +98,7 @@ const DreamFullReadPage = ({ dream, refetch }) => {
         <h1 className="text-4xl font-medium"> {dreamName} </h1>{" "}
         <DreamPageInitials
           authorId={authorId}
-          avatar={authorAvatar}
+          avatar={avatar}
           name={name}
           id={_id}
           time={time}

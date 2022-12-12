@@ -31,29 +31,38 @@ const DreamPageInitials = ({ id, name, time, avatar, authorId }) => {
       {time || name ? (
         <div className="flex items-center justify-center space-x-2 mx-auto">
           {name ? (
-            <div className="px-6 py-3 text-blue-800 border-blue-800 border-4 items-center justify-center pr-4 flex space-x-2">
+            <Link href={`/profile/${authorId}`}>
               {" "}
-              {authorId.length > 1 ? (
-                <Link href={`/profile/${authorId}`}>
-                  {" "}
-                  By: <span className="text-2xl font-bold"> {name} </span>{" "}
-                </Link>
-              ) : (
-                <p>
-                  {" "}
-                  By: <span className="text-2xl font-bold"> {name} </span>{" "}
-                </p>
-              )}
-              {avatar && (
-                <Image
-                  src={avatar}
-                  alt="User avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-full"
-                />
-              )}
-            </div>
+              <div className="px-6 py-3 text-blue-800 border-blue-800 border-4 items-center justify-center pr-4 flex space-x-2">
+                {" "}
+                {authorId.length > 1 ? (
+                  <p>
+                    {" "}
+                    By: <span className="text-2xl font-bold">
+                      {" "}
+                      {name}{" "}
+                    </span>{" "}
+                  </p>
+                ) : (
+                  <p>
+                    {" "}
+                    By: <span className="text-2xl font-bold">
+                      {" "}
+                      {name}{" "}
+                    </span>{" "}
+                  </p>
+                )}
+                {avatar && (
+                  <Image
+                    src={avatar}
+                    alt="User avatar"
+                    width={64}
+                    height={64}
+                    className="rounded-full"
+                  />
+                )}
+              </div>{" "}
+            </Link>
           ) : (
             ""
           )}
