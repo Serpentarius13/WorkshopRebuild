@@ -2,6 +2,7 @@ import { store } from "./../../store/store";
 import { ModalTypes } from "../../types/enum";
 import UniversalButton from "./../uniButton.component";
 import { ButtonTypes } from "./../../types/enum";
+import { sentEmail } from "../../utils/cookies";
 
 interface DreamInitialsInterface {
   email: string;
@@ -14,6 +15,10 @@ const DreamPageInitials = ({ id, name, time }) => {
 
   const openEmailModel = () => {
     setVariables([{ id: id }]);
+    if (sentEmail(id)) {
+      alert("You have already sent email to this user");
+      return;
+    }
     openModal(ModalTypes.SEND_EMAIL_TO_USER);
   };
 

@@ -21,3 +21,11 @@ export const testCookie = () => {
 
   return token ? token : false;
 };
+
+export const sentEmail = (userId) => {
+  const past = Cookies.get("sentUsers") || [];
+  if (past.includes(userId.toString())) return true;
+  past.push(userId);
+  Cookies.set("sentUsers", past);
+  return false;
+};

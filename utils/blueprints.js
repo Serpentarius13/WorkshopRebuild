@@ -1,4 +1,5 @@
-export const userLoginBlueprint = [ //! Login
+export const userLoginBlueprint = [
+  //! Login
   {
     name: "name",
     label: "Your username",
@@ -9,11 +10,14 @@ export const userLoginBlueprint = [ //! Login
     label: "Your password",
     settings: {
       required: "Please fill this field",
+      type: "password",
+      minLength: "8",
     },
   },
 ];
 
-export const userSignUpBlueprint = [ //! Signup
+export const userSignUpBlueprint = [
+  //! Signup
   {
     name: "name",
     label: "Your username",
@@ -31,6 +35,7 @@ export const userSignUpBlueprint = [ //! Signup
     name: "password",
     label: "Your password",
     settings: {
+      type: "password",
       required: "Please fill this field",
     },
   },
@@ -44,7 +49,8 @@ export const userSignUpBlueprint = [ //! Signup
   },
 ];
 
-export const dreamBlueprint = [ //! Dream write
+export const dreamBlueprint = [
+  //! Dream write
   {
     name: "name",
     label: "Your name",
@@ -90,7 +96,8 @@ export const dreamBlueprint = [ //! Dream write
   },
 ];
 
-export const emailBlueprint = [ //! Send email
+export const emailBlueprint = [
+  //! Send email
   {
     name: "name",
     label: "Your name",

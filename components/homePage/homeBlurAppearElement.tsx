@@ -11,9 +11,9 @@ const HomeBlurAppear = ({ children }) => {
     if (!ref) return;
 
     const offset = window.pageYOffset;
-    const y = ref.current.getBoundingClientRect().y;
+    const y = ref.current.getBoundingClientRect().top;
 
-    if (offset - 100 > y) {
+    if (offset + 200 > y) {
       ref.current.classList.remove("notShown");
       ref.current.classList.add("appear");
       document.removeEventListener("scroll", animate);
