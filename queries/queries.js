@@ -48,6 +48,7 @@ export const getOneDream = gql`
     getOneDream(id: $id) {
       _id
       authorId
+      authorAvatar
       description
       name
       dreamName

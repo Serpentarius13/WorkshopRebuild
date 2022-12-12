@@ -41,10 +41,22 @@ function countAllNestedArrays(obj) {
 }
 
 const DreamFullReadPage = ({ dream, refetch }) => {
-  const { dreamName, description, time, email, name, _id, rating, likedBy } =
-    dream;
+  const {
+    dreamName,
+    description,
+    time,
+    email,
+    name,
+    _id,
+    rating,
+    likedBy,
+    authorAvatar,
+    authorId,
+  } = dream;
 
   let { comments } = dream;
+
+  console.log(authorId, authorAvatar);
 
   const { currentUser } = useSnapshot(userStore);
 
@@ -85,7 +97,13 @@ const DreamFullReadPage = ({ dream, refetch }) => {
       <div className="flex justify-between items-center">
         {" "}
         <h1 className="text-4xl font-medium"> {dreamName} </h1>{" "}
-        <DreamPageInitials name={name} id={_id} time={time} />
+        <DreamPageInitials
+          authorId={authorId}
+          avatar={authorAvatar}
+          name={name}
+          id={_id}
+          time={time}
+        />
       </div>
       <p className="break-words w-[100%] md:w-[50%] mt-8"> {description} </p>{" "}
       <div className="w-[95%] md:w-[45%] flex items-center justify-between mt-4">

@@ -11,7 +11,6 @@ export const userLoginBlueprint = [
     settings: {
       required: "Please fill this field",
       type: "password",
-      minLength: "8",
     },
   },
 ];
@@ -37,6 +36,7 @@ export const userSignUpBlueprint = [
     settings: {
       type: "password",
       required: "Please fill this field",
+      minLength: "8",
     },
   },
   {
