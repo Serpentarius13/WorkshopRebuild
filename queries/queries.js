@@ -115,3 +115,36 @@ export const getUserData = gql`
     }
   }
 `;
+
+export const getOtherUserData = gql`
+  query Query($id: String) {
+    getOtherUserData(id: $id) {
+      dreams {
+        _id
+        dreamName
+        name
+        description
+        email
+        time
+        rating
+        likedBy
+        isPrivate
+      }
+
+      comments {
+        commentText
+        commentRating
+        commentAuthor
+        commentAuthorId
+        _id
+        likedBy
+        commentRating
+        commentParentDream
+      }
+
+      rating
+      avatar
+      name
+    }
+  }
+`;

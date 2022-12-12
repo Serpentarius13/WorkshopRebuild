@@ -26,7 +26,7 @@ const OtherUserDreamOrComment = ({ source }) => {
             {source.dreamName ? (
               <span> Dreamname </span>
             ) : (
-              <p className="h-6 overflow-hidden w-[90%]">
+              <p className="h-4 overflow-hidden w-[90%]">
                 {" "}
                 {source.commentText}{" "}
               </p>

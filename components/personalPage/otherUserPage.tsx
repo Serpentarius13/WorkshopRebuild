@@ -59,15 +59,15 @@ const OtherUserPage: FC<IOtherUserPage> = ({
         </div>
         <div className="w-[100%] h-[65%] p-4 flex space-x-2 justify-center items-center">
           (
-          <div className="border-r-2 w-[50%] border-orange-500">
-            <ul className=" h-[100%] p-2 list-none text-2xl text-white flex flex-col items-center  space-y-2 overflow-auto ">
+          <div className="border-r-2 w-[50%] border-orange-500 h-[100%] ">
+            <ul className=" p-2 list-none text-2xl text-white flex flex-col justify-start  space-y-2 overflow-auto ">
               {dreams.map((dream) => (
                 <OtherUserDreamOrComment key={dream._id} source={dream} />
               ))}
             </ul>
           </div>
           )
-          <ul className="w-[50%] h-[100%] p-2 list-none text-2xl text-white  flex flex-col items-center space-y-2 overflow-auto ">
+          <ul className="w-[50%] h-[100%] p-2 list-none text-2xl text-white justify-start flex flex-col space-y-2 overflow-auto ">
             {comments.map((comment) => (
               <OtherUserDreamOrComment key={comment._id} source={comment} />
             ))}
