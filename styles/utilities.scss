@@ -87,14 +87,53 @@
     }
   }
 
-  @keyframes disAppear {
+  @keyframes disappear {
     0% {
       opacity: 1;
     }
+    99% {
+      opacity: 0;
+    }
 
     100% {
-      opacity: 0;
-      display: none;
+      display: "none";
+    }
+  }
+
+  @keyframes approach {
+    0% {
+      transform: translateX(120vw);
+    }
+
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  @keyframes sunshine {
+    0% {
+      box-shadow: 0 0 48px #d97706;
+    }
+
+    50% {
+      box-shadow: 0 0 12px #d97706;
+    }
+
+    100% {
+      box-shadow: 0 0 48px #d97706;
+    }
+  }
+
+  @keyframes shadowyMoon {
+    0% {
+      filter: drop-shadow(0 0 2rem #6d28d9);
+    }
+    50% {
+      filter: drop-shadow(0 0 0.5rem #6d28d9);
+    }
+
+    100% {
+      filter: drop-shadow(0 0 2rem #6d28d9);
     }
   }
 }

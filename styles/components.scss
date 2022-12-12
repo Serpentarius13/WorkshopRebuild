@@ -1,3 +1,22 @@
+@mixin mainPage {
+  width: 300vw;
+  height: 300%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+
+  z-index: -7;
+
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin flyingEntity {
+  @apply w-96 h-96 rounded-full absolute top-[45%]  left-1/2 -translate-y-1/2;
+}
+
 @layer components {
   .prophecy {
     animation: 2s widthen linear forwards;
@@ -18,13 +37,12 @@
     content: "";
     width: 120vw;
     height: 100%;
-   z-index: 2;
+    z-index: 2;
 
     right: -3%;
     top: 0%;
     background-color: black;
     transform-origin: top;
-    
 
     animation: 0.5s heighten ease-out forwards;
   }
@@ -105,19 +123,6 @@
     animation-direction: reverse;
   }
 
-  .header {
-    background: radial-gradient(circle, #5f3dc4 0%, #91a7ff 30%, #13004d 100%);
-    background-size: 180% 180%;
-    background-repeat: no-repeat;
-    background-position: center;
-    animation: animate-blur forwards 1s ease-in;
-    clip-path: circle(max(15rem, 28%));
-  }
-
-  .header-text {
-    text-shadow: -2px 2px 0 #13004d, 2px 2px 0 #13004d, 2px -2px 0 #13004d,
-      -2px -2px 0 #13004d;
-  }
 
   .appear {
     animation: animate-blur 0.5s forwards 1 linear;
@@ -140,41 +145,9 @@
     @apply w-[95vw] rounded-lg bg-gray-800 border-b-white border-b-2   #{!important};
   }
 
-  .setka {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100%;
-    overflow: scroll;
-  }
-
-  .profileSection {
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: black purple;
-    scrollbar-gutter: stable;
-  }
 
   .popover {
     animation: widthen 0.3s linear forwards 1;
-  }
-
-  @mixin mainPage {
-    width: 300vw;
-    height: 300%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-
-    z-index: -7;
-
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  @mixin flyingEntity {
-    @apply w-96 h-96 rounded-full absolute top-[45%]  left-1/2 -translate-y-1/2;
   }
 
   .text-header {
@@ -208,36 +181,12 @@
     @apply scale-110 bg-slate-400;
     animation: approach 2s forwards ease-in-out, shadowyMoon 1s infinite linear;
 
-    // shadowy 1.5s linear infinite,
 
     box-shadow: inset -0.8em -0.8em 24px #1e293b;
   }
 
-  @keyframes shadowyMoon {
-    0% {
-      filter: drop-shadow(0 0 2rem #6d28d9);
-    }
-    50% {
-      filter: drop-shadow(0 0 0.5rem #6d28d9);
-    }
-
-    100% {
-      filter: drop-shadow(0 0 2rem #6d28d9);
-    }
-  }
-
   .dot {
     @apply absolute w-10 h-10 bg-slate-600 rounded-full;
-  }
-
-  @keyframes approach {
-    0% {
-      transform: translateX(120vw);
-    }
-
-    100% {
-      transform: translate(-50%, -50%);
-    }
   }
 
   .sun {
@@ -245,20 +194,6 @@
     @apply bg-orange-300 -translate-x-1/2;
 
     animation: sunshine 1.5s linear infinite;
-  }
-
-  @keyframes sunshine {
-    0% {
-      box-shadow: 0 0 48px #d97706;
-    }
-
-    50% {
-      box-shadow: 0 0 12px #d97706;
-    }
-
-    100% {
-      box-shadow: 0 0 48px #d97706;
-    }
   }
 
   .stars {
@@ -280,53 +215,30 @@
     animation-delay: 1.3s;
   }
 
-  @keyframes disappear {
-    0% {
-      opacity: 1;
-    }
-    99% {
-      opacity: 0;
-    }
-
-    100% {
-      display: "none";
-    }
-  }
-
-  @keyframes appear {
-    0% {
-      opacity: 0;
-    }
-
-    100% {
-      opacity: 1;
-    }
-  }
-
-  .span-star{
-    position:relative;
-    margin:4px;
-    width:12px;
-    font-size:24px;
+  .span-star {
+    position: relative;
+    margin: 4px;
+    width: 12px;
+    font-size: 24px;
     animation: ascend infinite linear;
   }
-  
-  .span-star:before{
-    content:"";
-    position:absolute;
+
+  .span-star:before {
+    content: "";
+    position: absolute;
     @apply bg-orange-500;
-    width:12px;
-    height:18px;
-    transform:rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+    width: 12px;
+    height: 18px;
+    transform: rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
   }
-  
-  .span-star:after{
-    content:"";
-    position:absolute;
+
+  .span-star:after {
+    content: "";
+    position: absolute;
     @apply bg-orange-500;
-    width:12px;
-    height:18px;
-    transform:rotate(45deg) skewX(22.5deg) skewY(22.5deg);
+    width: 12px;
+    height: 18px;
+    transform: rotate(45deg) skewX(22.5deg) skewY(22.5deg);
   }
 }
 
