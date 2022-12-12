@@ -2,7 +2,9 @@ import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 import { getToken } from "./utils/cookies";
 
-export const endpoint = process.env.ENDPOINT;
+export const endpoint =
+  process.env.ENDPOINT ||
+  "https://www.master-7rqtwti-p6ytbgkbcvobe.eu-5.platformsh.site/";
 // https://www.master-7rqtwti-p6ytbgkbcvobe.eu-5.platformsh.site/
 
 const link = createHttpLink({
