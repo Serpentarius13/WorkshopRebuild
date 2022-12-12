@@ -33,6 +33,7 @@ export interface ReusableFormProps {
   additionalVariables?: any;
   closeForm?: () => void;
   pushTo?: any;
+  isModal?: boolean;
 }
 
 const ReusableForm: FC<ReusableFormProps> = ({
@@ -43,6 +44,7 @@ const ReusableForm: FC<ReusableFormProps> = ({
   additionalVariables = [],
   closeForm = () => {},
   pushTo = null,
+  isModal = true,
 }) => {
   const { currentUser } = useSnapshot(userStore);
   const generateDefault = () => {
@@ -185,19 +187,21 @@ const ReusableForm: FC<ReusableFormProps> = ({
           clearErrors={clearErrors}
         />
       ))}
+      {isModal && (
+        <UniversalButton
+          type="button"
+          buttonType={ButtonTypes.MODAL_BUTTON}
+          onClick={() => {
+            closeForm();
+            toggleCircle();
+          }}
+          text="&#10005;"
+        />
+      )}
       <UniversalButton
         type="submit"
         buttonType={ButtonTypes.FORM_BUTTON}
         text="Send"
-      />
-      <UniversalButton
-        type="button"
-        buttonType={ButtonTypes.MODAL_BUTTON}
-        onClick={() => {
-          closeForm();
-          toggleCircle();
-        }}
-        text="&#10005;"
       />
     </form>
   );

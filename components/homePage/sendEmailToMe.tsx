@@ -17,7 +17,7 @@ const SendEmailToMeForm = () => {
           className="underline font-bold text-orange-500 "
         > there!</Link> to help you. Contact me right away!{" "}
       </p>
-      <SendEmailForm name={QueryNames.EMAIL_TO_ME} />
+      <SendEmailForm isModal={false} name={QueryNames.EMAIL_TO_ME} />
     </div>
   );
 };

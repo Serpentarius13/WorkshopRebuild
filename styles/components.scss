@@ -139,7 +139,7 @@
     position: fixed !important;
     animation: appear-nav 0.4s forwards ease-out 1;
     transform-origin: right;
-    z-index: 1 !important;
+    z-index: 2 !important;
 
     @apply w-[95vw] rounded-lg bg-gray-800 border-b-white border-b-2   #{!important};
   }

@@ -10,12 +10,14 @@ interface ISendEmailForm {
   additionalVariables?: any;
   closeForm?: () => void;
   name: QueryNames;
+  isModal?: boolean
 }
 
 const SendEmailForm: FC<ISendEmailForm> = ({
   additionalVariables = [],
   name,
   closeForm = () => null,
+  isModal = true
 }) => {
   return (
     <ReusableForm
@@ -24,6 +26,7 @@ const SendEmailForm: FC<ISendEmailForm> = ({
       name={name}
       additionalVariables={additionalVariables}
       closeForm={closeForm}
+      isModal={isModal}
     />
   );
 };
