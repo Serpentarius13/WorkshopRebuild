@@ -303,12 +303,30 @@
     }
   }
 
-  .span-star {
-    fill: orange;
-    margin: 6px;
-    border-radius: 50%;
-    animation: ascend linear infinite;
-    z-index: 350;
+  .span-star{
+    position:relative;
+    margin:4px;
+    width:12px;
+    font-size:24px;
+    animation: ascend infinite linear;
+  }
+  
+  .span-star:before{
+    content:"";
+    position:absolute;
+    @apply bg-orange-500;
+    width:12px;
+    height:18px;
+    transform:rotate(-45deg) skewX(22.5deg) skewY(22.5deg);
+  }
+  
+  .span-star:after{
+    content:"";
+    position:absolute;
+    @apply bg-orange-500;
+    width:12px;
+    height:18px;
+    transform:rotate(45deg) skewX(22.5deg) skewY(22.5deg);
   }
 }
 

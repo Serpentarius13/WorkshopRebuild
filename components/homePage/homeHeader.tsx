@@ -13,12 +13,13 @@ const HomeHeader = () => {
       </div>{" "}
       <div className="stars -z-[6]">
         {Array.from(Array(40)).map((el, ix) => {
-          const speed = Math.max(3, Math.random() * 15);
+          const speed = Math.max(3, Math.random() * 10);
+          const nextSpeed = Math.max(3, Math.random() * 10);
           return (
-            <GiMoebiusStar
+            <div
               className="span-star w-10 h-10"
               style={{
-                animationDuration: `${speed}s`,
+                animationDuration: `${speed + nextSpeed}s`,
               }}
               key={ix}
             />
