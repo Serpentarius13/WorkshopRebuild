@@ -5,13 +5,16 @@ import { Doughnut } from "react-chartjs-2";
 import "chart.js/auto";
 import { slideStyle } from "./personalLayout";
 
-import {memo} from 'react'
+import { memo, useRef, useEffect } from "react";
+
+import counterFunction from "../../utils/counter";
 
 const MainSlide = ({
   setOffset,
   user,
   data: { comments, dreams },
-  refetch
+  refetch,
+  rating,
 }) => {
   const data = {
     labels: ["Comments", "Dreams"],
@@ -23,6 +26,12 @@ const MainSlide = ({
       },
     ],
   };
+
+  const ref = useRef<any>(null);
+
+  useEffect(() => {
+    counterFunction(ref, rating);
+  }, []);
   return (
     <div
       className="w-screen h-screen    "
@@ -34,10 +43,15 @@ const MainSlide = ({
         <Greetings user={user} />
 
         <div className="control mt-4 bg-gray-800 p-4 rounded-xl">
-          <ControlPanel  refetch={refetch} comments={comments} dreams={dreams} navState={setOffset} />
+          <ControlPanel
+            refetch={refetch}
+            comments={comments}
+            dreams={dreams}
+            navState={setOffset}
+          />
         </div>
 
-        <div className=" h-64 p-8 mx-auto flex items-center justify-center bg-gray-800 mt-4 rounded-xl">
+        <div className=" h-64 p-8 mx-auto flex items-center justify-center bg-gray-800 mt-4 rounded-xl space-x-4">
           {comments.length || dreams.length ? (
             <Doughnut
               data={data}
@@ -60,6 +74,16 @@ const MainSlide = ({
               Be sure to add your first dream or comment something!{" "}
             </p>
           )}
+         
+            {" "}
+            <div> 
+              <p className='pb-2 text-2xl font-bold text-white'> Your rating: </p>
+            <p ref={ref} className="text-white text-center text-3xl">
+              {" "}
+              0{" "}
+            </p>{" "}
+            </div>
+     
         </div>
       </div>
     </div>

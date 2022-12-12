@@ -1,11 +1,4 @@
 "use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import { GiMoebiusStar } from "react-icons/gi";
-import SendEmailForm from "../../components/reusable-form/formTypes/sendEmailForm";
-import { QueryNames } from "../../types/enum";
-
 import {
   SiHtml5,
   SiCss3,

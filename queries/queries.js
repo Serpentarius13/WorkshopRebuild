@@ -110,6 +110,8 @@ export const getUserData = gql`
         commentRating
         commentParentDream
       }
+
+      rating
     }
   }
 `;

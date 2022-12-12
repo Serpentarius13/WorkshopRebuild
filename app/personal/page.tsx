@@ -43,11 +43,18 @@ const PersonalPage = () => {
 
   console.log(data.getUserData.dreams, data.getUserData.comments);
 
+  const { comments, dreams, rating } = data?.getUserData;
+
+  console.log(rating);
+
+  console.log(data)
+
   return (
     <PersonalLayout
       user={currentUser}
-      dreams={data.getUserData.dreams}
-      comments={data.getUserData.comments}
+      dreams={dreams}
+      comments={comments}
+      rating={rating}
       refetch={refetch}
     />
   );

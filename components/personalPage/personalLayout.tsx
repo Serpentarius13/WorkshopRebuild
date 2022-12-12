@@ -16,12 +16,17 @@ import DreamAndCommentPages from "./DreamAndCommentPages";
 export const slideStyle =
   "w-[80%] md:w-[50%]  mx-auto mt-2 md:mt-8 rounded-lg min-h-[85%]";
 
-const PersonalLayout = ({ dreams, comments, user, refetch }) => {
+const PersonalLayout = ({
+  dreams,
+  comments,
+  user,
+  refetch,
+  rating
+}) => {
   const ref = useRef<any>(null);
   const chart = useRef<any>();
 
   const [offset, setOffset] = useState(0);
-
 
   return (
     <div ref={ref} className="w-screen fixed">
@@ -35,9 +40,14 @@ const PersonalLayout = ({ dreams, comments, user, refetch }) => {
           user={user}
           setOffset={setOffset}
           refetch={refetch}
+          rating={rating}
         />
 
-        <DreamAndCommentPages refetch={refetch} dreams={dreams} comments={comments} />
+        <DreamAndCommentPages
+          refetch={refetch}
+          dreams={dreams}
+          comments={comments}
+        />
       </div>
     </div>
   );
